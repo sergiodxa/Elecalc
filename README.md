@@ -1,12 +1,13 @@
 Elecalc
 =======
 
-Calculadora de fórmulas de electricidad
+Electrical formulas calculator
 
-Cálculos posibles
+Possible calculations
 ======
-* Sumar resistencias en serie
-* Sumar resistencias en paralelo
-* Calcular resistencia según ley de Ohm
-* Calcular intensidad según ley de Ohm
-* Calcular tensión según ley de Ohm
+* Sum of series resistors
+* Adding resistors in parallel
+* Calculate resistance according to Ohm's law
+* Calculate intensity according to Ohm's law
+* Calculate voltage according to Ohm's law
+* Maxwell mesh calculations

@@ -1,0 +1,85 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+body {
+	background: silver;
+	color: black;
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+}
+footer {
+	background: white;
+}
+footer p, h1, h2 {
+	margin: 0;
+	padding: .5em;
+	text-align: center;
+}
+h1, h2{
+	padding: .25em;
+}
+h1 {
+	font-size: 1.5em;
+}
+h2 {
+	font-size: 1.25em;
+}
+header {
+	background: white;
+}
+section {
+	padding: .25em;
+}
+section article {
+	background: white;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	font-size: 0;
+	margin: .25rem 0;
+	padding: .25rem;
+}
+section article h2 {
+	font-size: 1.25rem;
+}
+section article input {
+	background: dimgray;
+	border: 0;
+	color: white;
+	font-size: 1rem;
+	margin: .5%;
+	text-align: center;
+}
+section article label {
+	display: inline-block;
+	font-size: 1rem;
+	margin: .5%;
+	text-align: center;
+}
+#Ohmcalcs input,
+#Ohmcalcs label {
+	width: 49%;
+}
+#Ohmcalcs #result,
+#sumRes #result {
+	width: 99%;
+}
+#maxwell input,
+#maxwell label {
+	width: 24%;
+}
+#maxwell .button {
+	width: 99%;
+}
+#maxwell .result {
+	width: 32.33333%;
+}
+#sumRes input,
+#sumRes label {
+	width: 49%;
+}
+.button {
+	background: orangered !important;
+}
