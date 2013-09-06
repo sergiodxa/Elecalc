@@ -22,23 +22,19 @@
 	<section>
 		<article id="sumRes">
 			<h2>Sum of resistances</h2>
-			<label for="res1">First resistance</label>
-			<input type="text" id="res1" class="value" />
-			<label for="res2">Second resistance</label>
-			<input type="text" id="res2" class="value" />
+			<input type="text" id="res1" class="value" placeholder="First resistance" />
+			<input type="text" id="res2" class="value" placeholder="Second resistance" />
 			<input type="button" value="Parallel" onclick="resParallel()" class="button" />
 			<input type="button" value="Serie" onclick="resSeries()" class="button" />
-			<input type="text" id="result" class="result" />
+			<input type="text" id="result" class="result" placeholder="Total resistance" />
 		</article>
 		<article id="Ohmcalcs">
 			<h2>Ohms Law calculations</h2>
-			<label for="resvol">Resistance or Voltage</label>
-			<input type="text" id="resvol" class="value" />
-			<label for="resint">Resistance or Intensity</label>
-			<input type="text" id="resint" class="value" />
+			<input type="text" id="resvol" class="value" placeholder="Resistance or Voltage" />
+			<input type="text" id="resint" class="value" placeholder="Resistance or Intensity" />
 			<input type="button" value="Calculate resis. or int." onclick="ohmResInt()" class="button" />
 			<input type="button" value="Calculate voltage" onclick="ohmVol()" class="button" />
-			<input type="text" id="result" class="result" />
+			<input type="text" id="result" class="result" placeholder="Result" />
 		</article>
 		<article id="maxwell">
 			<h2>Maxwell mesh calculations</h2>
@@ -59,9 +55,9 @@
 			<input type="text" id="col3row3" class="value" />
 			<input type="text" id="value3" class="value" />
 			<input type="button" value="Calculate" onclick="maxwell()" class="button" />
-			<input type="text" id="result1" class="result" />
-			<input type="text" id="result2" class="result" />
-			<input type="text" id="result3" class="result" />
+			<input type="text" id="result1" class="result" placeholder="Intensity 1" />
+			<input type="text" id="result2" class="result" placeholder="Intensity 2" />
+			<input type="text" id="result3" class="result" placeholder="Intensity 3" />
 		</article>
 		<article id="lumenCalc">
 			<h2>Total luminous flux required</h2>
@@ -71,6 +67,14 @@
 			<input type="text" id="utilizationFactor" class="value" placeholder="Utilization factor" />
 			<input type="button" value="Calculate" onclick="lumenCalc()" class="button" />
 			<input type="text" id="luminousFlux" class="result" placeholder="Luminous flux" />
+		</article>
+		<article id="luminairesCalc">
+			<h2>Number of luminaires</h2>
+			<input type="text" id="luminousFlux2" class="value" placeholder="Luminous flux" />
+			<input type="text" id="flowLamp" class="value" placeholder="Flow of a lamp" />
+			<input type="text" id="lampsFixture" class="value" placeholder="Number of lamps per fixture" />
+			<input type="button" value="Calculate" onclick="luminairesCalc()" class="button" />
+			<input type="text" id="luminaires" class="result" placeholder="Number of luminaires" />
 		</article>
 	</section>
 	<footer>
