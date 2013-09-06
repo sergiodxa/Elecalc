@@ -56,4 +56,13 @@ function lumenCalc () {
 		luminousFlux;
 	luminousFlux = (averageIluminance*workPlane)/(maintainceFactor*utilizationFactor);
 	$('#lumenCalc #luminousFlux').attr('value', luminousFlux);
+	$('#luminairesCalc #luminousFlux2').attr('value', luminousFlux);
+};
+function luminairesCalc () {
+	var luminousFlux2 = parseFloat($('#luminairesCalc #luminousFlux2').val());
+		flowLamp = parseFloat($('#luminairesCalc #flowLamp').val());
+		lampsFixture = parseFloat($('#luminairesCalc #lampsFixture').val());
+		luminaires;
+	luminaires = luminousFlux2/(flowLamp*lampsFixture);
+	$('#luminairesCalc #luminaires').attr('value', luminaires);
 };

@@ -58,16 +58,18 @@ section article label {
 	margin: .5%;
 	text-align: center;
 }
-#lumenCalc {
-	position: relative;
-}
 #lumenCalc input {
 	width: 49%;
 }
 #lumenCalc #luminousFlux,
 #lumenCalc .button,
+#luminairesCalc #luminaires,
+#luminairesCalc .button,
 #maxwell .button {
 	width: 99%;
+}
+#luminairesCalc input {
+	width: 32.33333%
 }
 #maxwell input,
 #maxwell label {

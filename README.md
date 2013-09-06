@@ -11,3 +11,5 @@ Possible calculations
 * Calculate intensity according to Ohm's law
 * Calculate voltage according to Ohm's law
 * Maxwell mesh calculations
+* Total luminous flux required calculations
+* Number of luminaires calculations
