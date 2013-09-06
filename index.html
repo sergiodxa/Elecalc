@@ -22,19 +22,38 @@
 	<section>
 		<article id="sumaRes">
 			<h2>Sumatoria de resistencias</h2>
-			<input type="number" id="valor1" />
-			<input type="number" id="valor2" />
+			<input type="number" id="value1" />
+			<input type="number" id="value2" />
 			<input type="button" value="Sumar en paralelo" onclick="resPara()" />
 			<input type="button" value="Sumar en serie" onclick="resSerie()" />
-			<input type="number" id="resultado">
+			<input type="number" id="result">
 		</article>
 		<article id="calculosOhm">
 			<h2>Cálculos de Ley de Ohm</h2>
-			<input type="number" id="valor1" />
-			<input type="number" id="valor2" />
+			<input type="number" id="value1" />
+			<input type="number" id="value2" />
 			<input type="button" value="Calcular resistencia o intensidad" onclick="ohmResInt()" />
 			<input type="button" value="Calcular tensión" onclick="ohmTen()" />
-			<input type="number" id="resultado" />
+			<input type="number" id="result" />
+		</article>
+		<article id="maxwell">
+			<h2>Cálculos de mallas de Maxwell</h2>
+			<input type="number" value="5" id="col1row1" />
+			<input type="number" value="10" id="col2row1" />
+			<input type="number" value="15" id="col3row1" />
+			<input type="number" value="5" id="col1row2" />
+			<input type="number" value="10" id="col2row2" />
+			<input type="number" value="15" id="col3row2" />
+			<input type="number" value="5" id="col1row3" />
+			<input type="number" value="10" id="col2row3" />
+			<input type="number" value="15" id="col3row3" />
+			<input type="number" value="20" id="value1" />
+			<input type="number" value="25" id="value2" />
+			<input type="number" value="30" id="value3" />
+			<input type="button" value="Calcular" onclick="maxwell()">
+			<input type="number" id="result1">
+			<input type="number" id="result2">
+			<input type="number" id="result3">
 		</article>
 	</section>
 	<footer>
