@@ -1,26 +1,26 @@
 function resParallel () {
-	var value1 = parseFloat($('#sumRes #value1').val()),
-		value2 = parseFloat($('#sumRes #value2').val());
+	var value1 = parseFloat($('#sumRes #res1').val()),
+		value2 = parseFloat($('#sumRes #res2').val());
 	var multi = value1*value2;
 	var sum = (value1)+(value2);
 	var res = multi/sum;
 	$('#sumRes #result').attr('value', res);
 };
 function resSeries () {
-	var value1 = parseFloat($('#sumRes #value1').val()),
-		value2 = parseFloat($('#sumRes #value2').val());
+	var value1 = parseFloat($('#sumRes #res1').val()),
+		value2 = parseFloat($('#sumRes #res2').val());
 	var res = (value1)+(value2);
 	$('#sumRes #result').attr('value', res);
 };
 function ohmResInt () {
-	var voltage = parseFloat($('#Ohmcalcs #value1').val()),
-		resint = parseFloat($('#Ohmcalcs #value2').val());
+	var voltage = parseFloat($('#Ohmcalcs #resvol').val()),
+		resint = parseFloat($('#Ohmcalcs #resint').val());
 	var res = voltage/resint;
 	$('#Ohmcalcs #result').attr('value', res);
 };
 function ohmVol () {
-	var resistance = parseFloat($('#Ohmcalcs #value1').val()),
-		intensity = parseFloat($('#Ohmcalcs #value2').val());
+	var resistance = parseFloat($('#Ohmcalcs #resvol').val()),
+		intensity = parseFloat($('#Ohmcalcs #resint').val());
 	var res = resistance*intensity;
 	$('#Ohmcalcs #result').attr('value', res);
 };
@@ -47,4 +47,13 @@ function maxwell () {
 	$('#maxwell #result1').attr('value', int1);
 	$('#maxwell #result2').attr('value', int2);
 	$('#maxwell #result3').attr('value', int3);
+};
+function lumenCalc () {
+	var averageIluminance = parseFloat($('#lumenCalc #averageIluminance').val()),
+		workPlane = parseFloat($('#lumenCalc #workPlane').val()),
+		maintainceFactor = parseFloat($('#lumenCalc #maintainceFactor').val()),
+		utilizationFactor = parseFloat($('#lumenCalc #utilizationFactor').val()),
+		luminousFlux;
+	luminousFlux = (averageIluminance*workPlane)/(maintainceFactor*utilizationFactor);
+	$('#lumenCalc #luminousFlux').attr('value', luminousFlux);
 };

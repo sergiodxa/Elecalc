@@ -22,20 +22,20 @@
 	<section>
 		<article id="sumRes">
 			<h2>Sum of resistances</h2>
-			<label for="value1">First resistance</label>
-			<input type="text" id="value1" class="value" />
-			<label for="value2">Second resistance</label>
-			<input type="text" id="value2" class="value" />
+			<label for="res1">First resistance</label>
+			<input type="text" id="res1" class="value" />
+			<label for="res2">Second resistance</label>
+			<input type="text" id="res2" class="value" />
 			<input type="button" value="Parallel" onclick="resParallel()" class="button" />
 			<input type="button" value="Serie" onclick="resSeries()" class="button" />
 			<input type="text" id="result" class="result" />
 		</article>
 		<article id="Ohmcalcs">
 			<h2>Ohms Law calculations</h2>
-			<label for="value1">Resistance or Voltage</label>
-			<input type="text" id="value1" class="value" />
-			<label for="value2">Resistance or Intensity</label>
-			<input type="text" id="value2" class="value" />
+			<label for="resvol">Resistance or Voltage</label>
+			<input type="text" id="resvol" class="value" />
+			<label for="resint">Resistance or Intensity</label>
+			<input type="text" id="resint" class="value" />
 			<input type="button" value="Calculate resis. or int." onclick="ohmResInt()" class="button" />
 			<input type="button" value="Calculate voltage" onclick="ohmVol()" class="button" />
 			<input type="text" id="result" class="result" />
@@ -62,6 +62,15 @@
 			<input type="text" id="result1" class="result" />
 			<input type="text" id="result2" class="result" />
 			<input type="text" id="result3" class="result" />
+		</article>
+		<article id="lumenCalc">
+			<h2>Total luminous flux required</h2>
+			<input type="text" id="averageIluminance" class="value" placeholder="Avarege iluminance desired" />
+			<input type="text" id="workPlane" class="value" placeholder="Area of the work plane" />
+			<input type="text" id="maintainceFactor" class="value" placeholder="Maintaince factor" />
+			<input type="text" id="utilizationFactor" class="value" placeholder="Utilization factor" />
+			<input type="button" value="Calculate" onclick="lumenCalc()" class="button" />
+			<input type="text" id="luminousFlux" class="result" placeholder="Luminous flux" />
 		</article>
 	</section>
 	<footer>

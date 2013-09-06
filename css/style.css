@@ -58,6 +58,24 @@ section article label {
 	margin: .5%;
 	text-align: center;
 }
+#lumenCalc {
+	position: relative;
+}
+#lumenCalc input {
+	width: 49%;
+}
+#lumenCalc #luminousFlux,
+#lumenCalc .button,
+#maxwell .button {
+	width: 99%;
+}
+#maxwell input,
+#maxwell label {
+	width: 24%;
+}
+#maxwell .result {
+	width: 32.33333%;
+}
 #Ohmcalcs input,
 #Ohmcalcs label {
 	width: 49%;
@@ -65,16 +83,6 @@ section article label {
 #Ohmcalcs #result,
 #sumRes #result {
 	width: 99%;
-}
-#maxwell input,
-#maxwell label {
-	width: 24%;
-}
-#maxwell .button {
-	width: 99%;
-}
-#maxwell .result {
-	width: 32.33333%;
 }
 #sumRes input,
 #sumRes label {
