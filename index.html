@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Elecalc</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
+	<link rel="stylesheet" href="css/normalize.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	<script src="js/modernizr-2.5.3.min.js"></script>
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="js/calc.js"></script>
+</head>
+<body>
+	<header>
+		<h1>Elecalc</h1>
+	</header>
+	<section>
+		<article id="sumaRes">
+			<h2>Sumatoria de resistencias</h2>
+			<input type="number" id="valor1" />
+			<input type="number" id="valor2" />
+			<input type="button" value="Sumar en paralelo" onclick="resPara()" />
+			<input type="button" value="Sumar en serie" onclick="resSerie()" />
+			<input type="number" id="resultado">
+		</article>
+		<article id="calculosOhm">
+			<h2>Cálculos de Ley de Ohm</h2>
+			<input type="number" id="valor1" />
+			<input type="number" id="valor2" />
+			<input type="button" value="Calcular resistencia o intensidad" onclick="ohmResInt()" />
+			<input type="button" value="Calcular tensión" onclick="ohmTen()" />
+			<input type="number" id="resultado" />
+		</article>
+	</section>
+	<footer>
+		<p>Creado por <a href="twitter.com/sergiodxa">@sergiodxa</a></p>
+	</footer>
+</body>
+</html>
