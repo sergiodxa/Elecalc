@@ -13,7 +13,6 @@
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script src="js/calc.js"></script>
 </head>
 <body>
 	<header>
@@ -22,63 +21,95 @@
 	<section>
 		<article id="sumRes">
 			<h2>Sum of resistances</h2>
-			<input type="text" id="res1" class="value" placeholder="First resistance" />
-			<input type="text" id="res2" class="value" placeholder="Second resistance" />
-			<input type="button" value="Parallel" onclick="resParallel()" class="button" />
-			<input type="button" value="Serie" onclick="resSeries()" class="button" />
-			<input type="text" id="result" class="result" placeholder="Total resistance" />
+			<div>
+				<label for="res1">First resistance:</label>
+				<input type="text" id="res1" placeholder="First resistance" />
+				<label for="res2">Second resistance:</label>
+				<input type="text" id="res2" placeholder="Second resistance" />
+				<label for="type">Type:</label>
+				<fieldset id="type">
+					<input type="radio" name="type" id="type-serie" value="Serie" checked="checked">
+					<label for="type-serie">Serie</label>
+					<input type="radio" name="type" id="type-parallel" value="Parallel">
+					<label for="type-parallel">Parallel</label>
+				</fieldset>
+				<button value="Calculate" onclick="resCalc()" />Calculate</button>
+				<input type="text" class="result" placeholder="Total resistance" />
+			</div>
 		</article>
 		<article id="Ohmcalcs">
 			<h2>Ohms Law calculations</h2>
-			<input type="text" id="resvol" class="value" placeholder="Resistance or Voltage" />
-			<input type="text" id="resint" class="value" placeholder="Resistance or Intensity" />
-			<input type="button" value="Calculate resis. or int." onclick="ohmResInt()" class="button" />
-			<input type="button" value="Calculate voltage" onclick="ohmVol()" class="button" />
-			<input type="text" id="result" class="result" placeholder="Result" />
+			<div>
+				<label for="value1">First value:</label>
+				<input type="text" id="value1" placeholder="First value" />
+				<fieldset id="unit1">
+					<input type="radio" name="unit1" id="unit1-V" value="V" checked="checked">
+					<label for="unit1-V">V</label>
+					<input type="radio" name="unit1" id="unit1-I" value="I">
+					<label for="unit1-I">I</label>
+					<input type="radio" name="unit1" id="unit1-R" value="R">
+					<label for="unit1-R">R</label>
+				</fieldset>
+				<label for="value2">Second value:</label>
+				<input type="text" id="value2" placeholder="Second value" />
+				<fieldset id="unit2" class="ui-block-c">
+					<input type="radio" name="unit2" id="unit2-V" value="V" checked="checked">
+					<label for="unit2-V">V</label>
+					<input type="radio" name="unit2" id="unit2-I" value="I">
+					<label for="unit2-I">I</label>
+					<input type="radio" name="unit2" id="unit2-R" value="R">
+					<label for="unit2-R">R</label>
+				</fieldset>
+				<input type="text" class="result" placeholder="Result" />
+				<button value="Calculate" onclick="ohmCalc()" />Calculate</button>
+			</div>
 		</article>
 		<article id="maxwell">
 			<h2>Maxwell mesh calculations</h2>
-			<label>First column</label>
-			<label>Second column</label>
-			<label>Third column</label>
-			<label>Substitute values</label>
-			<input type="text" id="col1row1" class="value" />
-			<input type="text" id="col2row1" class="value" />
-			<input type="text" id="col3row1" class="value" />
-			<input type="text" id="value1" class="value" />
-			<input type="text" id="col1row2" class="value" />
-			<input type="text" id="col2row2" class="value" />
-			<input type="text" id="col3row2" class="value" />
-			<input type="text" id="value2" class="value" />
-			<input type="text" id="col1row3" class="value" />
-			<input type="text" id="col2row3" class="value" />
-			<input type="text" id="col3row3" class="value" />
-			<input type="text" id="value3" class="value" />
-			<input type="button" value="Calculate" onclick="maxwell()" class="button" />
-			<input type="text" id="result1" class="result" placeholder="Intensity 1" />
-			<input type="text" id="result2" class="result" placeholder="Intensity 2" />
-			<input type="text" id="result3" class="result" placeholder="Intensity 3" />
+			<div>
+				<input type="text" id="col1row1" class="value" placeholder="First column" />
+				<input type="text" id="col2row1" class="value" placeholder="Second column" />
+				<input type="text" id="col3row1" class="value" placeholder="Third column" />
+				<input type="text" id="col1row2" class="value" placeholder="First column" />
+				<input type="text" id="col2row2" class="value" placeholder="Second column" />
+				<input type="text" id="col3row2" class="value" placeholder="Third column" />
+				<input type="text" id="col1row3" class="value" placeholder="First column" />
+				<input type="text" id="col2row3" class="value" placeholder="Second column" />
+				<input type="text" id="col3row3" class="value" placeholder="Third column" />
+				<input type="text" id="substituteValue1" class="value" placeholder="Substitute values" />
+				<input type="text" id="substituteValue2" class="value" placeholder="Substitute values" />
+				<input type="text" id="substituteValue3" class="value" placeholder="Substitute values" />
+				<button value="Calculate" onclick="maxwell()" />Calculate</button>
+				<input type="text" id="result1" class="result" placeholder="Intensity 1" />
+				<input type="text" id="result2" class="result" placeholder="Intensity 2" />
+				<input type="text" id="result3" class="result" placeholder="Intensity 3" />
+			</div>
 		</article>
 		<article id="lumenCalc">
 			<h2>Total luminous flux required</h2>
-			<input type="text" id="averageIluminance" class="value" placeholder="Avarege iluminance desired" />
-			<input type="text" id="workPlane" class="value" placeholder="Area of the work plane" />
-			<input type="text" id="maintainceFactor" class="value" placeholder="Maintaince factor" />
-			<input type="text" id="utilizationFactor" class="value" placeholder="Utilization factor" />
-			<input type="button" value="Calculate" onclick="lumenCalc()" class="button" />
-			<input type="text" id="luminousFlux" class="result" placeholder="Luminous flux" />
+			<div>
+				<input type="text" id="averageIluminance" class="value" placeholder="Avarege iluminance desired" />
+				<input type="text" id="workPlane" class="value" placeholder="Area of the work plane" />
+				<input type="text" id="maintainceFactor" class="value" placeholder="Maintaince factor" />
+				<input type="text" id="utilizationFactor" class="value" placeholder="Utilization factor" />
+				<input type="text" id="luminousFlux" class="value" placeholder="Luminous flux" />
+				<button value="Calculate" onclick="lumenCalc()" />Calculate</button>
+			</div>
 		</article>
 		<article id="luminairesCalc">
 			<h2>Number of luminaires</h2>
-			<input type="text" id="luminousFlux2" class="value" placeholder="Luminous flux" />
-			<input type="text" id="flowLamp" class="value" placeholder="Flow of a lamp" />
-			<input type="text" id="lampsFixture" class="value" placeholder="Number of lamps per fixture" />
-			<input type="button" value="Calculate" onclick="luminairesCalc()" class="button" />
-			<input type="text" id="luminaires" class="result" placeholder="Number of luminaires" />
+			<div>
+				<input type="text" id="luminaires" class="result" placeholder="Number of luminaires" />
+				<input type="text" id="luminousFlux2" class="value" placeholder="Luminous flux" />
+				<input type="text" id="flowLamp" class="value" placeholder="Flow of a lamp" />
+				<input type="text" id="lampsFixture" class="value" placeholder="Number of lamps per fixture" />
+				<button value="Calculate" onclick="luminairesCalc()" />Calculate</button>
+			</div>
 		</article>
 	</section>
 	<footer>
 		<p>Powered by <a href="//twitter.com/sergiodxa">@sergiodxa</a></p>
 	</footer>
+	<script src="js/calc.js"></script>
 </body>
 </html>
