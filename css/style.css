@@ -82,7 +82,7 @@ button {
 	background: -ms-linear-gradient(top,  rgba(241,116,50,1) 50%,rgba(234,85,7,1) 51%,rgba(251,149,94,1) 100%);
 	background: linear-gradient(to bottom,  rgba(241,116,50,1) 50%,rgba(234,85,7,1) 51%,rgba(251,149,94,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f17432', endColorstr='#fb955e',GradientType=0 );
-	border: 0;
+	border: 1px solid rgb(241,116,50);
 	border-radius: 1em;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -107,7 +107,7 @@ fieldset {
 	background: -ms-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
 	background: linear-gradient(to bottom,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 );
-	border: 0;
+	border: 1px solid rgb(125,126,125);
 	border-radius: 1em;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -145,7 +145,7 @@ input {
 	background: -ms-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
 	background: linear-gradient(to bottom,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 );
-	border: 0;
+	border: 1px solid rgb(125,126,125);
 	border-radius: 1em;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -171,27 +171,37 @@ label {
 	width: 99%;
 }
 /*Ohms Law calculations*/
-#Ohmcalcs fieldset label {
+#ohmCalc fieldset label {
 	width: 31.33333%;
 }
 /*Maxwell mesh calculations*/
-#maxwell input,
-#maxwell .result {
+#maxwellCalc input,
+#maxwellCalc .result {
 	width: 32.33333%;
 }
-#maxwell button {
+#maxwellCalc button {
 	width: 99%;
 }
 /*Total luminous flux required*/
-#lumenCalc button,
-#lumenCalc #luminousFlux {
+#lumenCalc button {
 	width: 99%;
+}
+#lumenCalc input {
+	width: 32.33333%;
+}
+#lumenCalc #luminousFlux_lumenCalc,
+#lumenCalc #utilizationFactor_lumenCalc {
+	width: 49%;
 }
 /*Number of luminaires*/
 #luminairesCalc button {
 	width: 99%;
 }
 /*Power calculation*/
-#powerCalc button {
-	width: 99%;
+#powerCalc button,
+#powerCalc #power_powerCalc {
+	width: 49%;
+}
+#powerCalc input {
+	width: 32.33333%;
 }
