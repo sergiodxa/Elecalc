@@ -13,3 +13,4 @@ Possible calculations
 * Maxwell mesh calculations
 * Total luminous flux required calculations
 * Number of luminaires calculations
+* Power calculations
