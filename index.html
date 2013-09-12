@@ -40,27 +40,12 @@
 		<article id="ohmCalc">
 			<h2>Ohms Law calculations</h2>
 			<div>
-				<label for="value1_ohmCalc">First value:</label>
-				<input type="text" id="value1_ohmCalc" placeholder="First value" />
-				<fieldset id="unit1_ohmCalc">
-					<input type="radio" name="unit1" id="unit1-V_ohmCalc" value="V" checked="checked">
-					<label for="unit1-V_ohmCalc">V</label>
-					<input type="radio" name="unit1" id="unit1-I_ohmCalc" value="I">
-					<label for="unit1-I_ohmCalc">I</label>
-					<input type="radio" name="unit1" id="unit1-R_ohmCalc" value="R">
-					<label for="unit1-R_ohmCalc">R</label>
-				</fieldset>
-				<label for="value2_ohmCalc">Second value:</label>
-				<input type="text" id="value2_ohmCalc" placeholder="Second value" />
-				<fieldset id="unit2_ohmCalc">
-					<input type="radio" name="unit2" id="unit2-V_ohmCalc" value="V" checked="checked">
-					<label for="unit2-V_ohmCalc">V</label>
-					<input type="radio" name="unit2" id="unit2-I_ohmCalc" value="I">
-					<label for="unit2-I_ohmCalc">I</label>
-					<input type="radio" name="unit2" id="unit2-R_ohmCalc" value="R">
-					<label for="unit2-R_ohmCalc">R</label>
-				</fieldset>
-				<input type="text" placeholder="Result" id="result_ohmCalc" />
+				<label for="voltage_ohmCalc">Voltage:</label>
+				<input type="text" id="voltage_ohmCalc" placeholder="Voltage" />
+				<label for="intensity_ohmCalc">Intensity:</label>
+				<input type="text" id="intensity_ohmCalc" placeholder="Intensity" />
+				<label for="resistance_ohmCalc">Resistance:</label>
+				<input type="text" id="resistance_ohmCalc" placeholder="Resistance" />
 				<button value="Calculate" onclick="ohmCalc()" />Calculate</button>
 			</div>
 		</article>
@@ -69,8 +54,8 @@
 			<div>
 				<input type="text" id="voltage_powerCalc" placeholder="Voltage" />
 				<input type="text" id="intensity_powerCalc" placeholder="Intensity" />
-				<input type="text" id="cosPhi_powerCalc" placeholder="Cos φ" />
 				<input type="text" id="power_powerCalc" placeholder="Power" />
+				<input type="text" id="cosPhi_powerCalc" placeholder="Cos φ" />
 				<button value="Calculate" onclick="powerCalc()" />Calculate</button>				
 			</div>
 		</article>
