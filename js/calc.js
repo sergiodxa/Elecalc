@@ -17,25 +17,23 @@ function resCalc () {
 	}
 };
 function ohmCalc () {
-	var value1 = parseFloat($('#value1_ohmCalc').val()),
-		value2 = parseFloat($('#value2_ohmCalc').val()),
-		unit1 = $("#unit1_ohmCalc input[name='unit1']:checked").val(),
-		unit2 = $("#unit2_ohmCalc input[name='unit2']:checked").val();
-	if (unit1=="V" && unit2=="R" || unit1=="V" && unit2=="I") {
-		res = value1/value2;
-		if (unit2=="R") {
-			$('#result_ohmCalc').attr('value', res+'A');
-		}
-		else if (unit2=="I") {
-			$('#result_ohmCalc').attr('value', res+'Ω‎');
-		}
+	var voltage = parseFloat($('#voltage_ohmCalc').val()),
+		intensity = parseFloat($('#intensity_ohmCalc').val()),
+		resistance = parseFloat($('#resistance_ohmCalc').val());
+	if (intensity>0 && resistance>0 && isNaN(voltage)) {
+		voltage = intensity*resistance;
+		$('#voltage_ohmCalc').attr('value', voltage+'V');
 	}
-	else if (unit1=="R" && unit2=="I" || unit1=="I" && unit2=="R") {
-		res = value1*value2;
-		$('#result_ohmCalc').attr('value', res+'V');
+	else if (voltage>0 && resistance>0 && isNaN(intensity)) {
+		intensity = voltage/resistance;
+		$('#intensity_ohmCalc').attr('value', intensity+'A');		
+	}
+	else if (voltage>0 && intensity>0 && isNaN(resistance)) {
+		resistance = voltage/intensity;
+		$('#resistance_ohmCalc').attr('value', resistance+'Ω');		
 	}
 	else {
-		$('#result_ohmCalc').attr('value', 'Select a valid unit.');
+		alert('Error, please let only one empty');
 	}
 };
 function powerCalc () {
