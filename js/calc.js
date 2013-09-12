@@ -63,28 +63,28 @@ function maxwell () {
 	$('#result3').attr('value', int3+'A');
 };
 function lumenCalc () {
-	var averageIluminance = $('#averageIluminance').val(),
-		workPlane = $('#workPlane').val(),
-		maintainceFactor = $('#maintainceFactor').val(),
-		utilizationFactor = $('#utilizationFactor').val(),
-		luminousFlux = $('#luminousFlux').val();
-	if (averageIluminance>0 && workPlane>0 && maintainceFactor>0 && utilizationFactor>0) {
+	var averageIluminance = parseFloat($('#averageIluminance').val()),
+		workPlane = parseFloat($('#workPlane').val()),
+		maintainceFactor = parseFloat($('#maintainceFactor').val()),
+		utilizationFactor = parseFloat($('#utilizationFactor').val()),
+		luminousFlux = parseFloat($('#luminousFlux').val());
+	if (averageIluminance>0 && workPlane>0 && maintainceFactor>0 && utilizationFactor>0 && isNaN(luminousFlux)) {
 		luminousFlux = (averageIluminance*workPlane)/(maintainceFactor*utilizationFactor);
 		$('#luminousFlux').attr('value', luminousFlux);
 	}
-	else if (luminousFlux>0 && workPlane>0 && maintainceFactor>0 && utilizationFactor>0) {
+	else if (luminousFlux>0 && workPlane>0 && maintainceFactor>0 && utilizationFactor>0 && isNaN(averageIluminance)) {
 		averageIluminance = (luminousFlux*maintainceFactor*utilizationFactor)/(workPlane);
 		$('#averageIluminance').attr('value', averageIluminance);
 	}
-	else if (averageIluminance>0 && luminousFlux>0 && maintainceFactor>0 && utilizationFactor>0) {
+	else if (averageIluminance>0 && luminousFlux>0 && maintainceFactor>0 && utilizationFactor>0 && isNaN(workPlane)) {
 		workPlane = (luminousFlux*maintainceFactor*utilizationFactor)/(averageIluminance);
 		$('#workPlane').attr('value', workPlane);
 	}
-	else if (averageIluminance>0 && workPlane>0 && luminousFlux>0 && utilizationFactor>0) {
+	else if (averageIluminance>0 && workPlane>0 && luminousFlux>0 && utilizationFactor>0 && isNaN(maintainceFactor)) {
 		maintainceFactor = (averageIluminance*workPlane)/(luminousFlux*utilizationFactor);
 		$('#maintainceFactor').attr('value', maintainceFactor);
 	}
-	else if (averageIluminance>0 && workPlane>0 && maintainceFactor>0 && luminousFlux>0) {
+	else if (averageIluminance>0 && workPlane>0 && maintainceFactor>0 && luminousFlux>0 && isNaN(utilizationFactor)) {
 		utilizationFactor = (averageIluminance*workPlane)/(maintainceFactor*luminousFlux);
 		$('#utilizationFactor').attr('value', utilizationFactor);
 	}
@@ -93,23 +93,23 @@ function lumenCalc () {
 	}
 };
 function luminairesCalc () {
-	var luminousFlux = $('#luminousFlux2').val(),
-		flowLamp = $('#flowLamp').val(),
-		lampsFixture = $('#lampsFixture').val(),
-		luminaires = $('#luminaires').val();
-	if (luminousFlux>0 && flowLamp>0 && lampsFixture>0) {
+	var luminousFlux = parseFloat($('#luminousFlux2').val()),
+		flowLamp = parseFloat($('#flowLamp').val()),
+		lampsFixture = parseFloat($('#lampsFixture').val()),
+		luminaires = parseFloat($('#luminaires').val());
+	if (luminousFlux>0 && flowLamp>0 && lampsFixture>0 && isNaN(luminaires)) {
 		luminaires = luminousFlux/(flowLamp*lampsFixture);
 		$('#luminaires').attr('value', luminaires);
 	}
-	else if (luminaires>0 && flowLamp>0 && lampsFixture>0) {
+	else if (luminaires>0 && flowLamp>0 && lampsFixture>0 && isNaN(luminousFlux)) {
 		luminousFlux = luminaires*flowLamp*lampsFixture;
 		$('#luminousFlux2').attr('value', luminousFlux);
 	}
-	else if (luminaires>0 && luminousFlux>0 && lampsFixture>0) {
+	else if (luminaires>0 && luminousFlux>0 && lampsFixture>0 && isNaN(flowLamp)) {
 		flowLamp = luminousFlux/(luminaires*lampsFixture);
 		$('#flowLamp').attr('value', flowLamp);
 	}
-	else if (luminaires>0 && flowLamp>0 && luminousFlux>0) {
+	else if (luminaires>0 && flowLamp>0 && luminousFlux>0 && isNaN(lampsFixture)) {
 		lampsFixture = luminousFlux/(flowLamp*luminaires);
 		$('#lampsFixture').attr('value', lampsFixture);
 	}
@@ -118,27 +118,23 @@ function luminairesCalc () {
 	}
 };
 function powerCalc () {
-	var voltage = $('#voltage_powerCalc').val(),
-		intensity = $('#intensity_powerCalc').val(),
-		cosPhi = $('#cosPhi_powerCalc').val(),
-		power = $('#power_powerCalc').val();
-	voltage=parseFloat(voltage);
-	intensity=parseFloat(intensity);
-	cosPhi=parseFloat(cosPhi);
-	power=parseFloat(power);
-	if (intensity>0 && cosPhi>0 && power>0) {
+	var voltage = parseFloat($('#voltage_powerCalc').val()),
+		intensity = parseFloat($('#intensity_powerCalc').val()),
+		cosPhi = parseFloat($('#cosPhi_powerCalc').val()),
+		power = parseFloat($('#power_powerCalc').val());
+	if (intensity>0 && cosPhi>0 && power>0 && isNaN(voltage)) {
 		voltage = power/(intensity*cosPhi);
 		$('#voltage_powerCalc').attr('value', voltage+'V');
 	}
-	else if (voltage>0 && cosPhi>0 && power>0) {
+	else if (voltage>0 && cosPhi>0 && power>0 && isNaN(intensity)) {
 		intensity = power/(voltage*cosPhi);
 		$('#intensity_powerCalc').attr('value', intensity+'A');
 	}
-	else if (voltage>0 && intensity>0 && power>0) {
+	else if (voltage>0 && intensity>0 && power>0 && isNaN(cosPhi)) {
 		cosPhi = power/(voltage*intensity);
 		$('#cosPhi_powerCalc').attr('value', cosPhi);
 	}
-	else if (voltage>0 && cosPhi>0 && intensity>0) {
+	else if (voltage>0 && cosPhi>0 && intensity>0 && isNaN(power)) {
 		power = voltage*intensity*cosPhi;
 		$('#power_powerCalc').attr('value', power+'W');
 	}

@@ -17,8 +17,29 @@ body {
 	margin: 0;
 	padding: 0;
 }
-footer {
-	background: white;
+footer,
+header {
+	background: rgb(19,19,19);
+	background: -moz-linear-gradient(top,  rgba(19,19,19,1) 0%, rgba(76,76,76,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(19,19,19,1)), color-stop(100%,rgba(76,76,76,1)));
+	background: -webkit-linear-gradient(top,  rgba(19,19,19,1) 0%,rgba(76,76,76,1) 100%);
+	background: -o-linear-gradient(top,  rgba(19,19,19,1) 0%,rgba(76,76,76,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(19,19,19,1) 0%,rgba(76,76,76,1) 100%);
+	background: linear-gradient(to bottom,  rgba(19,19,19,1) 0%,rgba(76,76,76,1) 100%);
+	color: white;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#131313', endColorstr='#4c4c4c',GradientType=0 );
+}
+footer a {
+	color: white;
+}
+footer a:visited {
+	color: gainsboro;
+}
+footer a:hover {
+	color: ghostwhite;
+}
+footer a:active {
+	color: whitesmoke;
 }
 footer p, h1, h2 {
 	margin: 0;
@@ -34,9 +55,7 @@ h1 {
 h2 {
 	font-size: 1.25em;
 }
-header {
-	background: white;
-}
+
 section {
 	padding: .25em;
 }
@@ -55,7 +74,14 @@ section article h2 {
 }
 /*estilos formulario*/
 button {
-	background: orangered;
+	background: rgb(241,116,50);
+	background: -moz-linear-gradient(top,  rgba(241,116,50,1) 50%, rgba(234,85,7,1) 51%, rgba(251,149,94,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,rgba(241,116,50,1)), color-stop(51%,rgba(234,85,7,1)), color-stop(100%,rgba(251,149,94,1)));
+	background: -webkit-linear-gradient(top,  rgba(241,116,50,1) 50%,rgba(234,85,7,1) 51%,rgba(251,149,94,1) 100%);
+	background: -o-linear-gradient(top,  rgba(241,116,50,1) 50%,rgba(234,85,7,1) 51%,rgba(251,149,94,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(241,116,50,1) 50%,rgba(234,85,7,1) 51%,rgba(251,149,94,1) 100%);
+	background: linear-gradient(to bottom,  rgba(241,116,50,1) 50%,rgba(234,85,7,1) 51%,rgba(251,149,94,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f17432', endColorstr='#fb955e',GradientType=0 );
 	border: 0;
 	border-radius: 1em;
 	box-sizing: border-box;
@@ -73,7 +99,14 @@ button:active {
 	box-shadow: 0 0 .5em .125em dimgray;
 }
 fieldset {
-	background: dimgray;
+	background: rgb(125,126,125);
+	background: -moz-linear-gradient(top,  rgba(125,126,125,1) 0%, rgba(14,14,14,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(125,126,125,1)), color-stop(100%,rgba(14,14,14,1)));
+	background: -webkit-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+	background: -o-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+	background: linear-gradient(to bottom,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 );
 	border: 0;
 	border-radius: 1em;
 	box-sizing: border-box;
@@ -92,20 +125,26 @@ fieldset input {
 	display: none;
 }
 fieldset input:checked + label {
-	background: #ff4500;
-	background: -moz-radial-gradient(center, ellipse cover,  #ff4500 0%, #696969 75%);
-	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#ff4500), color-stop(75%,#696969));
-	background: -webkit-radial-gradient(center, ellipse cover,  #ff4500 0%,#696969 75%);
-	background: -o-radial-gradient(center, ellipse cover,  #ff4500 0%,#696969 75%);
-	background: -ms-radial-gradient(center, ellipse cover,  #ff4500 0%,#696969 75%);
-	background: radial-gradient(ellipse at center,  #ff4500 0%,#696969 75%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff4500', endColorstr='#696969',GradientType=1 );
+	background: -moz-radial-gradient(center, ellipse cover,  rgba(234,85,7,1) 0%, rgba(234,85,7,0.47) 40%, rgba(251,149,94,0) 75%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(234,85,7,1)), color-stop(40%,rgba(234,85,7,0.47)), color-stop(75%,rgba(251,149,94,0)));
+	background: -webkit-radial-gradient(center, ellipse cover,  rgba(234,85,7,1) 0%,rgba(234,85,7,0.47) 40%,rgba(251,149,94,0) 75%);
+	background: -o-radial-gradient(center, ellipse cover,  rgba(234,85,7,1) 0%,rgba(234,85,7,0.47) 40%,rgba(251,149,94,0) 75%);
+	background: -ms-radial-gradient(center, ellipse cover,  rgba(234,85,7,1) 0%,rgba(234,85,7,0.47) 40%,rgba(251,149,94,0) 75%);
+	background: radial-gradient(ellipse at center,  rgba(234,85,7,1) 0%,rgba(234,85,7,0.47) 40%,rgba(251,149,94,0) 75%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ea5507', endColorstr='#00fb955e',GradientType=1 );
 }
 fieldset label {
 	display: inline-block;
 }
 input {
-	background: dimgray;
+	background: rgb(125,126,125);
+	background: -moz-linear-gradient(top,  rgba(125,126,125,1) 0%, rgba(14,14,14,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(125,126,125,1)), color-stop(100%,rgba(14,14,14,1)));
+	background: -webkit-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+	background: -o-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+	background: linear-gradient(to bottom,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 );
 	border: 0;
 	border-radius: 1em;
 	box-sizing: border-box;
