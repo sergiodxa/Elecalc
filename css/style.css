@@ -20,6 +20,7 @@ body {
 button,
 fieldset,
 input {
+	border: 0;
 	border-radius: 1em;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -41,7 +42,6 @@ button {
 	background: -ms-linear-gradient(top,  rgba(241,116,50,1) 50%,rgba(234,85,7,1) 51%,rgba(251,149,94,1) 100%);
 	background: linear-gradient(to bottom,  rgba(241,116,50,1) 50%,rgba(234,85,7,1) 51%,rgba(251,149,94,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f17432', endColorstr='#fb955e',GradientType=0 );
-	border: 1px solid rgb(241,116,50);
 }
 button:active {
 	box-shadow: 0 0 .5em .125em dimgray;
@@ -55,7 +55,6 @@ fieldset {
 	background: -ms-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
 	background: linear-gradient(to bottom,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 );
-	border: 1px solid rgb(125,126,125);
 	display: inline-block;
 }
 fieldset input {
@@ -120,7 +119,6 @@ input {
 	background: -ms-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
 	background: linear-gradient(to bottom,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 );
-	border: 1px solid rgb(125,126,125);
 }
 input:focus {
 	box-shadow: 0 0 .5em .125em orangered;
