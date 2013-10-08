@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<title>Elecalc</title>
-	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
+	<meta name="description" content="Electrical calculator for sum of resistances, Ohm's law, power calcs, etc." />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
 	<link rel="stylesheet" href="css/normalize.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
-	<script src="js/modernizr-2.5.3.min.js"></script>
 	<!--[if lt IE 9]>
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
@@ -26,7 +26,7 @@
 				<input type="text" id="res1_sumRes" placeholder="First resistance" />
 				<label for="res2_sumRes">Second resistance:</label>
 				<input type="text" id="res2_sumRes" placeholder="Second resistance" />
-				<label for="type_sumRes">Type:</label>
+				<label for="type">Type:</label>
 				<fieldset id="type_sumRes">
 					<input type="radio" name="type" id="type-serie_sumRes" value="Serie" checked="checked">
 					<label for="type-serie_sumRes">Serie</label>
@@ -34,7 +34,7 @@
 					<label for="type-parallel_sumRes">Parallel</label>
 				</fieldset>
 				<input type="text" placeholder="Total resistance" id="result_sumRes" />
-				<button value="Calculate" onclick="resCalc()" />Calculate</button>
+				<button value="Calculate" onclick="resCalc()">Calculate</button>
 			</div>
 		</article>
 		<article id="ohmCalc">
@@ -46,7 +46,7 @@
 				<input type="text" id="intensity_ohmCalc" placeholder="Intensity" />
 				<label for="resistance_ohmCalc">Resistance:</label>
 				<input type="text" id="resistance_ohmCalc" placeholder="Resistance" />
-				<button value="Calculate" onclick="ohmCalc()" />Calculate</button>
+				<button value="Calculate" onclick="ohmCalc()">Calculate</button>
 			</div>
 		</article>
 		<article id="powerCalc">
@@ -60,7 +60,7 @@
 				<input type="text" id="power_powerCalc" placeholder="Power" />
 				<label for="cosPhi_powerCalc">Cos φ:</label>
 				<input type="text" id="cosPhi_powerCalc" placeholder="Cos φ" />
-				<button value="Calculate" onclick="powerCalc()" />Calculate</button>				
+				<button value="Calculate" onclick="powerCalc()">Calculate</button>				
 			</div>
 		</article>
 		<article id="maxwellCalc">
@@ -78,7 +78,7 @@
 				<input type="text" id="substituteValue1_maxwellCalc" class="value" placeholder="Substitute values" />
 				<input type="text" id="substituteValue2_maxwellCalc" class="value" placeholder="Substitute values" />
 				<input type="text" id="substituteValue3_maxwellCalc" class="value" placeholder="Substitute values" />
-				<button value="Calculate" onclick="maxwellCalc()" />Calculate</button>
+				<button value="Calculate" onclick="maxwellCalc()">Calculate</button>
 				<input type="text" id="result1_maxwellCalc" placeholder="Intensity 1" />
 				<input type="text" id="result2_maxwellCalc" placeholder="Intensity 2" />
 				<input type="text" id="result3_maxwellCalc" placeholder="Intensity 3" />
@@ -92,7 +92,7 @@
 				<input type="text" id="maintainceFactor_lumenCalc" class="value" placeholder="Maintaince factor" />
 				<input type="text" id="utilizationFactor_lumenCalc" class="value" placeholder="Utilization factor" />
 				<input type="text" id="luminousFlux_lumenCalc" class="value" placeholder="Luminous flux" />
-				<button value="Calculate" onclick="lumenCalc()" />Calculate</button>
+				<button value="Calculate" onclick="lumenCalc()">Calculate</button>
 			</div>
 		</article>
 		<article id="luminairesCalc">
@@ -102,7 +102,7 @@
 				<input type="text" id="luminousFlux_luminairesCalc" class="value" placeholder="Luminous flux" />
 				<input type="text" id="flowLamp_luminairesCalc" class="value" placeholder="Flow of a lamp" />
 				<input type="text" id="lampsFixture_luminairesCalc" class="value" placeholder="Number of lamps per fixture" />
-				<button value="Calculate" onclick="luminairesCalc()" />Calculate</button>
+				<button value="Calculate" onclick="luminairesCalc()">Calculate</button>
 			</div>
 		</article>
 	</section>
