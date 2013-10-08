@@ -1,40 +1,40 @@
-function resCalc () {
-	var value1 = parseFloat($('#res1_sumRes').val()),
-		value2 = parseFloat($('#res2_sumRes').val()),
-		type = $("#type_sumRes input[name='type']:checked").val(); 
-	if (type=="Serie") {
-		res = value1+value2;
-		$('#result_sumRes').attr('value', res+'Ω‎');
-	}
-	else if (type=="Parallel") {
-		multi = value1*value2;
-		sum = value1+value2;
-		res = multi/sum;
-		$('#result_sumRes').attr('value', res+'Ω‎');
-	}
-	else {
-		$('#result_sumRes').attr('value', 'How the hell did you not select anything?');
-	}
+var ohmCalc, resCalc;
+
+resCalc = function() {
+  var multi, res, sum, type, value1, value2;
+  value1 = parseFloat($('#res1_sumRes').val());
+  value2 = parseFloat($('#res2_sumRes').val());
+  type = $("#type_sumRes input[name='type']:checked").val();
+  if (type === "Serie") {
+    res = value1 + value2;
+    return $('#result_sumRes').attr('value', res + 'Ω‎');
+  } else if (type === "Parallel") {
+    multi = value1 * value2;
+    sum = value1 + value2;
+    res = multi / sum;
+    return $('#result_sumRes').attr('value', res + 'Ω‎');
+  } else {
+    return $('#result_sumRes').attr('value', 'How the hell did you not select anything?');
+  }
 };
-function ohmCalc () {
-	var voltage = parseFloat($('#voltage_ohmCalc').val()),
-		intensity = parseFloat($('#intensity_ohmCalc').val()),
-		resistance = parseFloat($('#resistance_ohmCalc').val());
-	if (intensity>0 && resistance>0 && isNaN(voltage)) {
-		voltage = intensity*resistance;
-		$('#voltage_ohmCalc').attr('value', voltage+'V');
-	}
-	else if (voltage>0 && resistance>0 && isNaN(intensity)) {
-		intensity = voltage/resistance;
-		$('#intensity_ohmCalc').attr('value', intensity+'A');		
-	}
-	else if (voltage>0 && intensity>0 && isNaN(resistance)) {
-		resistance = voltage/intensity;
-		$('#resistance_ohmCalc').attr('value', resistance+'Ω');		
-	}
-	else {
-		alert('Error, please let only one empty');
-	}
+
+ohmCalc = function() {
+  var intensity, resistance, voltage;
+  voltage = parseFloat($('#voltage_ohmCalc').val());
+  intensity = parseFloat($('#intensity_ohmCalc').val());
+  resistance = parseFloat($('#resistance_ohmCalc').val());
+  if (intensity > 0 && resistance > 0 && isNaN(voltage)) {
+    voltage = intensity * resistance;
+    return $('#voltage_ohmCalc').attr('value', voltage + 'V');
+  } else if (voltage > 0 && resistance > 0 && isNaN(intensity)) {
+    intensity = voltage / resistance;
+    return $('#intensity_ohmCalc').attr('value', intensity + 'A');
+  } else if (voltage > 0 && intensity > 0 && isNaN(resistance)) {
+    resistance = voltage / intensity;
+    return $('#resistance_ohmCalc').attr('value', resistance + 'Ω');
+  } else {
+    return alert('Error, please let only one empty');
+  }
 };
 function powerCalc () {
 	var voltage = parseFloat($('#voltage_powerCalc').val()),
