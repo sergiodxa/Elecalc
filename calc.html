@@ -25,15 +25,9 @@
 				<input type="text" id="res1_sumRes" placeholder="First resistance" />
 				<label for="res2_sumRes">Second resistance:</label>
 				<input type="text" id="res2_sumRes" placeholder="Second resistance" />
-				<label for="type">Type:</label>
-				<fieldset id="type_sumRes">
-					<input type="radio" name="type" id="type-serie_sumRes" value="Serie" checked="checked">
-					<label for="type-serie_sumRes">Serie</label>
-					<input type="radio" name="type" id="type-parallel_sumRes" value="Parallel">
-					<label for="type-parallel_sumRes">Parallel</label>
-				</fieldset>
+				<button value="Calculate" onclick="resCalc('Serie')">Serie</button>
+				<button value="Calculate" onclick="resCalc('Parallel')">Parallel</button>
 				<input type="text" placeholder="Total resistance" id="result_sumRes" />
-				<button value="Calculate" onclick="resCalc()">Calculate</button>
 			</div>
 		</article>
 		<article id="ohmCalc">

@@ -125,16 +125,16 @@ input:focus {
 	outline: 0;
 }
 input:-ms-input-placeholder {
-  color: white;
+	color: white;
 }
 input::-webkit-input-placeholder {
-  color: white;
+	color: white;
 }
 input:-moz-placeholder {
-  color: white;
+	color: white;
 }
 input::-moz-placeholder {
-  color: white;
+	color: white;
 }
 label {
 	display: none;
@@ -168,12 +168,9 @@ section article h2 {
 #powerCalc input {
 	width: 32.33333%;
 }
-#ohmCalc fieldset label {
-	width: 31.33333%;
-}
-#sumRes fieldset,
 #maxwellCalc button,
 #lumenCalc button,
-#luminairesCalc button {
+#luminairesCalc button,
+#result_sumRes {
 	width: 99%;
 }

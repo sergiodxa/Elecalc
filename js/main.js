@@ -1,7 +1,6 @@
-function resCalc () {
+function resCalc (type) {
 	var value1 = parseFloat(document.querySelector('#res1_sumRes').value),
-		value2 = parseFloat(document.querySelector('#res2_sumRes').value),
-		type = document.querySelector("#type_sumRes input[name='type']:checked").value; 
+		value2 = parseFloat(document.querySelector('#res2_sumRes').value);
 	if (type=="Serie") {
 		res = value1+value2;
 		document.querySelector('#result_sumRes').value = res+'Ω';
