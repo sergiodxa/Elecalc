@@ -1,3 +1,30 @@
+window.onload = function() {
+	if (!localStorage.fases) {
+		localStorage.fases = '1';
+	}
+}
+var showHideConfig = function() {
+	var shadow = document.getElementById('shadow')
+		config = document.getElementById('config');
+	config.style.display = (config.style.display == 'none') ? 'block' : 'none';
+	shadow.style.display = (shadow.style.display == 'none') ? 'block' : 'none';
+}
+
+var shadowClick = function() {
+	var shadow = document.getElementById('shadow')
+		config = document.getElementById('config');
+	config.style.display = 'none';
+	shadow.style.display = 'none';
+}
+
+var guardarConfig = function() {
+	var fases = document.getElementById('fases')
+	localStorage.fases = fases.options[fases.selectedIndex].value;
+	showHideConfig();
+}
+
+
+// viejos códigos
 function resCalc (type) {
 	var value1 = parseFloat(document.querySelector('#res1_sumRes').value),
 		value2 = parseFloat(document.querySelector('#res2_sumRes').value);
