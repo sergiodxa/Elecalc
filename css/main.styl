@@ -1,4 +1,5 @@
 // fuentes
+@import url('http://fonts.googleapis.com/css?family=Droid+Sans')
 @font-face
 	font-family 'iconFont'
 	src	url('../fonts/iconFont.eot')
@@ -10,9 +11,17 @@
 	font-style normal
 
 // variables
+amarillo	= #EEC600
+azul		= #1E90FF
 blanco		= #FDFDFD
+fontFamily	= 'Droid Sans', sans-serif
 fontSize	= 16px
+gris		= #C0C0C0
+naranja		= #f17432
 negro		= #101010
+rojo		= #DD0000
+verde		= #00AA00
+violeta		= #7B68EE
 
 // mixins
 animation()
@@ -24,6 +33,10 @@ border-radius()
 	-webkit-border-radius arguments
 	-moz-border-radius arguments
 	border-radius arguments
+box-shadow()
+	-webkit-box-shadow arguments
+	-moz-box-shadow arguments
+	box-shadow arguments
 box-sizing()
 	-webkit-box-sizing border-box
 	-moz-box-sizing border-box
@@ -41,33 +54,36 @@ transition()
 	-o-transition arguments
 	transition arguments
 
-// animaciones
-@-webkit-keyframes rotar
-	0%
-		transform(rotate(0deg))
-	100%
-		transform(rotate(360deg))
-@-moz-keyframes rotar
-	0%
-		transform(rotate(0deg))
-	100%
-		transform(rotate(360deg))
-@-o-keyframes rotar
-	0%
-		transform(rotate(0deg))
-	100%
-		transform(rotate(360deg))
-@keyframes rotar
-	0%
-		transform(rotate(0deg))
-	100%
-		transform(rotate(360deg))
-
 // etiquetas
+a
+	color azul
+	text-decoration none
+	&:visited
+		color violeta
+	&:hover
+		text-decoration underline
+	&:active
+		color violeta
+		text-decoration underline
 body
+	font-family fontFamily
 	font-size fontSize
 button:focus
 	outline 0
+footer
+	background negro
+	bottom 0
+	color blanco
+	left 0
+	position fixed
+	right 0
+	text-align center
+	p
+		line-height 2.5em
+		margin 0
+		padding 0
+		a
+			color #00ACED !important
 h1
 	font-size 1.5em
 	line-height 2.5em
@@ -94,19 +110,75 @@ header
 		top .5em
 		&:hover
 			animation(rotar 2.25s linear 0s infinite)
+input:-ms-input-placeholder
+	color negro
+input::-webkit-input-placeholder
+	color negro
+input:-moz-placeholder
+	color negro
+input::-moz-placeholder
+	color negro
+section
+	bottom fontSize*2.5
+	box-sizing()
+	font-size 0
+	left 0
+	overflow-y auto
+	position fixed
+	right 0
+	top fontSize*3.75
+	article
+		background blanco
+		border-bottom 1px solid gris
+		box-sizing()
+		margin 0
+		max-height 40px
+		overflow hidden
+		padding 0 .25rem
+		vertical-align top
+		width 100%
+		&.activo
+			max-height 10000px
+			h2
+				&:before
+					content "\e605"
+		button
+		input
+			border 0
+			font-size 1rem
+		h2
+			cursor pointer
+			font-size 1.25rem
+			line-height 40px
+			margin 0
+			padding 0
+			&:before
+				content "\e604"
+				font-family 'iconFont'
+				font-size .75em
+				padding 0 .5em 0 0
+		h3
+			font-size 1.125rem
+			margin 0
+			padding 0
+
 // ids
 #config
 	background blanco
 	bottom 10%
 	color negro
 	left 30%
+	overflow-y auto
 	position fixed
 	right 30%
 	top 10%
 	z-index 3
 	h2
+		border-bottom 1px solid gris
+		color negro
+		line-height 62px
 		margin 0
-		padding .5em
+		padding 0
 		text-align center
 	label
 		box-sizing()
@@ -119,26 +191,37 @@ header
 			display inline-block
 			font-size fontSize
 			margin .25em 1%
-			padding .125em
+			padding .5em .125em
 			width 68%
+		select
+			background blanco
+			border 1px solid gris
 		span
+			border-right 1px solid gris
 			width 28%
 	.boton
-		bottom .25em
-		left 0
-		position absolute
-		right 0
+		margin-bottom .25em
 	.icon-close
-		background negro
-		border 0
-		border-radius(1em)
-		color blanco
+	.icon-github
+		background blanco
+		border 1px solid gris
+		border-radius(50%)
+		color negro
 		cursor pointer
 		font-size 1.25em
 		padding .5em
 		position absolute
-		right .5em
+		transition(all .125s ease)
 		top .5em
+	.icon-close
+		right .5em
+		&:active
+			color rojo
+	.icon-github
+		left .5em
+		text-decoration none
+		&:active
+			color #4183C4
 #shadow
 	background rgba(negro,.75)
 	bottom 0
@@ -163,13 +246,37 @@ header
 .boton
 	background negro
 	border 0
-	border-radius(.25em)
 	color blanco
 	display block
 	line-height 2em
 	margin 0 auto
-	text-transform uppercase
+	transition(all .25s ease)
 	width 70%
+	&.btnAdvertencia
+		background amarillo
+		color negro
+		&:hover
+			box-shadow(0 0 .25em amarillo)
+	&.btnExito
+		background verde
+		&:hover
+			box-shadow(0 0 .25em verde)
+	&.btnPeligro
+		background rojo
+		&:hover
+			box-shadow(0 0 .25em rojo)
+.campo
+.resultado
+	background blanco
+	border 1px solid gris
+	box-sizing()
+	color negro
+	margin .5em 1%
+	padding .5em .25em
+	text-align center
+.campo
+	display inline-block
+	width 48%
 .icon-close:before
 	content "\e601"
 .icon-config:before
@@ -178,3 +285,34 @@ header
 	content "\e602"
 .icon-twitter:before
 	content "\e603"
+	vertical-align middle
+.resultado
+	display block
+	width 98%
+
+// desktop
+
+// tablet
+
+// mobile
+@media screen and (max-width: 640px)
+	// etiquetas
+
+	// ids
+	#config
+		bottom 2.5%
+		left 2.5%
+		right 2.5%
+		top 2.5%
+		label
+			margin .5rem 0
+			select
+			span
+				width 48%
+
+// animaciones
+@keyframes rotar
+	0%
+		transform(rotate(0deg))
+	100%
+		transform(rotate(360deg))

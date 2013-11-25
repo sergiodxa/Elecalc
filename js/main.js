@@ -1,175 +1,159 @@
-window.onload = function() {
+// interface
+
+$(window).on('load', function() {
 	if (!localStorage.fases) {
 		localStorage.fases = '1';
 	}
-}
+	if (!localStorage.corriente) {
+		localStorage.corriente = '1';
+	}
+	cambiarConfig();
+});
+
+$('article h2').on('click', function() {
+	if ($(this).parent().hasClass('activo')) {
+		$('article').removeClass('activo');
+	}
+	else {
+		$('article').removeClass('activo');
+		$(this).parent().addClass('activo');
+	}
+});
+
 var showHideConfig = function() {
-	var shadow = document.getElementById('shadow')
-		config = document.getElementById('config');
-	config.style.display = (config.style.display == 'none') ? 'block' : 'none';
-	shadow.style.display = (shadow.style.display == 'none') ? 'block' : 'none';
-}
+	var shadow = $('#shadow'),
+		config = $('#config');
+	config.fadeToggle();
+	shadow.fadeToggle();
+};
 
 var shadowClick = function() {
-	var shadow = document.getElementById('shadow')
-		config = document.getElementById('config');
-	config.style.display = 'none';
-	shadow.style.display = 'none';
-}
+	var shadow = $('#shadow'),
+		config = $('#config');
+	config.fadeOut();
+	shadow.fadeOut();
+};
 
 var guardarConfig = function() {
-	var fases = document.getElementById('fases')
-	localStorage.fases = fases.options[fases.selectedIndex].value;
+	var fases = $('#fases'),
+		corriente = $('#corriente');
+	localStorage.fases = fases.find(':selected').val();
+	localStorage.corriente = corriente.find(':selected').val();
 	showHideConfig();
+	cambiarConfig();
+};
+
+var cambiarConfig = function() {
+	var monofasicaContinua	= $('#monofasicaContinua'),
+		trifasicaContinua	= $('#trifasicaContinua'),
+		monofasicaAlterna	= $('#monofasicaAlterna'),
+		trifasicaAlterna	= $('#trifasicaAlterna');
+	if (localStorage.fases == 1 && localStorage.corriente == 1) {
+		monofasicaContinua.show();
+		trifasicaContinua.hide();
+		monofasicaAlterna.hide();
+		trifasicaAlterna.hide();
+	}
+	else if (localStorage.fases == 2 && localStorage.corriente == 1) {
+		monofasicaContinua.hide();
+		trifasicaContinua.show();
+		monofasicaAlterna.hide();
+		trifasicaAlterna.hide();
+	}
+	else if (localStorage.fases == 1 && localStorage.corriente == 2) {
+		monofasicaContinua.hide();
+		trifasicaContinua.hide();
+		monofasicaAlterna.show();
+		trifasicaAlterna.hide();
+	}
+	else if (localStorage.fases == 2 && localStorage.corriente == 2) {
+		monofasicaContinua.hide();
+		trifasicaContinua.hide();
+		monofasicaAlterna.hide();
+		trifasicaAlterna.show();
+	}
+};
+
+// cálculos
+var tension = function(calculo) {
+	if (calculo==1) {
+		var potencia = parseFloat($('#campo1').val()),
+			resistencia = parseFloat($('#campo2').val()),
+			resultado = $('#resultado1'),
+			suma;
+		suma = potencia + resistencia;
+		resultado.val(Math.sqrt(suma)+'V');
+	}
+	else if (calculo==2) {
+		var potencia = parseFloat($('#campo3').val()),
+			intensidad = parseFloat($('#campo4').val()),
+			resultado = $('#resultado2');
+		resultado.val(potencia / intensidad+'V');
+	}
+	else if (calculo==3) {
+		var resistencia = parseFloat($('#campo5').val()),
+			intensidad = parseFloat($('#campo6').val()),
+			resultado = $('#resultado3');
+		resultado.val(resistencia * intensidad+'V');
+	}
 }
-
-
-// viejos códigos
-function resCalc (type) {
-	var value1 = parseFloat(document.querySelector('#res1_sumRes').value),
-		value2 = parseFloat(document.querySelector('#res2_sumRes').value);
-	if (type=="Serie") {
-		res = value1+value2;
-		document.querySelector('#result_sumRes').value = res+'Ω';
+var resistencia = function(calculo) {
+	if (calculo==1) {
+		var potencia = parseFloat($('#campo7').val()),
+			intensidad = parseFloat($('#campo8').val()),
+			resultado = $('#resultado4');
+		resultado.val(potencia/Math.pow(intensidad,2)+'Ω');
 	}
-	else if (type=="Parallel") {
-		multi = value1*value2;
-		sum = value1+value2;
-		res = multi/sum;
-		document.querySelector('#result_sumRes').value = res+'Ω';
+	else if (calculo==2) {
+		var tension = parseFloat($('#campo9').val()),
+			potencia = parseFloat($('#campo10').val()),
+			resultado = $('#resultado5');
+		resultado.val(Math.pow(tension,2) / potencia+'Ω');
 	}
-	else {
-		document.querySelector('#result_sumRes').value = res+'How the hell did you not select anything?';
+	else if (calculo==3) {
+		var tension = parseFloat($('#campo11').val()),
+			intensidad = parseFloat($('#campo12').val()),
+			resultado = $('#resultado6');
+		resultado.val(tension / intensidad+'Ω');
 	}
-};
-function ohmCalc () {
-	var voltage = parseFloat(document.querySelector('#voltage_ohmCalc').value),
-		intensity = parseFloat(document.querySelector('#intensity_ohmCalc').value),
-		resistance = parseFloat(document.querySelector('#resistance_ohmCalc').value);
-	if (intensity>0 && resistance>0 && isNaN(voltage)) {
-		voltage = intensity*resistance;
-		document.querySelector('#voltage_ohmCalc').value = voltage+'V';
+}
+var intensidad = function(calculo) {
+	if (calculo==1) {
+		var tension = parseFloat($('#campo13').val()),
+			resistencia = parseFloat($('#campo14').val()),
+			resultado = $('#resultado7');
+		resultado.val(tension/resistencia+'A');
 	}
-	else if (voltage>0 && resistance>0 && isNaN(intensity)) {
-		intensity = voltage/resistance;
-		document.querySelector('#intensity_ohmCalc').value = intensity+'A';
+	else if (calculo==2) {
+		var potencia = parseFloat($('#campo15').val()),
+			tension = parseFloat($('#campo16').val()),
+			resultado = $('#resultado8');
+		resultado.val(potencia/tension+'A');
 	}
-	else if (voltage>0 && intensity>0 && isNaN(resistance)) {
-		resistance = voltage/intensity;
-		document.querySelector('#resistance_ohmCalc').value = resistance+'Ω';
+	else if (calculo==3) {
+		var potencia = parseFloat($('#campo17').val()),
+			resistencia = parseFloat($('#campo18').val()),
+			resultado = $('#resultado9');
+		resultado.val(Math.sqrt(potencia/resistencia)+'A');
 	}
-	else {
-		alert('Error, please let only one empty');
+}
+var potencia = function(calculo) {
+	if (calculo==1) {
+		var tension = parseFloat($('#campo19').val()),
+			resistencia = parseFloat($('#campo20').val()),
+			resultado = $('#resultado10');
+		resultado.val(Math.pow(tension,2)/resistencia+'W');
 	}
-};
-function powerCalc () {
-	var voltage = parseFloat(document.querySelector('#voltage_powerCalc').value),
-		intensity = parseFloat(document.querySelector('#intensity_powerCalc').value),
-		cosPhi = parseFloat(document.querySelector('#cosPhi_powerCalc').value),
-		power = parseFloat(document.querySelector('#power_powerCalc').value);
-	if (intensity>0 && cosPhi>0 && power>0 && isNaN(voltage)) {
-		voltage = power/(intensity*cosPhi);
-		document.querySelector('#voltage_powerCalc').value = voltage+'V';
+	else if (calculo==2) {
+		var intensidad = parseFloat($('#campo21').val()),
+			resistencia = parseFloat($('#campo22').val()),
+			resultado = $('#resultado11');
+		resultado.val(Math.pow(intensidad,2)/resistencia+'W');
 	}
-	else if (voltage>0 && cosPhi>0 && power>0 && isNaN(intensity)) {
-		intensity = power/(voltage*cosPhi);
-		document.querySelector('#intensity_powerCalc').value = intensity+'A';
+	else if (calculo==3) {
+		var tension = parseFloat($('#campo23').val()),
+			intensidad = parseFloat($('#campo24').val()),
+			resultado = $('#resultado12');
+		resultado.val(tension*intensidad+'W');
 	}
-	else if (voltage>0 && intensity>0 && power>0 && isNaN(cosPhi)) {
-		cosPhi = power/(voltage*intensity);
-		document.querySelector('#cosPhi_powerCalc').value = cosPhi;
-	}
-	else if (voltage>0 && cosPhi>0 && intensity>0 && isNaN(power)) {
-		power = voltage*intensity*cosPhi;
-		document.querySelector('#power_powerCalc').value = power+'W';
-	}
-	else {
-		alert('Error, please let only one empty');
-	}
-};
-function maxwellCalc () {
-	var c1r1 = parseFloat(document.querySelector('#col1row1_maxwellCalc').value),
-		c2r1 = parseFloat(document.querySelector('#col2row1_maxwellCalc').value),
-		c3r1 = parseFloat(document.querySelector('#col3row1_maxwellCalc').value),
-		c1r2 = parseFloat(document.querySelector('#col1row2_maxwellCalc').value),
-		c2r2 = parseFloat(document.querySelector('#col2row2_maxwellCalc').value),
-		c3r2 = parseFloat(document.querySelector('#col3row2_maxwellCalc').value),
-		c1r3 = parseFloat(document.querySelector('#col1row3_maxwellCalc').value),
-		c2r3 = parseFloat(document.querySelector('#col2row3_maxwellCalc').value),
-		c3r3 = parseFloat(document.querySelector('#col3row3_maxwellCalc').value),
-		value1 = parseFloat(document.querySelector('#substituteValue1_maxwellCalc').value),
-		value2 = parseFloat(document.querySelector('#substituteValue2_maxwellCalc').value),
-		value3 = parseFloat(document.querySelector('#substituteValue3_maxwellCalc').value);
-	base = ((c1r1*c2r2*c3r3)+(c1r2*c2r3*c3r1)+(c1r3*c2r1*c3r2))-((c3r1*c2r2*c1r3)+(c3r2*c2r3*c1r1)+(c3r3*c2r1*c1r2));
-	sust1 = ((value1*c2r2*c3r3)+(value2*c2r3*c3r1)+(value3*c2r1*c3r2))-((c3r1*c2r2*value3)+(c3r2*c2r3*value1)+(c3r3*c2r1*value2));
-	sust2 = ((c1r1*value2*c3r3)+(c1r2*value3*c3r1)+(c1r3*value1*c3r2))-((c3r1*value2*c1r3)+(c3r2*value3*c1r1)+(c3r3*value1*c1r2));
-	sust3 = ((c1r1*c2r2*value3)+(c1r2*c2r3*value1)+(c1r3*c2r1*value2))-((value1*c2r2*c1r3)+(value2*c2r3*c1r1)+(value3*c2r1*c1r2));
-	int1 = sust1/base;
-	int2 = sust2/base;
-	int3 = sust3/base;
-	if (isNaN(int1) && isNaN(int2) && isNaN(int3)) {
-		document.querySelector('#result1_maxwellCalc').value = 'Error, in this equation I need to divide by 0';
-		document.querySelector('#result2_maxwellCalc').value = 'Error, in this equation I need to divide by 0';
-		document.querySelector('#result3_maxwellCalc').value = 'Error, in this equation I need to divide by 0';
-	}
-	else {
-		document.querySelector('#result1_maxwellCalc').value = int1+'A';
-		document.querySelector('#result2_maxwellCalc').value = int2+'A';
-		document.querySelector('#result3_maxwellCalc').value = int3+'A';
-	}
-};
-function lumenCalc () {
-	var averageIluminance = parseFloat(document.querySelector('#averageIluminance_lumenCalc').value),
-		workPlane = parseFloat(document.querySelector('#workPlane_lumenCalc').value),
-		maintainceFactor = parseFloat(document.querySelector('#maintainceFactor_lumenCalc').value),
-		utilizationFactor = parseFloat(document.querySelector('#utilizationFactor_lumenCalc').value),
-		luminousFlux = parseFloat(document.querySelector('#luminousFlux_lumenCalc').value);
-	if (averageIluminance>0 && workPlane>0 && maintainceFactor>0 && utilizationFactor>0 && isNaN(luminousFlux)) {
-		luminousFlux = (averageIluminance*workPlane)/(maintainceFactor*utilizationFactor);
-		document.querySelector('#luminousFlux_lumenCalc').value = luminousFlux;
-	}
-	else if (luminousFlux>0 && workPlane>0 && maintainceFactor>0 && utilizationFactor>0 && isNaN(averageIluminance)) {
-		averageIluminance = (luminousFlux*maintainceFactor*utilizationFactor)/(workPlane);
-		document.querySelector('#averageIluminance_lumenCalc').value = averageIluminance;
-	}
-	else if (averageIluminance>0 && luminousFlux>0 && maintainceFactor>0 && utilizationFactor>0 && isNaN(workPlane)) {
-		workPlane = (luminousFlux*maintainceFactor*utilizationFactor)/(averageIluminance);
-		document.querySelector('#workPlane_lumenCalc').value = workPlane;
-	}
-	else if (averageIluminance>0 && workPlane>0 && luminousFlux>0 && utilizationFactor>0 && isNaN(maintainceFactor)) {
-		maintainceFactor = (averageIluminance*workPlane)/(luminousFlux*utilizationFactor);
-		document.querySelector('#maintainceFactor_lumenCalc').value = maintainceFactor;
-	}
-	else if (averageIluminance>0 && workPlane>0 && maintainceFactor>0 && luminousFlux>0 && isNaN(utilizationFactor)) {
-		utilizationFactor = (averageIluminance*workPlane)/(maintainceFactor*luminousFlux);
-		document.querySelector('#utilizationFactor_lumenCalc').value = utilizationFactor;
-	}
-	else {
-		alert('Error, please let only one empty');
-	}
-};
-function luminairesCalc () {
-	var luminousFlux = parseFloat(document.querySelector('#luminousFlux_luminairesCalc').value),
-		flowLamp = parseFloat(document.querySelector('#flowLamp_luminairesCalc').value),
-		lampsFixture = parseFloat(document.querySelector('#lampsFixture_luminairesCalc').value),
-		luminaires = parseFloat(document.querySelector('#luminaires_luminairesCalc').value);
-	if (luminousFlux>0 && flowLamp>0 && lampsFixture>0 && isNaN(luminaires)) {
-		luminaires = luminousFlux/(flowLamp*lampsFixture);
-		document.querySelector('#luminaires_luminairesCalc').value = luminaires;
-	}
-	else if (luminaires>0 && flowLamp>0 && lampsFixture>0 && isNaN(luminousFlux)) {
-		luminousFlux = luminaires*flowLamp*lampsFixture;
-		document.querySelector('#luminousFlux_luminairesCalc').value = luminousFlux;
-	}
-	else if (luminaires>0 && luminousFlux>0 && lampsFixture>0 && isNaN(flowLamp)) {
-		flowLamp = luminousFlux/(luminaires*lampsFixture);
-		document.querySelector('#flowLamp_luminairesCalc').value = flowLamp;
-	}
-	else if (luminaires>0 && flowLamp>0 && luminousFlux>0 && isNaN(lampsFixture)) {
-		lampsFixture = luminousFlux/(flowLamp*luminaires);
-		document.querySelector('#lampsFixture_luminairesCalc').value = lampsFixture;
-	}
-	else {
-		alert('Error, please let only one empty');
-	}
-};
+}

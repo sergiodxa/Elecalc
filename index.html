@@ -17,24 +17,131 @@
 <body>
 	<header>
 		<h1>Elecalc</h1>
-		<button class="icon-config" onclick="showHideConfig()"></button>
+		<button class="icon-config" onclick="showHideConfig()" title="Configuración"></button>
 	</header>
 	<aside id="config" style="display:none">
-		<button class="icon-close" onclick="showHideConfig()"></button>
+		<a href="//www.github.com/sergiodxa/Elecalc/" class="icon-github" title="Ver código en respositorio"></a>
 		<h2>Configuración</h2>
+		<button class="icon-close" onclick="showHideConfig()"></button>
 		<label for="fases">
-			<span>Cantidad de fases:</span>
+			<span>Circuito:</span>
 			<select name="fases" id="fases">
-				<option value="1">Monofásica</option>
-				<option value="2">Trifásica</option>
+				<option value="1">Monofásico</option>
+				<option value="2">Trifásico</option>
 			</select>
 		</label>
-		<button onclick="guardarConfig()" class="boton">Guardar</button>
+		<label for="corriente">
+			<span>Tipo de corriente:</span>
+			<select name="corriente" id="corriente">
+				<option value="1">Contínua</option>
+				<option value="2">Alterna</option>
+			</select>
+		</label>
+		<button onclick="guardarConfig()" class="boton btnExito">Guardar</button>
 	</aside>
+	<section style="display:none" id="monofasicaContinua">
+		<article>
+			<h2>Cálculos de Tensión</h2>
+			<div id="tension1">
+				<h3>Fórmula 1</h3>
+				<input type="text" class="campo" placeholder="Potencia" id="campo1" />
+				<input type="text" class="campo" placeholder="Resistencia" id="campo2" />
+				<button class="boton btnExito" onclick="tension(1)">Calcular</button>
+				<input type="text" class="resultado" placeholder="Resultado" id="resultado1" />
+			</div>
+			<div id="tension2">
+				<h3>Fórmula 2</h3>
+				<input type="text" class="campo" placeholder="Potencia" id="campo3" />
+				<input type="text" class="campo" placeholder="Intensidad" id="campo4" />
+				<button class="boton btnExito" onclick="tension(2)">Calcular</button>
+				<input type="text" class="resultado" placeholder="Resultado" id="resultado2" />
+			</div>
+			<div id="tension3">
+				<h3>Fórmula 3</h3>
+				<input type="text" class="campo" placeholder="Resistencia" id="campo5" />
+				<input type="text" class="campo" placeholder="Intensidad" id="campo6" />
+				<button class="boton btnExito" onclick="tension(3)">Calcular</button>
+				<input type="text" class="resultado" placeholder="Resultado" id="resultado3" />
+			</div>
+		</article>
+		<article>
+			<h2>Cálculos de Resistencia</h2>
+			<div id="resistencia1">
+				<h3>Fórmula 1</h3>
+				<input type="text" class="campo" placeholder="Potencia" id="campo7" />
+				<input type="text" class="campo" placeholder="Intensidad" id="campo8" />
+				<button class="boton btnExito" onclick="resistencia(1)">Calcular</button>
+				<input type="text" class="resultado" placeholder="Resultado" id="resultado4" />
+			</div>
+			<div id="resistencia2">
+				<h3>Fórmula 2</h3>
+				<input type="text" class="campo" placeholder="Tensión" id="campo9" />
+				<input type="text" class="campo" placeholder="Potencia" id="campo10" />
+				<button class="boton btnExito" onclick="resistencia(2)">Calcular</button>
+				<input type="text" class="resultado" placeholder="Resultado" id="resultado5" /></div>
+			<div id="resistencia3">
+				<h3>Fórmula 3</h3>
+				<input type="text" class="campo" placeholder="Tensión" id="campo11" />
+				<input type="text" class="campo" placeholder="Intensidad" id="campo12" />
+				<button class="boton btnExito" onclick="resistencia(3)">Calcular</button>
+				<input type="text" class="resultado" placeholder="Resultado" id="resultado6" />
+			</div>
+		</article>
+		<article>
+			<h2>Cálculos de Intensidad</h2>
+			<div id="intensidad1">
+				<h3>Fórmula 1</h3>
+				<input type="text" class="campo" placeholder="Tensión" id="campo13" />
+				<input type="text" class="campo" placeholder="Resistencia" id="campo14" />
+				<button class="boton btnExito" onclick="intensidad(1)">Calcular</button>
+				<input type="text" class="resultado" placeholder="Resultado" id="resultado7" />
+			</div>
+			<div id="intensidad2">
+				<h3>Fórmula 2</h3>
+				<input type="text" class="campo" placeholder="Potencia" id="campo15" />
+				<input type="text" class="campo" placeholder="Tensión" id="campo16" />
+				<button class="boton btnExito" onclick="intensidad(2)">Calcular</button>
+				<input type="text" class="resultado" placeholder="Resultado" id="resultado8" /></div>
+			<div id="intensidad3">
+				<h3>Fórmula 3</h3>
+				<input type="text" class="campo" placeholder="Potencia" id="campo17" />
+				<input type="text" class="campo" placeholder="Resistencia" id="campo18" />
+				<button class="boton btnExito" onclick="intensidad(3)">Calcular</button>
+				<input type="text" class="resultado" placeholder="Resultado" id="resultado9" />
+			</div>
+		</article>
+		<article>
+			<h2>Cálculos de Potencia</h2>
+			<div id="potencia1">
+				<h3>Fórmula 1</h3>
+				<input type="text" class="campo" placeholder="Tensión" id="campo19" />
+				<input type="text" class="campo" placeholder="Resistencia" id="campo20" />
+				<button class="boton btnExito" onclick="potencia(1)">Calcular</button>
+				<input type="text" class="resultado" placeholder="Resultado" id="resultado10" />
+			</div>
+			<div id="potencia2">
+				<h3>Fórmula 2</h3>
+				<input type="text" class="campo" placeholder="Intensidad" id="campo21" />
+				<input type="text" class="campo" placeholder="Resistencia" id="campo22" />
+				<button class="boton btnExito" onclick="potencia(2)">Calcular</button>
+				<input type="text" class="resultado" placeholder="Resultado" id="resultado11" /></div>
+			<div id="potencia3">
+				<h3>Fórmula 3</h3>
+				<input type="text" class="campo" placeholder="Tensión" id="campo23" />
+				<input type="text" class="campo" placeholder="Intensidad" id="campo24" />
+				<button class="boton btnExito" onclick="potencia(3)">Calcular</button>
+				<input type="text" class="resultado" placeholder="Resultado" id="resultado12" />
+			</div>
+		</article>
+	</section>
+	<section style="display:none" id="trifasicaContinua">Mundo</section>
+	<section style="display:none" id="monofasicaAlterna">Hello</section>
+	<section style="display:none" id="trifasicaAlterna">World</section>
 	<footer>
-		<p>Desarrollado por <a href="//twitter.com/sergiodxa">@sergiodxa</a></p>
+		<p>Desarrollado por <a href="//twitter.com/sergiodxa" class="icon-twitter">sergiodxa</a></p>
 	</footer>
 	<div id="shadow" onclick="shadowClick()" style="display:none"></div>
+	<script src="//code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script src="/js/main.js"></script>
 </body>
 </html>

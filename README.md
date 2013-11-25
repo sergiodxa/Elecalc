@@ -1,16 +1,11 @@
 Elecalc
 =======
 
-Electrical formulas calculator
+Aplicación para realizar distintos tipos de cálculos eléctricos.
 
-Possible calculations
+Funciones
 ======
-* Sum of series resistors
-* Adding resistors in parallel
-* Calculate resistance according to Ohm's law
-* Calculate intensity according to Ohm's law
-* Calculate voltage according to Ohm's law
-* Maxwell mesh calculations
-* Total luminous flux required calculations
-* Number of luminaires calculations
-* Power calculations
+* Cálculos de tensión en corriente contínua monofásica
+* Cálculos de resistencia en corriente contínua monofásica
+* Cálculos de intensidad en corriente contínua monofásica
+* Cálculos de potencia en corriente contínua monofásica
