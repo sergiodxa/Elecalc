@@ -132,13 +132,12 @@ section
 		border-bottom 1px solid gris
 		box-sizing()
 		margin 0
-		max-height 40px
 		overflow hidden
 		padding 0 .25rem
+		transition(all .25s ease)
 		vertical-align top
 		width 100%
 		&.activo
-			max-height 10000px
 			h2
 				&:before
 					content "\e605"
@@ -146,6 +145,8 @@ section
 		input
 			border 0
 			font-size 1rem
+		div
+			display none
 		h2
 			cursor pointer
 			font-size 1.25rem
@@ -161,6 +162,8 @@ section
 			font-size 1.125rem
 			margin 0
 			padding 0
+::-webkit-scrollbar
+	display none
 
 // ids
 #config
@@ -265,8 +268,8 @@ section
 		background rojo
 		&:hover
 			box-shadow(0 0 .25em rojo)
-.campo
-.resultado
+.completo
+.mitad
 	background blanco
 	border 1px solid gris
 	box-sizing()
@@ -274,9 +277,9 @@ section
 	margin .5em 1%
 	padding .5em .25em
 	text-align center
-.campo
-	display inline-block
-	width 48%
+.completo
+	display block
+	width 98%
 .icon-close:before
 	content "\e601"
 .icon-config:before
@@ -286,9 +289,9 @@ section
 .icon-twitter:before
 	content "\e603"
 	vertical-align middle
-.resultado
-	display block
-	width 98%
+.mitad
+	display inline-block
+	width 48%
 
 // desktop
 

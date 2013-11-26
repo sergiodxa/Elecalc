@@ -18,13 +18,14 @@ input::-webkit-input-placeholder{color:#101010}
 input:-moz-placeholder{color:#101010}
 input::-moz-placeholder{color:#101010}
 section{bottom:40px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;font-size:0;left:0;overflow-y:auto;position:fixed;right:0;top:60px;}
-section article{background:#fdfdfd;border-bottom:1px solid #c0c0c0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin:0;max-height:40px;overflow:hidden;padding:0 .25rem;vertical-align:top;width:100%;}
-section article.activo{max-height:10000px;}
+section article{background:#fdfdfd;border-bottom:1px solid #c0c0c0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin:0;overflow:hidden;padding:0 .25rem;-webkit-transition:all .25s ease;-moz-transition:all .25s ease;-ms-transition:all .25s ease;-o-transition:all .25s ease;transition:all .25s ease;vertical-align:top;width:100%;}
 section article.activo h2:before{content:"\e605"}
 section article button,section article input{border:0;font-size:1rem}
+section article div{display:none}
 section article h2{cursor:pointer;font-size:1.25rem;line-height:40px;margin:0;padding:0;}
 section article h2:before{content:"\e604";font-family:'iconFont';font-size:.75em;padding:0 .5em 0 0}
 section article h3{font-size:1.125rem;margin:0;padding:0}
+::-webkit-scrollbar{display:none}
 #config{background:#fdfdfd;bottom:10%;color:#101010;left:30%;overflow-y:auto;position:fixed;right:30%;top:10%;z-index:3;}
 #config h2{border-bottom:1px solid #c0c0c0;color:#101010;line-height:62px;margin:0;padding:0;text-align:center}
 #config label{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:block;font-size:0;width:100%;}
@@ -46,13 +47,13 @@ section article h3{font-size:1.125rem;margin:0;padding:0}
 .boton.btnExito:hover{-webkit-box-shadow:0 0 .25em #0a0;-moz-box-shadow:0 0 .25em #0a0;box-shadow:0 0 .25em #0a0}
 .boton.btnPeligro{background:#d00;}
 .boton.btnPeligro:hover{-webkit-box-shadow:0 0 .25em #d00;-moz-box-shadow:0 0 .25em #d00;box-shadow:0 0 .25em #d00}
-.campo,.resultado{background:#fdfdfd;border:1px solid #c0c0c0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;color:#101010;margin:.5em 1%;padding:.5em .25em;text-align:center}
-.campo{display:inline-block;width:48%}
+.completo,.mitad{background:#fdfdfd;border:1px solid #c0c0c0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;color:#101010;margin:.5em 1%;padding:.5em .25em;text-align:center}
+.completo{display:block;width:98%}
 .icon-close:before{content:"\e601"}
 .icon-config:before{content:"\e600"}
 .icon-github:before{content:"\e602"}
 .icon-twitter:before{content:"\e603";vertical-align:middle}
-.resultado{display:block;width:98%}
+.mitad{display:inline-block;width:48%}
 @media screen and (max-width: 640px){#config{bottom:2.5%;left:2.5%;right:2.5%;top:2.5%;}
 #config label{margin:.5rem 0;}
 #config label select,#config label span{width:48%}

@@ -12,11 +12,21 @@ $(window).on('load', function() {
 
 $('article h2').on('click', function() {
 	if ($(this).parent().hasClass('activo')) {
-		$('article').removeClass('activo');
+		$('article')
+			.removeClass('activo')
+			.find('div')
+				.slideUp();
 	}
 	else {
-		$('article').removeClass('activo');
-		$(this).parent().addClass('activo');
+		$('article')
+			.removeClass('activo')
+			.find('div')
+				.slideUp();
+		$(this)
+			.parent()
+				.addClass('activo')
+				.find('div')
+					.slideDown();
 	}
 });
 
@@ -44,33 +54,23 @@ var guardarConfig = function() {
 };
 
 var cambiarConfig = function() {
-	var monofasicaContinua	= $('#monofasicaContinua'),
-		trifasicaContinua	= $('#trifasicaContinua'),
-		monofasicaAlterna	= $('#monofasicaAlterna'),
-		trifasicaAlterna	= $('#trifasicaAlterna');
+	var monofasicaContinua = $('#monofasicaContinua'),
+		monofasicaAlterna = $('#monofasicaAlterna'),
+		trifasica = $('#trifasica');
 	if (localStorage.fases == 1 && localStorage.corriente == 1) {
 		monofasicaContinua.show();
-		trifasicaContinua.hide();
 		monofasicaAlterna.hide();
-		trifasicaAlterna.hide();
-	}
-	else if (localStorage.fases == 2 && localStorage.corriente == 1) {
-		monofasicaContinua.hide();
-		trifasicaContinua.show();
-		monofasicaAlterna.hide();
-		trifasicaAlterna.hide();
+		trifasica.hide();
 	}
 	else if (localStorage.fases == 1 && localStorage.corriente == 2) {
 		monofasicaContinua.hide();
-		trifasicaContinua.hide();
 		monofasicaAlterna.show();
-		trifasicaAlterna.hide();
+		trifasica.hide();
 	}
-	else if (localStorage.fases == 2 && localStorage.corriente == 2) {
+	else if (localStorage.fases == 2 && localStorage.corriente == 1) {
 		monofasicaContinua.hide();
-		trifasicaContinua.hide();
 		monofasicaAlterna.hide();
-		trifasicaAlterna.show();
+		trifasica.show();
 	}
 };
 
@@ -96,6 +96,26 @@ var tension = function(calculo) {
 			resultado = $('#resultado3');
 		resultado.val(resistencia * intensidad+'V');
 	}
+	else if (calculo==4) {
+		var resistencia = parseFloat($('#campo25').val()),
+			intensidad = parseFloat($('#campo26').val()),
+			cosPhi = parseFloat($('#campo27').val()),
+			resultado = $('#resultado13');
+		resultado.val((resistencia*intensidad)/cosPhi+'V');
+	}
+	else if (calculo==5) {
+		var potenciaActiva = parseFloat($('#campo28').val()),
+			intensidad = parseFloat($('#campo29').val()),
+			cosPhi = parseFloat($('#campo30').val()),
+			resultado = $('#resultado14');
+		resultado.val(potenciaActiva/(intensidad*cosPhi)+'V');
+	}
+	else if (calculo==6) {
+		var potenciaAparente = parseFloat($('#campo31').val()),
+			intensidad = parseFloat($('#campo32').val()),
+			resultado = $('#resultado15');
+		resultado.val(potenciaAparente/intensidad+'V');
+	}
 }
 var resistencia = function(calculo) {
 	if (calculo==1) {
@@ -115,6 +135,27 @@ var resistencia = function(calculo) {
 			intensidad = parseFloat($('#campo12').val()),
 			resultado = $('#resultado6');
 		resultado.val(tension / intensidad+'Ω');
+	}
+	else if (calculo==4) {
+		var tension = parseFloat($('#campo33').val()),
+			cosPhi = parseFloat($('#campo34').val()),
+			intensidad = parseFloat($('#campo35').val()),
+			resultado = $('#resultado16');
+		resultado.val((tension*cosPhi)/intensidad+'Ω');
+	}
+	else if (calculo==5) {
+		var tension = parseFloat($('#campo36').val()),
+			cosPhi = parseFloat($('#campo37').val()),
+			potenciaActiva = parseFloat($('#campo38').val()),
+			resultado = $('#resultado17');
+		resultado.val(Math.pow((tension*cosPhi),2) / potenciaActiva+'Ω');
+	}
+	else if (calculo==6) {
+		var potenciaAparente = parseFloat($('#campo39').val()),
+			cosPhi = parseFloat($('#campo40').val()),
+			intensidad = parseFloat($('#campo41').val()),
+			resultado = $('#resultado18');
+		resultado.val((potenciaAparente*cosPhi)/Math.pow(intensidad,2)+'Ω');
 	}
 }
 var intensidad = function(calculo) {
@@ -136,8 +177,28 @@ var intensidad = function(calculo) {
 			resultado = $('#resultado9');
 		resultado.val(Math.sqrt(potencia/resistencia)+'A');
 	}
+	else if (calculo==4) {
+		var potenciaAparente = parseFloat($('#campo42').val()),
+			tension = parseFloat($('#campo43').val()),
+			resultado = $('#resultado19');
+		resultado.val(potenciaAparente/tension+'A');
+	}
+	else if (calculo==5) {
+		var potenciaActiva = parseFloat($('#campo44').val()),
+			tension = parseFloat($('#campo45').val()),
+			cosPhi = parseFloat($('#campo46').val()),
+			resultado = $('#resultado20');
+		resultado.val(potenciaActiva/(tension*cosPhi)+'A');
+	}
+	else if (calculo==6) {
+		var tension = parseFloat($('#campo47').val()),
+			cosPhi = parseFloat($('#campo48').val()),
+			resistencia = parseFloat($('#campo49').val()),
+			resultado = $('#resultado21');
+		resultado.val((tension*cosPhi)/resistencia+'A');
+	}
 }
-var potencia = function(calculo) {
+var potenciaActiva = function(calculo) {
 	if (calculo==1) {
 		var tension = parseFloat($('#campo19').val()),
 			resistencia = parseFloat($('#campo20').val()),
@@ -155,5 +216,68 @@ var potencia = function(calculo) {
 			intensidad = parseFloat($('#campo24').val()),
 			resultado = $('#resultado12');
 		resultado.val(tension*intensidad+'W');
+	}
+	else if (calculo==4) {
+		var potenciaAparente = parseFloat($('#campo50').val()),
+			cosPhi = parseFloat($('#campo51').val()),
+			resultado = $('#resultado22');
+		resultado.val(potenciaAparente*cosPhi+'W');
+	}
+	else if (calculo==5) {
+		var tension = parseFloat($('#campo52').val()),
+			cosPhi = parseFloat($('#campo53').val()),
+			resistencia = parseFloat($('#campo54').val()),
+			resultado = $('#resultado23');
+		resultado.val(Math.pow((tension*cosPhi),2)/resistencia+'W');
+	}
+	else if (calculo==6) {
+		var tension = parseFloat($('#campo55').val()),
+			intensidad = parseFloat($('#campo56').val()),
+			cosPhi = parseFloat($('#campo57').val()),
+			resultado = $('#resultado24');
+		resultado.val(tension*intensidad*cosPhi+'W');
+	}
+}
+var potenciaAparente = function(calculo) {
+	if (calculo==1) {
+		var potenciaActiva = parseFloat($('#campo58').val()),
+			cosPhi = parseFloat($('#campo59').val()),
+			resultado = $('#resultado25');
+		resultado.val(potenciaActiva/cosPhi+'VA');
+	}
+	else if (calculo==2) {
+		var tension = parseFloat($('#campo60').val()),
+			intensidad = parseFloat($('#campo61').val()),
+			resultado = $('#resultado26');
+		resultado.val(tension*intensidad+'VA');
+	}
+	else if (calculo==3) {
+		var intensidad = parseFloat($('#campo62').val()),
+			resistencia = parseFloat($('#campo63').val()),
+			cosPhi = parseFloat($('#campo64').val()),
+			resultado = $('#resultado27');
+		resultado.val((Math.pow(intensidad,2)*resistencia)/cosPhi+'VA');
+	}
+}
+var cosPhi = function(calculo) {
+	if (calculo==1) {
+		var potenciaActiva = parseFloat($('#campo65').val()),
+			tension = parseFloat($('#campo66').val()),
+			intensidad = parseFloat($('#campo67').val()),
+			resultado = $('#resultado28');
+		resultado.val(potenciaActiva/(tension*intensidad));
+	}
+	else if (calculo==2) {
+		var potenciaActiva = parseFloat($('#campo68').val()),
+			potenciaAparente = parseFloat($('#campo69').val()),
+			resultado = $('#resultado29');
+		resultado.val(potenciaActiva/potenciaAparente);
+	}
+	else if (calculo==3) {
+		var intensidad = parseFloat($('#campo70').val()),
+			resistencia = parseFloat($('#campo71').val()),
+			potenciaAparente = parseFloat($('#campo72').val()),
+			resultado = $('#resultado30');
+		resultado.val((Math.pow(intensidad,2)*resistencia)/potenciaAparente);
 	}
 }
