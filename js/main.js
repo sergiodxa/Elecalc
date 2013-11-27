@@ -67,14 +67,27 @@ var cambiarConfig = function() {
 		monofasicaAlterna.show();
 		trifasica.hide();
 	}
-	else if (localStorage.fases == 2 && localStorage.corriente == 1) {
+	else if (localStorage.fases == 2) {
 		monofasicaContinua.hide();
 		monofasicaAlterna.hide();
 		trifasica.show();
 	}
 };
 
+$('#fases').on('change', function() {
+	var fases = $('#fases').find(':selected').val();
+	if (fases == 2) {
+		$('label[for="corriente"]').fadeOut();
+	}
+	else {
+		$('label[for="corriente"]').fadeIn();
+	}
+})
+
 // cálculos
+
+var raiz3 = Math.sqrt(3); // raíz cuadrada de tres para corriente trifásica
+
 var tension = function(calculo) {
 	if (calculo==1) {
 		var potencia = parseFloat($('#campo1').val()),
@@ -116,6 +129,24 @@ var tension = function(calculo) {
 			resultado = $('#resultado15');
 		resultado.val(potenciaAparente/intensidad+'V');
 	}
+	else if (calculo==7) {
+		var potencia = parseFloat($('#campo73').val()),
+			resistencia = parseFloat($('#campo74').val()),
+			resultado = $('#resultado31');
+		resultado.val(Math.sqrt(potencia/resistencia)+'V');
+	}
+	else if (calculo==8) {
+		var potencia = parseFloat($('#campo75').val()),
+			intensidad = parseFloat($('#campo76').val()),
+			resultado = $('#resultado32');
+		resultado.val(potencia/(intensidad*raiz3)+'V');
+	}
+	else if (calculo==9) {
+		var intensidad = parseFloat($('#campo77').val()),
+			resistencia = parseFloat($('#campo78').val()),
+			resultado = $('#resultado33');
+		resultado.val(intensidad*resistencia*raiz3);
+	}
 }
 var resistencia = function(calculo) {
 	if (calculo==1) {
@@ -156,6 +187,24 @@ var resistencia = function(calculo) {
 			intensidad = parseFloat($('#campo41').val()),
 			resultado = $('#resultado18');
 		resultado.val((potenciaAparente*cosPhi)/Math.pow(intensidad,2)+'Ω');
+	}
+	else if (calculo==7) {
+		var potencia = parseFloat($('#campo79').val()),
+			intensidad = parseFloat($('#campo80').val()),
+			resultado = $('#resultado34');
+		resultado.val(potencia/Math.pow((intensidad*raiz3),2)+'Ω');
+	}
+	else if (calculo==8) {
+		var tension = parseFloat($('#campo81').val()),
+			potencia = parseFloat($('#campo82').val()),
+			resultado = $('#resultado35');
+		resultado.val(Math.pow(tension,3)/potencia+'Ω');
+	}
+	else if (calculo==9) {
+		var tension = parseFloat($('#campo83').val()),
+			intensidad = parseFloat($('#campo84').val()),
+			resultado = $('#resultado36');
+		resultado.val(tension/(intensidad*raiz3)+'Ω');
 	}
 }
 var intensidad = function(calculo) {
