@@ -1,0 +1,1240 @@
+// --------------------------------------------- */
+//
+//	                 gridSDX
+//	Author: Sergio Daniel Xalambrí
+//	Author URL: http://xalambri.com.ar/
+//	Version: 1.3.2
+//
+// --------------------------------------------- */
+
+// Configuration
+
+//Availables col33 and col66 classes
+col33		= true
+//Available desktop classes
+desktop		= true
+//Base font size
+fontSize	= 16px
+//Available mobile classes
+mobile		= true
+//Active or desactive margin in columns
+noMargin    = false
+//Available tablet classes
+tablet		= true
+
+// End configuration
+
+.container
+	box-sizing()
+	font-size 0 !important
+.fixed
+	overflow hidden
+.left
+	float left
+.right
+	float right
+
+if desktop and !noMargin
+	@media screen and (min-width: 1000px)
+		.dCol1
+		.dCol2
+		.dCol3
+		.dCol4
+		.dCol5
+		.dCol6
+		.dCol7
+		.dCol8
+		.dCol9
+		.dCol10
+		.dCol11
+		.dCol12
+		.dCol13
+		.dCol14
+		.dCol15
+		.dCol16
+		.dCol17
+		.dCol18
+		.dCol19
+		.dCol20
+		.dCol33
+		.dCol66
+			box-sizing()
+			display inline-block
+			font-size fontSize
+			margin 0 .5%
+		.dCol1
+			width 4%
+		.dCol2
+			width 9%
+		.dCol3
+			width 14%
+		.dCol4
+			width 19%
+		.dCol5
+			width 24%
+		.dCol6
+			width 29%
+		.dCol7
+			width 34%
+		.dCol8
+			width 39%
+		.dCol9
+			width 44%
+		.dCol10
+			width 49%
+		.dCol11
+			width 54%
+		.dCol12
+			width 59%
+		.dCol13
+			width 64%
+		.dCol14
+			width 69%
+		.dCol15
+			width 74%
+		.dCol16
+			width 79%
+		.dCol17
+			width 84%
+		.dCol18
+			width 89%
+		.dCol19
+			width 94%
+		.dCol20
+			width 99%
+		if col33
+			.dCol33
+				width 32.33333%
+			.dCol66
+				width 65.33333%
+		.dHide
+			display none
+		.dPrefix5
+			margin-left 5.5%
+		.dPrefix10
+			margin-left 10.5%
+		.dPrefix15
+			margin-left 15.5%
+		.dPrefix20
+			margin-left 20.5%
+		.dPrefix25
+			margin-left 25.5%
+		.dPrefix30
+			margin-left 30.5%
+		.dPrefix35
+			margin-left 35.5%
+		.dPrefix40
+			margin-left 40.5%
+		.dPrefix45
+			margin-left 45.5%
+		.dPrefix50
+			margin-left 50.5%
+		.dPrefix55
+			margin-left 55.5%
+		.dPrefix60
+			margin-left 60.5%
+		.dPrefix65
+			margin-left 65.5%
+		.dPrefix70
+			margin-left 70.5%
+		.dPrefix75
+			margin-left 75.5%
+		.dPrefix80
+			margin-left 80.5%
+		.dPrefix85
+			margin-left 85.5%
+		.dPrefix90
+			margin-left 90.5%
+		.dPrefix95
+			margin-left 95.5%
+		.dSuffix5
+			margin-right 5.5%
+		.dSuffix10
+			margin-right 10.5%
+		.dSuffix15
+			margin-right 15.5%
+		.dSuffix20
+			margin-right 20.5%
+		.dSuffix25
+			margin-right 25.5%
+		.dSuffix30
+			margin-right 30.5%
+		.dSuffix35
+			margin-right 35.5%
+		.dSuffix40
+			margin-right 40.5%
+		.dSuffix45
+			margin-right 45.5%
+		.dSuffix50
+			margin-right 50.5%
+		.dSuffix55
+			margin-right 55.5%
+		.dSuffix60
+			margin-right 60.5%
+		.dSuffix65
+			margin-right 65.5%
+		.dSuffix70
+			margin-right 70.5%
+		.dSuffix75
+			margin-right 75.5%
+		.dSuffix80
+			margin-right 80.5%
+		.dSuffix85
+			margin-right 85.5%
+		.dSuffix90
+			margin-right 90.5%
+		.dSuffix95
+			margin-right 95.5%
+
+if tablet and !noMargin
+	@media screen and (max-width: 1000px) and (min-width: 640px)
+		.tCol1
+		.tCol2
+		.tCol3
+		.tCol4
+		.tCol5
+		.tCol6
+		.tCol7
+		.tCol8
+		.tCol9
+		.tCol10
+		.tCol11
+		.tCol12
+		.tCol13
+		.tCol14
+		.tCol15
+		.tCol16
+		.tCol17
+		.tCol18
+		.tCol19
+		.tCol20
+		.tCol33
+		.tCol66
+			box-sizing()
+			display inline-block
+			font-size fontSize
+			margin 0 .5%
+		.tCol1
+			width 4%
+		.tCol2
+			width 9%
+		.tCol3
+			width 14%
+		.tCol4
+			width 19%
+		.tCol5
+			width 24%
+		.tCol6
+			width 29%
+		.tCol7
+			width 34%
+		.tCol8
+			width 39%
+		.tCol9
+			width 44%
+		.tCol10
+			width 49%
+		.tCol11
+			width 54%
+		.tCol12
+			width 59%
+		.tCol13
+			width 64%
+		.tCol14
+			width 69%
+		.tCol15
+			width 74%
+		.tCol16
+			width 79%
+		.tCol17
+			width 84%
+		.tCol18
+			width 89%
+		.tCol19
+			width 94%
+		.tCol20
+			width 99%
+		if col33
+			.tCol33
+				width 32.33333%
+			.tCol66
+				width 65.33333%
+		.tHide
+			display none
+		.tPrefix5
+			margin-left 5.5%
+		.tPrefix10
+			margin-left 10.5%
+		.tPrefix15
+			margin-left 15.5%
+		.tPrefix20
+			margin-left 20.5%
+		.tPrefix25
+			margin-left 25.5%
+		.tPrefix30
+			margin-left 30.5%
+		.tPrefix35
+			margin-left 35.5%
+		.tPrefix40
+			margin-left 40.5%
+		.tPrefix45
+			margin-left 45.5%
+		.tPrefix50
+			margin-left 50.5%
+		.tPrefix55
+			margin-left 55.5%
+		.tPrefix60
+			margin-left 60.5%
+		.tPrefix65
+			margin-left 65.5%
+		.tPrefix70
+			margin-left 70.5%
+		.tPrefix75
+			margin-left 75.5%
+		.tPrefix80
+			margin-left 80.5%
+		.tPrefix85
+			margin-left 85.5%
+		.tPrefix90
+			margin-left 90.5%
+		.tPrefix95
+			margin-left 95.5%
+		.tSuffix5
+			margin-right 5.5%
+		.tSuffix10
+			margin-right 10.5%
+		.tSuffix15
+			margin-right 15.5%
+		.tSuffix20
+			margin-right 20.5%
+		.tSuffix25
+			margin-right 25.5%
+		.tSuffix30
+			margin-right 30.5%
+		.tSuffix35
+			margin-right 35.5%
+		.tSuffix40
+			margin-right 40.5%
+		.tSuffix45
+			margin-right 45.5%
+		.tSuffix50
+			margin-right 50.5%
+		.tSuffix55
+			margin-right 55.5%
+		.tSuffix60
+			margin-right 60.5%
+		.tSuffix65
+			margin-right 65.5%
+		.tSuffix70
+			margin-right 70.5%
+		.tSuffix75
+			margin-right 75.5%
+		.tSuffix80
+			margin-right 80.5%
+		.tSuffix85
+			margin-right 85.5%
+		.tSuffix90
+			margin-right 90.5%
+		.tSuffix95
+			margin-right 95.5%
+
+if mobile and !noMargin
+	@media screen and (max-width: 640px)
+		.mCol1
+		.mCol2
+		.mCol3
+		.mCol4
+		.mCol5
+		.mCol6
+		.mCol7
+		.mCol8
+		.mCol9
+		.mCol10
+		.mCol11
+		.mCol12
+		.mCol13
+		.mCol14
+		.mCol15
+		.mCol16
+		.mCol17
+		.mCol18
+		.mCol19
+		.mCol20
+		.mCol33
+		.mCol66
+			box-sizing()
+			display inline-block
+			font-size fontSize
+			margin 0 .5%
+		.mCol1
+			width 4%
+		.mCol2
+			width 9%
+		.mCol3
+			width 14%
+		.mCol4
+			width 19%
+		.mCol5
+			width 24%
+		.mCol6
+			width 29%
+		.mCol7
+			width 34%
+		.mCol8
+			width 39%
+		.mCol9
+			width 44%
+		.mCol10
+			width 49%
+		.mCol11
+			width 54%
+		.mCol12
+			width 59%
+		.mCol13
+			width 64%
+		.mCol14
+			width 69%
+		.mCol15
+			width 74%
+		.mCol16
+			width 79%
+		.mCol17
+			width 84%
+		.mCol18
+			width 89%
+		.mCol19
+			width 94%
+		.mCol20
+			width 99%
+		if col33
+			.mCol33
+				width 32.33333%
+			.mCol66
+				width 65.33333%
+		.mHide
+			display none
+		.mPrefix5
+			margin-left 5.5%
+		.mPrefix10
+			margin-left 10.5%
+		.mPrefix15
+			margin-left 15.5%
+		.mPrefix20
+			margin-left 20.5%
+		.mPrefix25
+			margin-left 25.5%
+		.mPrefix30
+			margin-left 30.5%
+		.mPrefix35
+			margin-left 35.5%
+		.mPrefix40
+			margin-left 40.5%
+		.mPrefix45
+			margin-left 45.5%
+		.mPrefix50
+			margin-left 50.5%
+		.mPrefix55
+			margin-left 55.5%
+		.mPrefix60
+			margin-left 60.5%
+		.mPrefix65
+			margin-left 65.5%
+		.mPrefix70
+			margin-left 70.5%
+		.mPrefix75
+			margin-left 75.5%
+		.mPrefix80
+			margin-left 80.5%
+		.mPrefix85
+			margin-left 85.5%
+		.mPrefix90
+			margin-left 90.5%
+		.mPrefix95
+			margin-left 95.5%
+		.mSuffix5
+			margin-right 5.5%
+		.mSuffix10
+			margin-right 10.5%
+		.mSuffix15
+			margin-right 15.5%
+		.mSuffix20
+			margin-right 20.5%
+		.mSuffix25
+			margin-right 25.5%
+		.mSuffix30
+			margin-right 30.5%
+		.mSuffix35
+			margin-right 35.5%
+		.mSuffix40
+			margin-right 40.5%
+		.mSuffix45
+			margin-right 45.5%
+		.mSuffix50
+			margin-right 50.5%
+		.mSuffix55
+			margin-right 55.5%
+		.mSuffix60
+			margin-right 60.5%
+		.mSuffix65
+			margin-right 65.5%
+		.mSuffix70
+			margin-right 70.5%
+		.mSuffix75
+			margin-right 75.5%
+		.mSuffix80
+			margin-right 80.5%
+		.mSuffix85
+			margin-right 85.5%
+		.mSuffix90
+			margin-right 90.5%
+		.mSuffix95
+			margin-right 95.5%
+
+if desktop and noMargin
+	@media screen and (min-width: 1000px)
+		.dCol1
+		.dCol2
+		.dCol3
+		.dCol4
+		.dCol5
+		.dCol6
+		.dCol7
+		.dCol8
+		.dCol9
+		.dCol10
+		.dCol11
+		.dCol12
+		.dCol13
+		.dCol14
+		.dCol15
+		.dCol16
+		.dCol17
+		.dCol18
+		.dCol19
+		.dCol20
+		.dCol33
+		.dCol66
+			box-sizing()
+			display inline-block
+			font-size fontSize
+		.dCol1
+			width 5%
+		.dCol2
+			width 10%
+		.dCol3
+			width 15%
+		.dCol4
+			width 20%
+		.dCol5
+			width 25%
+		.dCol6
+			width 30%
+		.dCol7
+			width 35%
+		.dCol8
+			width 40%
+		.dCol9
+			width 45%
+		.dCol10
+			width 50%
+		.dCol11
+			width 55%
+		.dCol12
+			width 60%
+		.dCol13
+			width 65%
+		.dCol14
+			width 70%
+		.dCol15
+			width 75%
+		.dCol16
+			width 80%
+		.dCol17
+			width 85%
+		.dCol18
+			width 90%
+		.dCol19
+			width 95%
+		.dCol20
+			width 100%
+		if col33
+			.dCol33
+				width 33.33333%
+			.dCol66
+				width 66.33333%
+		.dHide
+			display none
+		.dPrefix5
+			margin-left 5%
+		.dPrefix10
+			margin-left 10%
+		.dPrefix15
+			margin-left 15%
+		.dPrefix20
+			margin-left 20%
+		.dPrefix25
+			margin-left 25%
+		.dPrefix30
+			margin-left 30%
+		.dPrefix35
+			margin-left 35%
+		.dPrefix40
+			margin-left 40%
+		.dPrefix45
+			margin-left 45%
+		.dPrefix50
+			margin-left 50%
+		.dPrefix55
+			margin-left 55%
+		.dPrefix60
+			margin-left 60%
+		.dPrefix65
+			margin-left 65%
+		.dPrefix70
+			margin-left 70%
+		.dPrefix75
+			margin-left 75%
+		.dPrefix80
+			margin-left 80%
+		.dPrefix85
+			margin-left 85%
+		.dPrefix90
+			margin-left 90%
+		.dPrefix95
+			margin-left 95%
+		.dSuffix5
+			margin-right 5%
+		.dSuffix10
+			margin-right 10%
+		.dSuffix15
+			margin-right 15%
+		.dSuffix20
+			margin-right 20%
+		.dSuffix25
+			margin-right 25%
+		.dSuffix30
+			margin-right 30%
+		.dSuffix35
+			margin-right 35%
+		.dSuffix40
+			margin-right 40%
+		.dSuffix45
+			margin-right 45%
+		.dSuffix50
+			margin-right 50%
+		.dSuffix55
+			margin-right 55%
+		.dSuffix60
+			margin-right 60%
+		.dSuffix65
+			margin-right 65%
+		.dSuffix70
+			margin-right 70%
+		.dSuffix75
+			margin-right 75%
+		.dSuffix80
+			margin-right 80%
+		.dSuffix85
+			margin-right 85%
+		.dSuffix90
+			margin-right 90%
+		.dSuffix95
+			margin-right 95%
+
+if tablet and noMargin
+	@media screen and (max-width: 1000px) and (min-width: 640px)
+		.tCol1
+		.tCol2
+		.tCol3
+		.tCol4
+		.tCol5
+		.tCol6
+		.tCol7
+		.tCol8
+		.tCol9
+		.tCol10
+		.tCol11
+		.tCol12
+		.tCol13
+		.tCol14
+		.tCol15
+		.tCol16
+		.tCol17
+		.tCol18
+		.tCol19
+		.tCol20
+		.tCol33
+		.tCol66
+			box-sizing()
+			display inline-block
+			font-size fontSize
+		.tCol1
+			width 5%
+		.tCol2
+			width 10%
+		.tCol3
+			width 15%
+		.tCol4
+			width 20%
+		.tCol5
+			width 25%
+		.tCol6
+			width 30%
+		.tCol7
+			width 35%
+		.tCol8
+			width 40%
+		.tCol9
+			width 45%
+		.tCol10
+			width 50%
+		.tCol11
+			width 55%
+		.tCol12
+			width 60%
+		.tCol13
+			width 65%
+		.tCol14
+			width 70%
+		.tCol15
+			width 75%
+		.tCol16
+			width 80%
+		.tCol17
+			width 85%
+		.tCol18
+			width 90%
+		.tCol19
+			width 95%
+		.tCol20
+			width 100%
+		if col33
+			.tCol33
+				width 33.33333%
+			.tCol66
+				width 66.33333%
+		.tHide
+			display none
+		.tPrefix5
+			margin-left 5%
+		.tPrefix10
+			margin-left 10%
+		.tPrefix15
+			margin-left 15%
+		.tPrefix20
+			margin-left 20%
+		.tPrefix25
+			margin-left 25%
+		.tPrefix30
+			margin-left 30%
+		.tPrefix35
+			margin-left 35%
+		.tPrefix40
+			margin-left 40%
+		.tPrefix45
+			margin-left 45%
+		.tPrefix50
+			margin-left 50%
+		.tPrefix55
+			margin-left 55%
+		.tPrefix60
+			margin-left 60%
+		.tPrefix65
+			margin-left 65%
+		.tPrefix70
+			margin-left 70%
+		.tPrefix75
+			margin-left 75%
+		.tPrefix80
+			margin-left 80%
+		.tPrefix85
+			margin-left 85%
+		.tPrefix90
+			margin-left 90%
+		.tPrefix95
+			margin-left 95%
+		.tSuffix5
+			margin-right 5%
+		.tSuffix10
+			margin-right 10%
+		.tSuffix15
+			margin-right 15%
+		.tSuffix20
+			margin-right 20%
+		.tSuffix25
+			margin-right 25%
+		.tSuffix30
+			margin-right 30%
+		.tSuffix35
+			margin-right 35%
+		.tSuffix40
+			margin-right 40%
+		.tSuffix45
+			margin-right 45%
+		.tSuffix50
+			margin-right 50%
+		.tSuffix55
+			margin-right 55%
+		.tSuffix60
+			margin-right 60%
+		.tSuffix65
+			margin-right 65%
+		.tSuffix70
+			margin-right 70%
+		.tSuffix75
+			margin-right 75%
+		.tSuffix80
+			margin-right 80%
+		.tSuffix85
+			margin-right 85%
+		.tSuffix90
+			margin-right 90%
+		.tSuffix95
+			margin-right 95%
+
+if mobile and noMargin
+	@media screen and (max-width: 640px)
+		.mCol1
+		.mCol2
+		.mCol3
+		.mCol4
+		.mCol5
+		.mCol6
+		.mCol7
+		.mCol8
+		.mCol9
+		.mCol10
+		.mCol11
+		.mCol12
+		.mCol13
+		.mCol14
+		.mCol15
+		.mCol16
+		.mCol17
+		.mCol18
+		.mCol19
+		.mCol20
+		.mCol33
+		.mCol66
+			box-sizing()
+			display inline-block
+			font-size fontSize
+		.mCol1
+			width 5%
+		.mCol2
+			width 10%
+		.mCol3
+			width 15%
+		.mCol4
+			width 20%
+		.mCol5
+			width 25%
+		.mCol6
+			width 30%
+		.mCol7
+			width 35%
+		.mCol8
+			width 40%
+		.mCol9
+			width 45%
+		.mCol10
+			width 50%
+		.mCol11
+			width 55%
+		.mCol12
+			width 60%
+		.mCol13
+			width 65%
+		.mCol14
+			width 70%
+		.mCol15
+			width 75%
+		.mCol16
+			width 80%
+		.mCol17
+			width 85%
+		.mCol18
+			width 90%
+		.mCol19
+			width 95%
+		.mCol20
+			width 100%
+		if col33
+			.mCol33
+				width 33.33333%
+			.mCol66
+				width 66.33333%
+		.mHide
+			display none
+		.mPrefix5
+			margin-left 5%
+		.mPrefix10
+			margin-left 10%
+		.mPrefix15
+			margin-left 15%
+		.mPrefix20
+			margin-left 20%
+		.mPrefix25
+			margin-left 25%
+		.mPrefix30
+			margin-left 30%
+		.mPrefix35
+			margin-left 35%
+		.mPrefix40
+			margin-left 40%
+		.mPrefix45
+			margin-left 45%
+		.mPrefix50
+			margin-left 50%
+		.mPrefix55
+			margin-left 55%
+		.mPrefix60
+			margin-left 60%
+		.mPrefix65
+			margin-left 65%
+		.mPrefix70
+			margin-left 70%
+		.mPrefix75
+			margin-left 75%
+		.mPrefix80
+			margin-left 80%
+		.mPrefix85
+			margin-left 85%
+		.mPrefix90
+			margin-left 90%
+		.mPrefix95
+			margin-left 95%
+		.mSuffix5
+			margin-right 5%
+		.mSuffix10
+			margin-right 10%
+		.mSuffix15
+			margin-right 15%
+		.mSuffix20
+			margin-right 20%
+		.mSuffix25
+			margin-right 25%
+		.mSuffix30
+			margin-right 30%
+		.mSuffix35
+			margin-right 35%
+		.mSuffix40
+			margin-right 40%
+		.mSuffix45
+			margin-right 45%
+		.mSuffix50
+			margin-right 50%
+		.mSuffix55
+			margin-right 55%
+		.mSuffix60
+			margin-right 60%
+		.mSuffix65
+			margin-right 65%
+		.mSuffix70
+			margin-right 70%
+		.mSuffix75
+			margin-right 75%
+		.mSuffix80
+			margin-right 80%
+		.mSuffix85
+			margin-right 85%
+		.mSuffix90
+			margin-right 90%
+		.mSuffix95
+			margin-right 95%
+
+if !desktop and !tablet and !mobile and !noMargin
+	.col1
+	.col2
+	.col3
+	.col4
+	.col5
+	.col6
+	.col7
+	.col8
+	.col9
+	.col10
+	.col11
+	.col12
+	.col13
+	.col14
+	.col15
+	.col16
+	.col17
+	.col18
+	.col19
+	.col20
+	.col33
+	.col66
+		box-sizing()
+		font-size fontSize
+		margin 0 .5%
+	.col1
+		width 4%
+	.col2
+		width 9%
+	.col3
+		width 14%
+	.col4
+		width 19%
+	.col5
+		width 24%
+	.col6
+		width 29%
+	.col7
+		width 34%
+	.col8
+		width 39%
+	.col9
+		width 44%
+	.col10
+		width 49%
+	.col11
+		width 54%
+	.col12
+		width 59%
+	.col13
+		width 64%
+	.col14
+		width 69%
+	.col15
+		width 74%
+	.col16
+		width 79%
+	.col17
+		width 84%
+	.col18
+		width 89%
+	.col19
+		width 94%
+	.col20
+		width 99%
+	if col33
+		.col33
+			width 32.33333%
+		.col66
+			width 65.33333%
+	.prefix5
+		margin-left 5.5%
+	.prefix10
+		margin-left 10.5%
+	.prefix15
+		margin-left 15.5%
+	.prefix20
+		margin-left 20.5%
+	.prefix25
+		margin-left 25.5%
+	.prefix30
+		margin-left 30.5%
+	.prefix35
+		margin-left 35.5%
+	.prefix40
+		margin-left 40.5%
+	.prefix45
+		margin-left 45.5%
+	.prefix50
+		margin-left 50.5%
+	.prefix55
+		margin-left 55.5%
+	.prefix60
+		margin-left 60.5%
+	.prefix65
+		margin-left 65.5%
+	.prefix70
+		margin-left 70.5%
+	.prefix75
+		margin-left 75.5%
+	.prefix80
+		margin-left 80.5%
+	.prefix85
+		margin-left 85.5%
+	.prefix90
+		margin-left 90.5%
+	.prefix95
+		margin-left 95.5%
+	.suffix5
+		margin-right 5.5%
+	.suffix10
+		margin-right 10.5%
+	.suffix15
+		margin-right 15.5%
+	.suffix20
+		margin-right 20.5%
+	.suffix25
+		margin-right 25.5%
+	.suffix30
+		margin-right 30.5%
+	.suffix35
+		margin-right 35.5%
+	.suffix40
+		margin-right 40.5%
+	.suffix45
+		margin-right 45.5%
+	.suffix50
+		margin-right 50.5%
+	.suffix55
+		margin-right 55.5%
+	.suffix60
+		margin-right 60.5%
+	.suffix65
+		margin-right 65.5%
+	.suffix70
+		margin-right 70.5%
+	.suffix75
+		margin-right 75.5%
+	.suffix80
+		margin-right 80.5%
+	.suffix85
+		margin-right 85.5%
+	.suffix90
+		margin-right 90.5%
+	.suffix95
+		margin-right 95.5%
+
+if !desktop and !tablet and !mobile and noMargin
+	.col1
+	.col2
+	.col3
+	.col4
+	.col5
+	.col6
+	.col7
+	.col8
+	.col9
+	.col10
+	.col11
+	.col12
+	.col13
+	.col14
+	.col15
+	.col16
+	.col17
+	.col18
+	.col19
+	.col20
+	.col33
+	.col66
+		box-sizing()
+		display inline-block
+		font-size fontSize
+	.col1
+		width 5%
+	.col2
+		width 10%
+	.col3
+		width 15%
+	.col4
+		width 20%
+	.col5
+		width 25%
+	.col6
+		width 30%
+	.col7
+		width 35%
+	.col8
+		width 40%
+	.col9
+		width 45%
+	.col10
+		width 50%
+	.col11
+		width 55%
+	.col12
+		width 60%
+	.col13
+		width 65%
+	.col14
+		width 70%
+	.col15
+		width 75%
+	.col16
+		width 80%
+	.col17
+		width 85%
+	.col18
+		width 90%
+	.col19
+		width 95%
+	.col20
+		width 100%
+	if col33
+		.col33
+			width 33.33333%
+		.col66
+			width 66.33333%
+	.prefix5
+		margin-left 5%
+	.prefix10
+		margin-left 10%
+	.prefix15
+		margin-left 15%
+	.prefix20
+		margin-left 20%
+	.prefix25
+		margin-left 25%
+	.prefix30
+		margin-left 30%
+	.prefix35
+		margin-left 35%
+	.prefix40
+		margin-left 40%
+	.prefix45
+		margin-left 45%
+	.prefix50
+		margin-left 50%
+	.prefix55
+		margin-left 55%
+	.prefix60
+		margin-left 60%
+	.prefix65
+		margin-left 65%
+	.prefix70
+		margin-left 70%
+	.prefix75
+		margin-left 75%
+	.prefix80
+		margin-left 80%
+	.prefix85
+		margin-left 85%
+	.prefix90
+		margin-left 90%
+	.prefix95
+		margin-left 95%
+	.suffix5
+		margin-right 5%
+	.suffix10
+		margin-right 10%
+	.suffix15
+		margin-right 15%
+	.suffix20
+		margin-right 20%
+	.suffix25
+		margin-right 25%
+	.suffix30
+		margin-right 30%
+	.suffix35
+		margin-right 35%
+	.suffix40
+		margin-right 40%
+	.suffix45
+		margin-right 45%
+	.suffix50
+		margin-right 50%
+	.suffix55
+		margin-right 55%
+	.suffix60
+		margin-right 60%
+	.suffix65
+		margin-right 65%
+	.suffix70
+		margin-right 70%
+	.suffix75
+		margin-right 75%
+	.suffix80
+		margin-right 80%
+	.suffix85
+		margin-right 85%
+	.suffix90
+		margin-right 90%
+	.suffix95
+		margin-right 95%
