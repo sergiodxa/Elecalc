@@ -1,1 +1,400 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><title>Elecalc</title><meta name="description" content="Electrical calculator for sum of resistances, Ohm's law, power calcs, etc."/><meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/><link rel="stylesheet" href="css/normalize.min.css" type="text/css" media="screen"/><link rel="stylesheet" href="css/main.min.css" type="text/css" media="screen"/><link rel="icon" href="favicon.ico" type="image/x-icon"/><!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]--></head><body><header><h1>Elecalc</h1></header><section><article id="sumRes"><h2>Sum of resistances</h2><div><label for="res1_sumRes">First resistance:</label><input type="text" id="res1_sumRes" placeholder="First resistance"/><label for="res2_sumRes">Second resistance:</label><input type="text" id="res2_sumRes" placeholder="Second resistance"/><button value="Calculate" onclick="resCalc('Serie')">Serie</button><button value="Calculate" onclick="resCalc('Parallel')">Parallel</button><input type="text" placeholder="Total resistance" id="result_sumRes"/></div></article><article id="ohmCalc"><h2>Ohms Law calculations</h2><div><label for="voltage_ohmCalc">Voltage:</label><input type="text" id="voltage_ohmCalc" placeholder="Voltage"/><label for="intensity_ohmCalc">Intensity:</label><input type="text" id="intensity_ohmCalc" placeholder="Intensity"/><label for="resistance_ohmCalc">Resistance:</label><input type="text" id="resistance_ohmCalc" placeholder="Resistance"/><button value="Calculate" onclick="ohmCalc()">Calculate</button></div></article><article id="powerCalc"><h2>Power calculations</h2><div><input type="text" id="voltage_powerCalc" placeholder="Voltage"/><input type="text" id="intensity_powerCalc" placeholder="Intensity"/><input type="text" id="power_powerCalc" placeholder="Power"/><input type="text" id="cosPhi_powerCalc" placeholder="Cos φ"/><button value="Calculate" onclick="powerCalc()">Calculate</button></div></article><article id="maxwellCalc"><h2>Maxwell mesh calculations</h2><div><input type="text" id="col1row1_maxwellCalc" class="value" placeholder="First column"/><input type="text" id="col2row1_maxwellCalc" class="value" placeholder="Second column"/><input type="text" id="col3row1_maxwellCalc" class="value" placeholder="Third column"/><input type="text" id="col1row2_maxwellCalc" class="value" placeholder="First column"/><input type="text" id="col2row2_maxwellCalc" class="value" placeholder="Second column"/><input type="text" id="col3row2_maxwellCalc" class="value" placeholder="Third column"/><input type="text" id="col1row3_maxwellCalc" class="value" placeholder="First column"/><input type="text" id="col2row3_maxwellCalc" class="value" placeholder="Second column"/><input type="text" id="col3row3_maxwellCalc" class="value" placeholder="Third column"/><input type="text" id="substituteValue1_maxwellCalc" class="value" placeholder="Substitute values"/><input type="text" id="substituteValue2_maxwellCalc" class="value" placeholder="Substitute values"/><input type="text" id="substituteValue3_maxwellCalc" class="value" placeholder="Substitute values"/><button value="Calculate" onclick="maxwellCalc()">Calculate</button><input type="text" id="result1_maxwellCalc" placeholder="Intensity 1"/><input type="text" id="result2_maxwellCalc" placeholder="Intensity 2"/><input type="text" id="result3_maxwellCalc" placeholder="Intensity 3"/></div></article><article id="lumenCalc"><h2>Total luminous flux required</h2><div><input type="text" id="averageIluminance_lumenCalc" class="value" placeholder="Avarege iluminance desired"/><input type="text" id="workPlane_lumenCalc" class="value" placeholder="Area of the work plane"/><input type="text" id="maintainceFactor_lumenCalc" class="value" placeholder="Maintaince factor"/><input type="text" id="utilizationFactor_lumenCalc" class="value" placeholder="Utilization factor"/><input type="text" id="luminousFlux_lumenCalc" class="value" placeholder="Luminous flux"/><button value="Calculate" onclick="lumenCalc()">Calculate</button></div></article><article id="luminairesCalc"><h2>Number of luminaires</h2><div><input type="text" id="luminaires_luminairesCalc" class="result" placeholder="Number of luminaires"/><input type="text" id="luminousFlux_luminairesCalc" class="value" placeholder="Luminous flux"/><input type="text" id="flowLamp_luminairesCalc" class="value" placeholder="Flow of a lamp"/><input type="text" id="lampsFixture_luminairesCalc" class="value" placeholder="Number of lamps per fixture"/><button value="Calculate" onclick="luminairesCalc()">Calculate</button></div></article></section><footer><p>Powered by <a href="//twitter.com/sergiodxa">@sergiodxa</a></p></footer><script src="js/main.min.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta author="Sergio Daniel Xalambrí" />
+	<meta name="description" content="" />
+	<title>Elecalc</title>
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0" />
+	<link rel="stylesheet" href="vendor/normalize.min.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="css/main.css" type="text/css" media="screen" />
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	<!--[if lt IE 9]>
+		<script src="/vendor/html5shiv.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<header>
+		<h1>Elecalc</h1>
+		<button class="icon-config" onclick="showHideConfig()" title="Configuración"></button>
+	</header>
+	<aside id="config" style="display:none">
+		<a href="//www.github.com/sergiodxa/Elecalc/" class="icon-github" title="Ver código en respositorio"></a>
+		<h2>Configuración</h2>
+		<button class="icon-close" onclick="showHideConfig()"></button>
+		<label for="fases">
+			<span>Circuito:</span>
+			<select name="fases" id="fases">
+				<option value="1">Monofásico</option>
+				<option value="2">Trifásico</option>
+			</select>
+		</label>
+		<label for="corriente">
+			<span>Tipo de corriente:</span>
+			<select name="corriente" id="corriente">
+				<option value="1">Contínua</option>
+				<option value="2">Alterna</option>
+			</select>
+		</label>
+		<button onclick="guardarConfig()" class="boton btnExito">Guardar</button>
+	</aside>
+	<section style="display:none" id="monofasicaContinua">
+		<article>
+			<h2>Cálculos de Tensión</h2>
+			<div id="tension1">
+				<h3>Fórmula 1</h3>
+				<input type="text" class="mitad" placeholder="Potencia" id="campo1" />
+				<input type="text" class="mitad" placeholder="Resistencia" id="campo2" />
+				<button class="boton btnExito" onclick="tension(1)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado1" />
+			</div>
+			<div id="tension2">
+				<h3>Fórmula 2</h3>
+				<input type="text" class="mitad" placeholder="Potencia" id="campo3" />
+				<input type="text" class="mitad" placeholder="Intensidad" id="campo4" />
+				<button class="boton btnExito" onclick="tension(2)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado2" />
+			</div>
+			<div id="tension3">
+				<h3>Fórmula 3</h3>
+				<input type="text" class="mitad" placeholder="Resistencia" id="campo5" />
+				<input type="text" class="mitad" placeholder="Intensidad" id="campo6" />
+				<button class="boton btnExito" onclick="tension(3)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado3" />
+			</div>
+		</article>
+		<article>
+			<h2>Cálculos de Resistencia</h2>
+			<div id="resistencia1">
+				<h3>Fórmula 1</h3>
+				<input type="text" class="mitad" placeholder="Potencia" id="campo7" />
+				<input type="text" class="mitad" placeholder="Intensidad" id="campo8" />
+				<button class="boton btnExito" onclick="resistencia(1)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado4" />
+			</div>
+			<div id="resistencia2">
+				<h3>Fórmula 2</h3>
+				<input type="text" class="mitad" placeholder="Tensión" id="campo9" />
+				<input type="text" class="mitad" placeholder="Potencia" id="campo10" />
+				<button class="boton btnExito" onclick="resistencia(2)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado5" /></div>
+			<div id="resistencia3">
+				<h3>Fórmula 3</h3>
+				<input type="text" class="mitad" placeholder="Tensión" id="campo11" />
+				<input type="text" class="mitad" placeholder="Intensidad" id="campo12" />
+				<button class="boton btnExito" onclick="resistencia(3)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado6" />
+			</div>
+		</article>
+		<article>
+			<h2>Cálculos de Intensidad</h2>
+			<div id="intensidad1">
+				<h3>Fórmula 1</h3>
+				<input type="text" class="mitad" placeholder="Tensión" id="campo13" />
+				<input type="text" class="mitad" placeholder="Resistencia" id="campo14" />
+				<button class="boton btnExito" onclick="intensidad(1)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado7" />
+			</div>
+			<div id="intensidad2">
+				<h3>Fórmula 2</h3>
+				<input type="text" class="mitad" placeholder="Potencia" id="campo15" />
+				<input type="text" class="mitad" placeholder="Tensión" id="campo16" />
+				<button class="boton btnExito" onclick="intensidad(2)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado8" /></div>
+			<div id="intensidad3">
+				<h3>Fórmula 3</h3>
+				<input type="text" class="mitad" placeholder="Potencia" id="campo17" />
+				<input type="text" class="mitad" placeholder="Resistencia" id="campo18" />
+				<button class="boton btnExito" onclick="intensidad(3)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado9" />
+			</div>
+		</article>
+		<article>
+			<h2>Cálculos de Potencia</h2>
+			<div id="potencia1">
+				<h3>Fórmula 1</h3>
+				<input type="text" class="mitad" placeholder="Tensión" id="campo19" />
+				<input type="text" class="mitad" placeholder="Resistencia" id="campo20" />
+				<button class="boton btnExito" onclick="potenciaActiva(1)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado10" />
+			</div>
+			<div id="potencia2">
+				<h3>Fórmula 2</h3>
+				<input type="text" class="mitad" placeholder="Intensidad" id="campo21" />
+				<input type="text" class="mitad" placeholder="Resistencia" id="campo22" />
+				<button class="boton btnExito" onclick="potenciaActiva(2)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado11" /></div>
+			<div id="potencia3">
+				<h3>Fórmula 3</h3>
+				<input type="text" class="mitad" placeholder="Tensión" id="campo23" />
+				<input type="text" class="mitad" placeholder="Intensidad" id="campo24" />
+				<button class="boton btnExito" onclick="potenciaActiva(3)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado12" />
+			</div>
+		</article>
+	</section>
+	<section style="display:none" id="monofasicaAlterna">
+		<article>
+			<h2>Cálculos de Tensión</h2>
+			<div>
+				<h3>Fórmula 1</h3>
+				<input type="text" class="mitad" placeholder="Resistencia" id="campo25" />
+				<input type="text" class="mitad" placeholder="Intensidad" id="campo26" />
+				<input type="text" class="completo" placeholder="Cos φ" id="campo27" />
+				<button class="boton btnExito" onclick="tension(4)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado13" />
+			</div>
+			<div>
+				<h3>Fórmula 2</h3>
+				<input type="text" class="mitad" placeholder="Potencia Activa" id="campo28" />
+				<input type="text" class="mitad" placeholder="Intensidad" id="campo29" />
+				<input type="text" class="completo" placeholder="Cos φ" id="campo30" />
+				<button class="boton btnExito" onclick="tension(5)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado14" />
+			</div>
+			<div>
+				<h3>Fórmula 3</h3>
+				<input type="text" class="mitad" placeholder="Potencia Aparente" id="campo31" />
+				<input type="text" class="mitad" placeholder="Intensidad" id="campo32" />
+				<button class="boton btnExito" onclick="tension(6)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado15" />
+			</div>
+		</article>
+		<article>
+			<h2>Cálculos de Resistencia</h2>
+			<div>
+				<h3>Fórmula 1</h3>
+				<input type="text" class="mitad" id="campo33" placeholder="Tensión" />
+				<input type="text" class="mitad" id="campo34" placeholder="Cos φ" />
+				<input type="text" class="completo" id="campo35" placeholder="Intensidad" />
+				<button class="boton btnExito" onclick="resistencia(4)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado16" />
+			</div>
+			<div>
+				<h3>Fórmula 2</h3>
+				<input type="text" class="mitad" id="campo36" placeholder="Tensión" />
+				<input type="text" class="mitad" id="campo37" placeholder="Cos φ" />
+				<input type="text" class="completo" id="campo38" placeholder="Potencia Activa" />
+				<button class="boton btnExito" onclick="resistencia(5)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado17" />
+			</div>
+			<div>
+				<h3>Fórmula 3</h3>
+				<input type="text" class="mitad" id="campo39" placeholder="Potencia Aparente" />
+				<input type="text" class="mitad" id="campo40" placeholder="Cos φ" />
+				<input type="text" class="completo" id="campo41" placeholder="Intensidad" />
+				<button class="boton btnExito" onclick="resistencia(6)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado18" />
+			</div>
+		</article>
+		<article>
+			<h2>Cálculos de Intensidad</h2>
+			<div>
+				<h3>Fórmula 1</h3>
+				<input type="text" class="mitad" id="campo42" placeholder="Potencia Aparente" />
+				<input type="text" class="mitad" id="campo43" placeholder="Tensión" />
+				<button class="boton btnExito" onclick="intensidad(4)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado19" />
+			</div>
+			<div>
+				<h3>Fórmula 2</h3>
+				<input type="text" class="mitad" id="campo44" placeholder="Potencia Activa" />
+				<input type="text" class="mitad" id="campo45" placeholder="Tensión" />
+				<input type="text" class="completo" id="campo46" placeholder="Cos φ" />
+				<button class="boton btnExito" onclick="intensidad(5)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado20" />
+			</div>
+			<div>
+				<h3>Fórmula 3</h3>
+				<input type="text" class="mitad" id="campo47" placeholder="Tensión" />
+				<input type="text" class="mitad" id="campo48" placeholder="Cos φ" />
+				<input type="text" class="completo" id="campo49" placeholder="Resistencia" />
+				<button class="boton btnExito" onclick="intensidad(6)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado21" />
+			</div>
+		</article>
+		<article>
+			<h2>Cálculos de Potencia Activa</h2>
+			<div>
+				<h3>Fórmula 1</h3>
+				<input type="text" class="mitad" id="campo50" placeholder="Potencia Aparente" />
+				<input type="text" class="mitad" id="campo51" placeholder="Cos φ" />
+				<button class="boton btnExito" onclick="potenciaActiva(4)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado22" />
+			</div>
+			<div>
+				<h3>Fórmula 2</h3>
+				<input type="text" class="mitad" id="campo52" placeholder="Tensión" />
+				<input type="text" class="mitad" id="campo53" placeholder="Cos φ" />
+				<input type="text" class="completo" id="campo54" placeholder="Resitencia" />
+				<button class="boton btnExito" onclick="potenciaActiva(5)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado23" />
+			</div>
+			<div>
+				<h3>Fórmula 3</h3>
+				<input type="text" class="mitad" id="campo55" placeholder="Tensión" />
+				<input type="text" class="mitad" id="campo56" placeholder="Intensidad" />
+				<input type="text" class="completo" id="campo57" placeholder="Cos φ" />
+				<button class="boton btnExito" onclick="potenciaActiva(6)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado24" />
+			</div>
+		</article>
+		<article>
+			<h2>Cálculos de Potencia Aparente</h2>
+			<div>
+				<h3>Fórmula 1</h3>
+				<input type="text" class="mitad" id="campo58" placeholder="Potencia Activa" />
+				<input type="text" class="mitad" id="campo59" placeholder="Cos φ" />
+				<button class="boton btnExito" onclick="potenciaAparente(1)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado25" />
+			</div>
+			<div>
+				<h3>Fórmula 2</h3>
+				<input type="text" class="mitad" id="campo60" placeholder="Tensión" />
+				<input type="text" class="mitad" id="campo61" placeholder="Intensidad" />
+				<button class="boton btnExito" onclick="potenciaAparente(2)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado26" />
+			</div>
+			<div>
+				<h3>Fórmula 3</h3>
+				<input type="text" class="mitad" id="campo62" placeholder="Intensidad" />
+				<input type="text" class="mitad" id="campo63" placeholder="Resistencia" />
+				<input type="text" class="completo" id="campo64" placeholder="Cos φ" />
+				<button class="boton btnExito" onclick="potenciaAparente(3)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado27" />
+			</div>
+		</article>
+		<article>
+			<h2>Cálculos de Cos de Phi</h2>
+			<div>
+				<h3>Fórmula 1</h3>
+				<input type="text" class="mitad" id="campo65" placeholder="Potencia Activa" />
+				<input type="text" class="mitad" id="campo66" placeholder="Tensión" />
+				<input type="text" class="completo" id="campo67" placeholder="Intensidad" />
+				<button class="boton btnExito" onclick="cosPhi(1)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado28" />
+			</div>
+			<div>
+				<h3>Fórmula 2</h3>
+				<input type="text" class="mitad" id="campo68" placeholder="Potencia Activa" />
+				<input type="text" class="mitad" id="campo69" placeholder="Potencia Aparente" />
+				<button class="boton btnExito" onclick="cosPhi(2)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado29" />
+			</div>
+			<div>
+				<h3>Fórmula 3</h3>
+				<input type="text" class="mitad" id="campo70" placeholder="Intensidad" />
+				<input type="text" class="mitad" id="campo71" placeholder="Resistencia" />
+				<input type="text" class="completo" id="campo72" placeholder="Potencia Aparente" />
+				<button class="boton btnExito" onclick="cosPhi(3)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado30" />
+			</div>
+		</article>
+	</section>
+	<section style="display:none" id="trifasica">
+		<article>
+			<h2>Cálculos de Tensión</h2>
+			<div>
+				<h3>Fórmula 1</h3>
+				<input type="text" class="mitad" id="campo73" placeholder="Potencia" />
+				<input type="text" class="mitad" id="campo74" placeholder="Resitencia" />
+				<button class="boton btnExito" onclick="tension(7)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado31" />
+			</div>
+			<div>
+				<h3>Fórmula 2</h3>
+				<input type="text" class="mitad" id="campo75" placeholder="Potencia" />
+				<input type="text" class="mitad" id="campo76" placeholder="Intensidad" />
+				<button class="boton btnExito" onclick="tension(8)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado32" />
+			</div>
+			<div>
+				<h3>Fórmula 3</h3>
+				<input type="text" class="mitad" id="campo77" placeholder="Intensidad" />
+				<input type="text" class="mitad" id="campo78" placeholder="Resistencia" />
+				<button class="boton btnExito" onclick="tension(9)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado33" />
+			</div>
+		</article>
+		<article>
+			<h2>Cálculos de Resistencia</h2>
+			<div>
+				<h3>Fórmula 1</h3>
+				<input type="text" class="mitad" id="campo79" placeholder="Potencia" />
+				<input type="text" class="mitad" id="campo80" placeholder="Intensidad" />
+				<button class="boton btnExito" onclick="resistencia(7)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado34" />
+			</div>
+			<div>
+				<h3>Fórmula 2</h3>
+				<input type="text" class="mitad" id="campo81" placeholder="Tensión" />
+				<input type="text" class="mitad" id="campo82" placeholder="Potencia" />
+				<button class="boton btnExito" onclick="resistencia(8)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado35" />
+			</div>
+			<div>
+				<h3>Fórmula 3</h3>
+				<input type="text" class="mitad" id="campo83" placeholder="Tensión" />
+				<input type="text" class="mitad" id="campo84" placeholder="Intensidad" />
+				<button class="boton btnExito" onclick="resistencia(9)">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado36" />
+			</div>
+		</article>
+		<article>
+			<h2>Cálculos de Intensidad</h2>
+			<div>
+				<h3>Fórmula 1</h3>
+				<input type="text" class="mitad" id="campo" placeholder="" />
+				<input type="text" class="mitad" id="campo" placeholder="" />
+				<button class="boton btnExito" onclick="">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado37" />
+			</div>
+			<div>
+				<h3>Fórmula 2</h3>
+				<input type="text" class="mitad" id="campo" placeholder="" />
+				<input type="text" class="mitad" id="campo" placeholder="" />
+				<button class="boton btnExito" onclick="">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado38" />
+			</div>
+			<div>
+				<h3>Fórmula 3</h3>
+				<input type="text" class="mitad" id="campo" placeholder="" />
+				<input type="text" class="mitad" id="campo" placeholder="" />
+				<button class="boton btnExito" onclick="">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado39" />
+			</div>
+		</article>
+		<article>
+			<h2>Cálculos de Potencia</h2>
+			<div>
+				<h3>Fórmula 1</h3>
+				<input type="text" class="mitad" id="campo" placeholder="" />
+				<input type="text" class="mitad" id="campo" placeholder="" />
+				<button class="boton btnExito" onclick="">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado40" />
+			</div>
+			<div>
+				<h3>Fórmula 2</h3>
+				<input type="text" class="mitad" id="campo" placeholder="" />
+				<input type="text" class="mitad" id="campo" placeholder="" />
+				<button class="boton btnExito" onclick="">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado41" />
+			</div>
+			<div>
+				<h3>Fórmula 3</h3>
+				<input type="text" class="mitad" id="campo" placeholder="" />
+				<input type="text" class="mitad" id="campo" placeholder="" />
+				<button class="boton btnExito" onclick="">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resultado42" />
+			</div>
+		</article>
+	</section>
+	<footer>
+		<p>Desarrollado por <a href="//twitter.com/sergiodxa" class="icon-twitter">sergiodxa</a></p>
+	</footer>
+	<div id="shadow" onclick="shadowClick()" style="display:none"></div>
+	<script src="//code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
