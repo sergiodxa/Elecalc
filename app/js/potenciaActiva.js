@@ -11,7 +11,7 @@ var potenciaActivaMonoContinua = function() {
 	}
 	// fórmula 2
 	else if (resistencia && intensidad) {
-		resultado.val(Math.pow(intensidad,2) / resistencia + 'W');
+		resultado.val(Math.pow(intensidad,2) * resistencia + 'W');
 	}
 	// fórmula 3
 	else if (tension && intensidad) {

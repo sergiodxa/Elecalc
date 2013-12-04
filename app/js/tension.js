@@ -6,7 +6,7 @@ var tensionMonoContinua = function() {
 		resultado = $('#tensionMonoContinua_resultado'); // obtenemos el campo de resultado
 	// fórmula 1
 	if (potencia && resistencia) {
-		resultado.val(Math.sqrt(potencia + resistencia) + 'V');
+		resultado.val(Math.sqrt(potencia * resistencia) + 'V');
 	}
 	// fórmula 2
 	else if (potencia && intensidad) {
