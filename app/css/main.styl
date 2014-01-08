@@ -145,26 +145,24 @@ section
 		padding 0
 		text-align center
 	label
+		border-bottom 1px solid gris
 		boxSizing()
+		cursor pointer
 		display block
 		font-size 0
+		margin 0
+		padding .5rem 0
 		width 100%
-		select
+		input
+			display none
 		span
-			boxSizing()
 			display inline-block
 			font-size fontSize
-			margin .25em 1%
-			padding .5em .125em
-			width 68%
-		select
-			background blanco
-			border 1px solid gris
-		span
-			border-right 1px solid gris
-			width 28%
+			padding .25em
+		&.activo
+			background amarillo
 	.boton
-		margin-bottom .25em
+		margin .5em auto .25em
 	.icon-close
 	.icon-github
 		background blanco
@@ -327,11 +325,6 @@ section
 		left 2.5%
 		right 2.5%
 		top 2.5%
-		label
-			margin .5rem 0
-			select
-			span
-				width 48%
 
 // animaciones
 @keyframes rotar

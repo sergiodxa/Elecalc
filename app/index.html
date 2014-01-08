@@ -20,23 +20,21 @@
 		<a href="//www.github.com/sergiodxa/Elecalc/" class="icon-github" title="Ver código en respositorio"></a>
 		<h2>Configuración</h2>
 		<button class="icon-close" onclick="showHideConfig()"></button>
-		<label for="fases">
-			<span>Circuito:</span>
-			<select name="fases" id="fases">
-				<option value="1">Monofásico</option>
-				<option value="2">Trifásico</option>
-			</select>
+		<label for="continua">
+			<span>Corriente contínua</span>
+			<input name="seccion" id="continua" type="radio" value="continua" />
 		</label>
-		<label for="corriente">
-			<span>Tipo de corriente:</span>
-			<select name="corriente" id="corriente">
-				<option value="1">Contínua</option>
-				<option value="2">Alterna</option>
-			</select>
+		<label for="alterna">
+			<span>Corriente alterna</span>
+			<input name="seccion" id="alterna" type="radio" value="alterna" />
+		</label>
+		<label for="trifasica">
+			<span>Trifásico</span>
+			<input name="seccion" id="trifasica" type="radio" value="trifasica" />
 		</label>
 		<button onclick="guardarConfig()" class="boton btnExito">Guardar</button>
 	</aside>
-	<section style="display:none" id="monofasicaContinua">
+	<section style="display:none" id="seccionContinua">
 		<article>
 			<h2>Cálculos de Tensión</h2>
 			<div class="calculos">
@@ -98,7 +96,7 @@
 			</div>
 		</article>
 	</section>
-	<section style="display:none" id="monofasicaAlterna">
+	<section style="display:none" id="seccionAlterna">
 		<article>
 			<h2>Cálculos de Tensión</h2>
 			<div class="calculos">
@@ -202,7 +200,7 @@
 			</div>
 		</article>
 	</section>
-	<section style="display:none" id="trifasica">
+	<section style="display:none" id="seccionTrifasica">
 		<article>
 			<h2>Cálculos de Tensión</h2>
 			<div>

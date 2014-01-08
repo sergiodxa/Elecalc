@@ -2,11 +2,12 @@
 
 $(document).on('ready', function() {
 	if ($('html').hasClass('localstorage')) {
-		if (!localStorage.fases) {
-			localStorage.fases = '1';
+		if (!localStorage.seccion) {
+			localStorage.seccion = 'continua';
 		}
-		if (!localStorage.corriente) {
-			localStorage.corriente = '1';
+		else {
+			$('#'+localStorage.seccion).prop('checked', true);
+			$('#'+localStorage.seccion).parent().addClass('activo');
 		}
 		if (localStorage.nota == 'oculta') {
 			$('.nota').hide();
@@ -54,43 +55,36 @@ var shadowClick = function() {
 };
 
 var guardarConfig = function() {
-	var fases = $('#fases'),
-		corriente = $('#corriente');
-	localStorage.fases = fases.find(':selected').val();
-	localStorage.corriente = corriente.find(':selected').val();
+	var seccion = $('input[name=seccion]:checked').val();
+	localStorage.seccion = seccion;
 	showHideConfig();
 	cambiarConfig();
 };
 
 var cambiarConfig = function() {
-	var monofasicaContinua = $('#monofasicaContinua'),
-		monofasicaAlterna = $('#monofasicaAlterna'),
-		trifasica = $('#trifasica');
-	if (localStorage.fases == 1 && localStorage.corriente == 1) {
-		monofasicaContinua.show();
-		monofasicaAlterna.hide();
+	var continua = $('#seccionContinua'),
+		alterna = $('#seccionAlterna'),
+		trifasica = $('#seccionTrifasica');
+	if (localStorage.seccion == 'continua') {
+		continua.show();
+		alterna.hide();
 		trifasica.hide();
 	}
-	else if (localStorage.fases == 1 && localStorage.corriente == 2) {
-		monofasicaContinua.hide();
-		monofasicaAlterna.show();
+	else if (localStorage.seccion == 'alterna') {
+		continua.hide();
+		alterna.show();
 		trifasica.hide();
 	}
-	else if (localStorage.fases == 2) {
-		monofasicaContinua.hide();
-		monofasicaAlterna.hide();
+	else if (localStorage.seccion == 'trifasica') {
+		continua.hide();
+		alterna.hide();
 		trifasica.show();
 	}
 };
 
-$('#fases').on('change', function() {
-	var fases = $('#fases').find(':selected').val();
-	if (fases == 2) {
-		$('label[for="corriente"]').fadeOut();
-	}
-	else {
-		$('label[for="corriente"]').fadeIn();
-	}
+$('input[name=seccion]').on('click', function() {
+	$('input[name=seccion]').parent().removeClass('activo');
+	$(this).parent().addClass('activo');
 })
 
 var raiz3 = Math.sqrt(3); // raíz cuadrada de tres para corriente trifásica

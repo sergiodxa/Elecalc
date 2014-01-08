@@ -24,11 +24,11 @@ section article h2:before{content:"\e604";font-family:'iconFont';font-size:.75em
 ::-webkit-scrollbar{display:none}
 #config{background:#fdfdfd;bottom:10%;color:#101010;left:30%;overflow-y:auto;position:fixed;right:30%;top:10%;z-index:3;}
 #config h2{border-bottom:1px solid #c0c0c0;color:#101010;line-height:62px;margin:0;padding:0;text-align:center}
-#config label{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:block;font-size:0;width:100%;}
-#config label select,#config label span{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:inline-block;font-size:16px;margin:.25em 1%;padding:.5em .125em;width:68%}
-#config label select{background:#fdfdfd;border:1px solid #c0c0c0}
-#config label span{border-right:1px solid #c0c0c0;width:28%}
-#config .boton{margin-bottom:.25em}
+#config label{border-bottom:1px solid #c0c0c0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;cursor:pointer;display:block;font-size:0;margin:0;padding:.5rem 0;width:100%;}
+#config label input{display:none}
+#config label span{display:inline-block;font-size:16px;padding:.25em}
+#config label.activo{background:#fbab3b}
+#config .boton{margin:.5em auto .25em}
 #config .icon-close,#config .icon-github{background:#fdfdfd;border:1px solid #c0c0c0;-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;color:#101010;cursor:pointer;font-size:1.25em;padding:.5em;position:absolute;-webkit-transition:all .125s ease;-moz-transition:all .125s ease;-ms-transition:all .125s ease;-o-transition:all .125s ease;transition:all .125s ease;top:.5em}
 #config .icon-close{right:.5em;}
 #config .icon-close:active{color:#d00}
@@ -59,9 +59,7 @@ section article h2:before{content:"\e604";font-family:'iconFont';font-size:.75em
 .nota{background:#fbab3b;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;color:#101010;display:block;font-size:14px;line-height:2em;margin:.5em 10%;padding:.5em .25em;position:relative;text-align:center;width:80%;}
 .nota .icon-close{background:#d00;border:0;-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;color:#fdfdfd;cursor:pointer;font-size:.75em;padding:.5em;position:absolute;right:-.5em;top:-.5em;-webkit-transition:all .125s ease;-moz-transition:all .125s ease;-ms-transition:all .125s ease;-o-transition:all .125s ease;transition:all .125s ease;}
 .nota .icon-close:active{font-size:16px;right:-.75em;top:-.75em}
-@media screen and (max-width: 640px){#config{bottom:2.5%;left:2.5%;right:2.5%;top:2.5%;}
-#config label{margin:.5rem 0;}
-#config label select,#config label span{width:48%}
+@media screen and (max-width: 640px){#config{bottom:2.5%;left:2.5%;right:2.5%;top:2.5%}
 }@-moz-keyframes rotar{0%{-webkit-transform:rotate(0);-moz-transform:rotate(0);-ms-transform:rotate(0);-o-transform:rotate(0);transform:rotate(0)}
 100%{-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-ms-transform:rotate(360deg);-o-transform:rotate(360deg);transform:rotate(360deg)}
 }@-webkit-keyframes rotar{0%{-webkit-transform:rotate(0);-moz-transform:rotate(0);-ms-transform:rotate(0);-o-transform:rotate(0);transform:rotate(0)}
