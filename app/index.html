@@ -16,7 +16,7 @@
 		<h1>Elecalc</h1>
 		<button class="icon-config" onclick="showHideConfig()" title="Configuración"></button>
 	</header>
-	<aside id="config" style="display:none">
+	<aside id="config">
 		<a href="//www.github.com/sergiodxa/Elecalc/" class="icon-github" title="Ver código en respositorio"></a>
 		<h2>Configuración</h2>
 		<button class="icon-close" onclick="showHideConfig()"></button>
@@ -301,7 +301,7 @@
 	<footer>
 		<p>Desarrollado por <a href="//twitter.com/sergiodxa" class="icon-twitter">sergiodxa</a></p>
 	</footer>
-	<div id="shadow" onclick="shadowClick()" style="display:none"></div>
+	<div id="shadow" onclick="shadowClick()"></div>
 	<div id="navegadorAntiguo">
 		<h2>Esta app requiere un navegador moderno para funcionar.</h2>
 	</div>
@@ -309,7 +309,7 @@
 	<!--[if lt IE 9]>
 		<script src="/vendor/html5shiv.js"></script>
 	<![endif]-->
-	<script src="vendor/jquery.min.js"></script>
+	<script src="vendor/zepto.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/tension.js"></script>
 	<script src="js/resistencia.js"></script>

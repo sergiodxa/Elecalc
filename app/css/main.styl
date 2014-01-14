@@ -1,5 +1,5 @@
 // imports
-@import 'mixinSDX.styl'
+@import 'nib'
 
 // fuentes
 @import url('http://fonts.googleapis.com/css?family=Droid+Sans')
@@ -14,17 +14,18 @@
 	font-style normal
 
 // variables
-amarillo	= #FBAB3B
-azul		= #1E90FF
-blanco		= #FDFDFD
-fontFamily	= 'Droid Sans', sans-serif
-fontSize	= 16px
-gris		= #C0C0C0
-naranja		= #f17432
-negro		= #101010
-rojo		= #DD0000
-verde		= #00AA00
-violeta		= #7B68EE
+amarillo		= #FBAB3B
+azul			= #1E90FF
+blanco			= #FDFDFD
+fontFamily		= 'Droid Sans', sans-serif
+fontSize		= 16px
+gris			= #C0C0C0
+naranja			= #f17432
+negro			= #101010
+rojo			= #DD0000
+vendor-prefixes	= o ms moz webkit official
+verde			= #00AA00
+violeta			= #7B68EE
 
 // mixins
 
@@ -76,7 +77,7 @@ header
 	.icon-config
 		background blanco
 		border 0
-		borderRadius(1em)
+		border-radius 1em 
 		color negro
 		cursor pointer
 		font-size 1.5em
@@ -85,7 +86,7 @@ header
 		right .5em
 		top .5em
 		&:hover
-			animation(rotar 2.25s linear 0s infinite)
+			animation rotar 2.25s linear 0s infinite
 input:-ms-input-placeholder
 	color negro
 input::-webkit-input-placeholder
@@ -95,18 +96,14 @@ input:-moz-placeholder
 input::-moz-placeholder
 	color negro
 section
-	bottom fontSize*2.5
-	boxSizing()
+	box-sizing border-box
 	font-size 0
-	left 0
 	overflow-y auto
-	position fixed
-	right 0
-	top fontSize*3.75
+	fixed bottom 40px left right top 60px
 	article
 		background blanco
 		border-bottom 1px solid gris
-		boxSizing()
+		box-sizing border-box
 		margin 0
 		overflow hidden
 		padding 0 .25rem
@@ -129,14 +126,16 @@ section
 // ids
 #config
 	background blanco
-	bottom 10%
 	color negro
-	left 30%
+	display none
+	fixed bottom 10% left 30% right 30% top 10%
+	opacity 0
 	overflow-y auto
-	position fixed
-	right 30%
-	top 10%
+	transition .5s all
 	z-index 3
+	&.activo
+		display block
+		opacity 1
 	h2
 		border-bottom 1px solid gris
 		color negro
@@ -146,7 +145,7 @@ section
 		text-align center
 	label
 		border-bottom 1px solid gris
-		boxSizing()
+		box-sizing border-box
 		cursor pointer
 		display block
 		font-size 0
@@ -167,14 +166,14 @@ section
 	.icon-github
 		background blanco
 		border 1px solid gris
-		borderRadius(50%)
+		border-radius 50%
 		color negro
 		cursor pointer
 		font-size 1.25em
 		padding .5em
 		position absolute
-		transition(all .125s ease)
 		top .5em
+		transition all .125s ease
 	.icon-close
 		right .5em
 		&:active
@@ -188,15 +187,18 @@ section
 	background blanco
 	color negro
 	display none
-	fixed(0,0,0,0)
+	fixed 0
 #shadow
 	background rgba(negro,.75)
-	bottom 0
-	left 0
+	display none
+	opacity 0
 	position fixed
-	right 0
-	top 0
+	fixed bottom left right top
+	transition .5s all
 	z-index 2
+	&.activo
+		display block
+		opacity 1
 
 // clases
 [class^="icon-"]
@@ -217,33 +219,33 @@ section
 	display block
 	line-height 2em
 	margin 0 auto
-	transition(all .25s ease)
+	transition all .25s ease
 	width 70%
 	&.btnAdvertencia
 		background amarillo
 		color negro
 		&:hover
-			boxShadow(0 0 .25em amarillo)
+			box-shadow 0 0 .25em amarillo
 	&.btnExito
 		background verde
 		&:hover
-			boxShadow(0 0 .25em verde)
+			box-shadow 0 0 .25em verde
 	&.btnPeligro
 		background rojo
 		&:hover
-			boxShadow(0 0 .25em rojo)
+			box-shadow 0 0 .25em rojo
 .calculos
 	background blanco
-	boxSizing()
-	fixed(fontSize*2.5,100%,-100%,fontSize*3.75)
+	box-sizing border-box
+	fixed bottom 40px left 100% right -100% top 60px
 	font-size 0
 	margin 0
 	overflow-y auto
 	padding 0 .25rem
-	transition(all .25s ease)
+	transition all .25s ease
 	z-index 2
 	&.activo
-		fixed(fontSize*2.5,0,0,fontSize*3.75)
+		fixed left right
 	button
 	input
 		font-size 1rem
@@ -262,7 +264,7 @@ section
 .mitad
 	background blanco
 	border 1px solid gris
-	boxSizing()
+	box-sizing border-box
 	color negro
 	margin .5em 1%
 	padding .5em .25em
@@ -284,7 +286,7 @@ section
 	width 48%
 .nota
 	background amarillo
-	boxSizing()
+	box-sizing border-box
 	color negro
 	display block
 	font-size 14px
@@ -297,19 +299,18 @@ section
 	.icon-close
 		background rojo
 		border 0
-		borderRadius(50%)
+		border-radius 50%
 		color blanco
 		cursor pointer
 		font-size .75em
 		padding .5em
-		position absolute
-		right -.5em
-		top -.5em
-		transition(all .125s ease)
+		absolute right -.5em top -.5em
+		transition all .125s ease
 		&:active
 			font-size fontSize
 			right -.75em
 			top -.75em
+			absolute right -.75em top -.75em
 
 // desktop
 
@@ -321,10 +322,7 @@ section
 
 	// ids
 	#config
-		bottom 2.5%
-		left 2.5%
-		right 2.5%
-		top 2.5%
+		fixed bottom 2.5% left 2.5% right 2.5% top 2.5%
 
 // animaciones
 @keyframes rotar

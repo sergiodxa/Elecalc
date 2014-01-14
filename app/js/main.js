@@ -10,12 +10,12 @@ $(document).on('ready', function() {
 			$('#'+localStorage.seccion).parent().addClass('activo');
 		}
 		if (localStorage.nota == 'oculta') {
-			$('.nota').hide();
+			$('.nota').css('display','none');
 		}
 		cambiarConfig();
 	}
 	else {
-		$('#navegadorAntiguo').show();
+		$('#navegadorAntiguo').css('display','block');
 	}
 });
 
@@ -36,22 +36,22 @@ $('.calculos h3').on('click', function() {
 });
 
 var cerrarNota = function() {
-	$('.nota').fadeOut();
+	$('.nota').css('display','none');
 	localStorage.nota = 'oculta';
 };
 
 var showHideConfig = function() {
 	var shadow = $('#shadow'),
 		config = $('#config');
-	config.fadeToggle();
-	shadow.fadeToggle();
+	config.toggleClass('activo');
+	shadow.toggleClass('activo');
 };
 
 var shadowClick = function() {
 	var shadow = $('#shadow'),
 		config = $('#config');
-	config.fadeOut();
-	shadow.fadeOut();
+	config.removeClass('activo');
+	shadow.removeClass('activo');
 };
 
 var guardarConfig = function() {
