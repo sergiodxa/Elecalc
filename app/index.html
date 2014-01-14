@@ -7,7 +7,6 @@
 	<meta name="description" content="Realiza cálculos de electricidad facilmente" />
 	<title>Elecalc</title>
 	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0" />
-	<link rel="stylesheet" href="vendor/normalize.min.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="css/main.css" type="text/css" media="screen" />
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
@@ -305,14 +304,11 @@
 	<div id="navegadorAntiguo">
 		<h2>Esta app requiere un navegador moderno para funcionar.</h2>
 	</div>
-	<script src="vendor/modernizr.min.js"></script>
-	<!--[if lt IE 9]>
-		<script src="/vendor/html5shiv.js"></script>
-	<![endif]-->
-	<script src="vendor/zepto.min.js"></script>
 	<script>
 		var env = 'prod';
 		if (env == 'dev') {
+			document.write('<script src="vendor\/modernizr.min.js"><\/script>');
+			document.write('<script src="vendor\/zepto.min.js"><\/script>');
 			document.write('<script src="js\/main.js"><\/script>');
 			document.write('<script src="js\/tension.js"><\/script>');
 			document.write('<script src="js\/resistencia.js"><\/script>');
