@@ -310,12 +310,20 @@
 		<script src="/vendor/html5shiv.js"></script>
 	<![endif]-->
 	<script src="vendor/zepto.min.js"></script>
-	<script src="js/main.js"></script>
-	<script src="js/tension.js"></script>
-	<script src="js/resistencia.js"></script>
-	<script src="js/intensidad.js"></script>
-	<script src="js/potenciaActiva.js"></script>
-	<script src="js/potenciaAparente.js"></script>
-	<script src="js/cosPhi.js"></script>
+	<script>
+		var env = 'prod';
+		if (env == 'dev') {
+			document.write('<script src="js\/main.js"><\/script>');
+			document.write('<script src="js\/tension.js"><\/script>');
+			document.write('<script src="js\/resistencia.js"><\/script>');
+			document.write('<script src="js\/intensidad.js"><\/script>');
+			document.write('<script src="js\/potenciaActiva.js"><\/script>');
+			document.write('<script src="js\/potenciaAparente.js"><\/script>');
+			document.write('<script src="js\/cosPhi.js"><\/script>');
+		}
+		else if (env == 'prod') {
+			document.write('<script src="js\/main.min.js"><\/script>');
+		}
+	</script>
 </body>
 </html>
