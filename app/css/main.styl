@@ -15,23 +15,18 @@
 
 // variables
 amarillo		= #FBAB3B
-azul			= #1E90FF
 blanco			= #FDFDFD
-fontFamily		= 'Droid Sans', sans-serif
-fontSize		= 16px
+fs				= 16px
 gris			= #C0C0C0
-naranja			= #f17432
 negro			= #101010
 rojo			= #DD0000
 vendor-prefixes	= o ms moz webkit official
 verde			= #00AA00
 violeta			= #7B68EE
 
-// mixins
-
 // etiquetas
 a
-	color azul
+	color #1E90FF
 	text-decoration none
 	&:visited
 		color violeta
@@ -40,9 +35,29 @@ a
 	&:active
 		color violeta
 		text-decoration underline
+article
+	background blanco
+	border-bottom 1px solid gris
+	box-sizing border-box
+	margin 0
+	overflow hidden
+	padding 0 .25rem
+	vertical-align top
+	width 100%
+	h2
+		cursor pointer
+		font-size 1.25rem
+		line-height 40px
+		margin 0
+		padding 0
+		&:before
+			content "\e604"
+			font-family 'iconFont'
+			font-size .75em
+			padding 0 .5em 0 0
 body
-	font-family fontFamily
-	font-size fontSize
+	font-family 'Droid Sans', sans-serif
+	font-size fs
 button:focus
 	outline 0
 footer
@@ -53,20 +68,25 @@ footer
 	position fixed
 	right 0
 	text-align center
-	p
-		line-height 2.5em
-		margin 0
-		padding 0
-		a
-			color #00ACED !important
 h1
-	color naranja
+	color #f17432
 	font-size 1.5em
 	font-style italic
 	line-height 2.5em
 	margin 0
 	padding 0
 	text-align center
+h3
+	cursor pointer
+	font-size 1.25rem
+	line-height 40px
+	margin 0
+	padding 0
+	&:before
+		content "\e605"
+		font-family 'iconFont'
+		font-size .75em
+		padding 0 .5em 0 0
 header
 	background negro
 	color blanco
@@ -74,19 +94,6 @@ header
 	position fixed
 	right 0
 	top 0
-	.icon-config
-		background blanco
-		border 0
-		border-radius 1em 
-		color negro
-		cursor pointer
-		font-size 1.5em
-		padding .25em
-		position absolute
-		right .5em
-		top .5em
-		&:hover
-			animation rotar 2.25s linear 0s infinite
 input:-ms-input-placeholder
 	color negro
 input::-webkit-input-placeholder
@@ -95,35 +102,63 @@ input:-moz-placeholder
 	color negro
 input::-moz-placeholder
 	color negro
+input[type="radio"]
+	display none
+label
+	border-bottom 1px solid gris
+	box-sizing border-box
+	cursor pointer
+	display block
+	font-size 0
+	margin 0
+	padding .5rem 0
+	width 100%
+	&.activo
+		background amarillo
+p
+	line-height 2.5em
+	margin 0
+	padding 0
+	a
+		color #00ACED
 section
 	box-sizing border-box
 	font-size 0
 	overflow-y auto
 	fixed bottom 40px left right top 60px
-	article
-		background blanco
-		border-bottom 1px solid gris
-		box-sizing border-box
-		margin 0
-		overflow hidden
-		padding 0 .25rem
-		vertical-align top
-		width 100%
-		h2
-			cursor pointer
-			font-size 1.25rem
-			line-height 40px
-			margin 0
-			padding 0
-			&:before
-				content "\e604"
-				font-family 'iconFont'
-				font-size .75em
-				padding 0 .5em 0 0
+span
+	display inline-block
+	font-size fs
+	padding .25em
 ::-webkit-scrollbar
 	display none
 
 // ids
+#btnGuardar
+	margin .5em auto .25em
+#cerrarConfig
+.cerrarNota
+.icon-github
+	border-radius 50%
+	cursor pointer
+	padding .5em
+	transition all .125s ease
+#cerrarConfig
+.icon-github
+	background blanco
+	border 1px solid gris
+	border-radius 50%
+	color negro
+	cursor pointer
+	font-size 1.25em
+	padding .5em
+	position absolute
+	top .5em
+	transition all .125s ease
+#cerrarConfig
+	right .5em
+	&:active
+		color rojo
 #config
 	background blanco
 	color negro
@@ -143,46 +178,6 @@ section
 		margin 0
 		padding 0
 		text-align center
-	label
-		border-bottom 1px solid gris
-		box-sizing border-box
-		cursor pointer
-		display block
-		font-size 0
-		margin 0
-		padding .5rem 0
-		width 100%
-		input
-			display none
-		span
-			display inline-block
-			font-size fontSize
-			padding .25em
-		&.activo
-			background amarillo
-	.boton
-		margin .5em auto .25em
-	.icon-close
-	.icon-github
-		background blanco
-		border 1px solid gris
-		border-radius 50%
-		color negro
-		cursor pointer
-		font-size 1.25em
-		padding .5em
-		position absolute
-		top .5em
-		transition all .125s ease
-	.icon-close
-		right .5em
-		&:active
-			color rojo
-	.icon-github
-		left .5em
-		text-decoration none
-		&:active
-			color #4183C4
 #navegadorAntiguo
 	background blanco
 	color negro
@@ -201,6 +196,16 @@ section
 		opacity 1
 
 // clases
+[class^="btn"]
+[class*=" btn"]
+	background negro
+	border 0
+	color blanco
+	display block
+	line-height 2em
+	margin 0 auto
+	transition all .25s ease
+	width 70%
 [class^="icon-"]
 [class*=" icon-"]
 	font-family 'iconFont'
@@ -212,28 +217,10 @@ section
 	line-height 1
 	speak none
 	text-transform none
-.boton
-	background negro
-	border 0
-	color blanco
-	display block
-	line-height 2em
-	margin 0 auto
-	transition all .25s ease
-	width 70%
-	&.btnAdvertencia
-		background amarillo
-		color negro
-		&:hover
-			box-shadow 0 0 .25em amarillo
-	&.btnExito
-		background verde
-		&:hover
-			box-shadow 0 0 .25em verde
-	&.btnPeligro
-		background rojo
-		&:hover
-			box-shadow 0 0 .25em rojo
+.btnExito
+	background verde
+	&:hover
+		box-shadow 0 0 .25em verde
 .calculos
 	background blanco
 	box-sizing border-box
@@ -249,17 +236,17 @@ section
 	button
 	input
 		font-size 1rem
-	h3
-		cursor pointer
-		font-size 1.25rem
-		line-height 40px
-		margin 0
-		padding 0
-		&:before
-			content "\e605"
-			font-family 'iconFont'
-			font-size .75em
-			padding 0 .5em 0 0
+.cerrarNota
+	background rojo
+	border 0
+	color blanco
+	font-size .75em
+	absolute right -.5em top -.5em
+	&:active
+		font-size fs
+		right -.75em
+		top -.75em
+		absolute right -.75em top -.75em
 .completo
 .mitad
 	background blanco
@@ -272,12 +259,31 @@ section
 .completo
 	display block
 	width 98%
-.icon-close:before
-	content "\e601"
-.icon-config:before
-	content "\e600"
-.icon-github:before
-	content "\e602"
+.icon-close
+	&:before
+		content "\e601"
+.icon-config
+	background blanco
+	border 0
+	border-radius 1em 
+	color negro
+	cursor pointer
+	font-size 1.5em
+	padding .25em
+	position absolute
+	right .5em
+	top .5em
+	&:before
+		content "\e600"
+	&:hover
+		animation rotar 2.25s linear 0s infinite
+.icon-github
+	left .5em
+	text-decoration none
+	&:active
+		color #4183C4
+	&:before
+		content "\e602"
 .icon-twitter:before
 	content "\e603"
 	vertical-align middle
@@ -296,30 +302,9 @@ section
 	position relative
 	text-align center
 	width 80%
-	.icon-close
-		background rojo
-		border 0
-		border-radius 50%
-		color blanco
-		cursor pointer
-		font-size .75em
-		padding .5em
-		absolute right -.5em top -.5em
-		transition all .125s ease
-		&:active
-			font-size fontSize
-			right -.75em
-			top -.75em
-			absolute right -.75em top -.75em
-
-// desktop
-
-// tablet
 
 // mobile
 @media screen and (max-width: 640px)
-	// etiquetas
-
 	// ids
 	#config
 		fixed bottom 2.5% left 2.5% right 2.5% top 2.5%

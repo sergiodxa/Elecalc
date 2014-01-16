@@ -4,7 +4,7 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta author="Sergio Daniel Xalambrí" />
-	<meta name="description" content="Realiza cálculos de electricidad facilmente" />
+	<meta name="description" content="Calculadora hecha en JS que permite realizar diferentes cálculos de electricidad facilmente." />
 	<title>Elecalc</title>
 	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0" />
 	<link rel="stylesheet" href="vendor/normalize.min.css" type="text/css" media="screen" />
@@ -14,12 +14,12 @@
 <body>
 	<header>
 		<h1>Elecalc</h1>
-		<button class="icon-config" onclick="showHideConfig()" title="Configuración"></button>
+		<button class="icon-config" id="abrirConfig" title="Configuración"></button>
 	</header>
 	<aside id="config">
 		<a href="//www.github.com/sergiodxa/Elecalc/" class="icon-github" title="Ver código en respositorio"></a>
 		<h2>Configuración</h2>
-		<button class="icon-close" onclick="showHideConfig()"></button>
+		<button class="icon-close" id="cerrarConfig"></button>
 		<label for="continua">
 			<span>Corriente contínua</span>
 			<input name="seccion" id="continua" type="radio" value="continua" />
@@ -28,11 +28,11 @@
 			<span>Corriente alterna</span>
 			<input name="seccion" id="alterna" type="radio" value="alterna" />
 		</label>
-		<label for="trifasica">
+		<!--<label for="trifasica">
 			<span>Trifásico</span>
 			<input name="seccion" id="trifasica" type="radio" value="trifasica" />
-		</label>
-		<button onclick="guardarConfig()" class="boton btnExito">Guardar</button>
+		</label>-->
+		<button class="btnExito" id="btnGuardar">Guardar</button>
 	</aside>
 	<section style="display:none" id="seccionContinua">
 		<article>
@@ -40,13 +40,13 @@
 			<div class="calculos">
 				<h3>Cálculos de Tensión</h3>
 				<div class="nota">
-					<button title="Cerrar nota" onclick="cerrarNota()" class="icon-close"></button>
+					<button title="Cerrar nota" class="cerrarNota icon-close"></button>
 					¡Simplemente ingresa los valores conoces y presiona Calcular para obtener el resultado!
 				</div>
 				<input type="text" class="mitad" placeholder="Potencia" id="tensionMonoContinua_potencia" />
 				<input type="text" class="mitad" placeholder="Resistencia" id="tensionMonoContinua_resistencia" />
 				<input type="text" class="completo" placeholder="Intensidad" id="tensionMonoContinua_intensidad" />
-				<button class="boton btnExito" onclick="tensionMonoContinua()">Calcular</button>
+				<button class="btnExito" onclick="tensionMonoContinua()">Calcular</button>
 				<input type="text" class="completo" placeholder="Resultado" id="tensionMonoContinua_resultado" />
 			</div>
 		</article>
@@ -55,13 +55,13 @@
 			<div class="calculos">
 				<h3>Cálculos de Resistencia</h3>
 				<div class="nota">
-					<button title="Cerrar nota" onclick="cerrarNota()" class="icon-close"></button>
+					<button title="Cerrar nota" class="cerrarNota icon-close"></button>
 					¡Simplemente ingresa los valores conoces y presiona Calcular para obtener el resultado!
 				</div>
 				<input type="text" class="mitad" placeholder="Potencia" id="resistenciaMonoContinua_potencia" />
 				<input type="text" class="mitad" placeholder="Intensidad" id="resistenciaMonoContinua_intensidad" />
 				<input type="text" class="completo" placeholder="Tensión" id="resistenciaMonoContinua_tension" />
-				<button class="boton btnExito" onclick="resistenciaMonoContinua()">Calcular</button>
+				<button class="btnExito" onclick="resistenciaMonoContinua()">Calcular</button>
 				<input type="text" class="completo" placeholder="Resultado" id="resistenciaMonoContinua_resultado" />
 			</div>
 		</article>
@@ -70,13 +70,13 @@
 			<div class="calculos">
 				<h3>Cálculos de Intensidad</h3>
 				<div class="nota">
-					<button title="Cerrar nota" onclick="cerrarNota()" class="icon-close"></button>
+					<button title="Cerrar nota" class="cerrarNota icon-close"></button>
 					¡Simplemente ingresa los valores conoces y presiona Calcular para obtener el resultado!
 				</div>
 				<input type="text" class="mitad" placeholder="Tensión" id="intensidadMonoContinua_tension" />
 				<input type="text" class="mitad" placeholder="Resistencia" id="intensidadMonoContinua_resistencia" />
 				<input type="text" class="completo" placeholder="Potencia" id="intensidadMonoContinua_potencia" />
-				<button class="boton btnExito" onclick="intensidadMonoContinua()">Calcular</button>
+				<button class="btnExito" onclick="intensidadMonoContinua()">Calcular</button>
 				<input type="text" class="completo" placeholder="Resultado" id="intensidadMonoContinua_resultado" />
 			</div>
 		</article>
@@ -85,13 +85,13 @@
 			<div class="calculos">
 				<h3>Cálculos de Potencia</h3>
 				<div class="nota">
-					<button title="Cerrar nota" onclick="cerrarNota()" class="icon-close"></button>
+					<button title="Cerrar nota" class="cerrarNota icon-close"></button>
 					¡Simplemente ingresa los valores conoces y presiona Calcular para obtener el resultado!
 				</div>
 				<input type="text" class="mitad" placeholder="Tensión" id="potenciaActivaMonoContinua_tension" />
 				<input type="text" class="mitad" placeholder="Resistencia" id="potenciaActivaMonoContinua_resistencia" />
 				<input type="text" class="completo" placeholder="Intensidad" id="potenciaActivaMonoContinua_intensidad" />
-				<button class="boton btnExito" onclick="potenciaActivaMonoContinua()">Calcular</button>
+				<button class="btnExito" onclick="potenciaActivaMonoContinua()">Calcular</button>
 				<input type="text" class="completo" placeholder="Resultado" id="potenciaActivaMonoContinua_resultado" />
 			</div>
 		</article>
@@ -102,7 +102,7 @@
 			<div class="calculos">
 				<h3>Cálculos de Tensión</h3>
 				<div class="nota">
-					<button title="Cerrar nota" onclick="cerrarNota()" class="icon-close"></button>
+					<button title="Cerrar nota" class="cerrarNota icon-close"></button>
 					¡Simplemente ingresa los valores conoces y presiona Calcular para obtener el resultado!
 				</div>
 				<input type="text" class="mitad" placeholder="Resistencia" id="tensionMonoAlterna_resistencia" />
@@ -110,7 +110,7 @@
 				<input type="text" class="mitad" placeholder="Cos φ" id="tensionMonoAlterna_cosPhi" />
 				<input type="text" class="mitad" placeholder="Potencia Activa" id="tensionMonoAlterna_potenciaActiva" />
 				<input type="text" class="completo" placeholder="Potencia Aparente" id="tensionMonoAlterna_potenciaAparente" />
-				<button class="boton btnExito" onclick="tensionMonoAlterna()">Calcular</button>
+				<button class="btnExito" onclick="tensionMonoAlterna()">Calcular</button>
 				<input type="text" class="completo" placeholder="Resultado" id="tensionMonoAlterna_resultado" />
 			</div>
 		</article>
@@ -119,7 +119,7 @@
 			<div class="calculos">
 				<h3>Cálculos de Resistencia</h3>
 				<div class="nota">
-					<button title="Cerrar nota" onclick="cerrarNota()" class="icon-close"></button>
+					<button title="Cerrar nota" class="cerrarNota icon-close"></button>
 					¡Simplemente ingresa los valores conoces y presiona Calcular para obtener el resultado!
 				</div>
 				<input type="text" class="mitad" placeholder="Tensión" id="resistenciaMonoAlterna_tension" />
@@ -127,7 +127,7 @@
 				<input type="text" class="mitad" placeholder="Cos φ" id="resistenciaMonoAlterna_cosPhi" />
 				<input type="text" class="mitad" placeholder="Potencia Activa" id="resistenciaMonoAlterna_potenciaActiva" />
 				<input type="text" class="completo" placeholder="Potencia Aparente" id="resistenciaMonoAlterna_potenciaAparente" />
-				<button class="boton btnExito" onclick="resistenciaMonoAlterna()">Calcular</button>
+				<button class="btnExito" onclick="resistenciaMonoAlterna()">Calcular</button>
 				<input type="text" class="completo" placeholder="Resultado" id="resistenciaMonoAlterna_resultado" />
 			</div>
 		</article>
@@ -136,7 +136,7 @@
 			<div class="calculos">
 				<h3>Cálculos de Intensidad</h3>
 				<div class="nota">
-					<button title="Cerrar nota" onclick="cerrarNota()" class="icon-close"></button>
+					<button title="Cerrar nota" class="cerrarNota icon-close"></button>
 					¡Simplemente ingresa los valores conoces y presiona Calcular para obtener el resultado!
 				</div>
 				<input type="text" class="mitad" placeholder="Potencia Aparente" id="intensidadMonoAlterna_potenciaAparente" />
@@ -144,7 +144,7 @@
 				<input type="text" class="mitad" placeholder="Potencia Activa" id="intensidadMonoAlterna_potenciaActiva" />
 				<input type="text" class="mitad" placeholder="Cos φ" id="intensidadMonoAlterna_cosPhi" />
 				<input type="text" class="completo" placeholder="Resistencia" id="intensidadMonoAlterna_resistencia" />
-				<button class="boton btnExito" onclick="intensidadMonoAlterna()">Calcular</button>
+				<button class="btnExito" onclick="intensidadMonoAlterna()">Calcular</button>
 				<input type="text" class="completo" placeholder="Resultado" id="intensidadMonoAlterna_resultado" />
 			</div>
 		</article>
@@ -153,7 +153,7 @@
 			<div class="calculos">
 				<h3>Cálculos de Potencia Activa</h3>
 				<div class="nota">
-					<button title="Cerrar nota" onclick="cerrarNota()" class="icon-close"></button>
+					<button title="Cerrar nota" class="cerrarNota icon-close"></button>
 					¡Simplemente ingresa los valores conoces y presiona Calcular para obtener el resultado!
 				</div>
 				<input type="text" class="mitad" placeholder="Potencia Aparente" id="potenciaActivaMonoAlterna_potenciaAparente" />
@@ -161,7 +161,7 @@
 				<input type="text" class="mitad" placeholder="Tensión" id="potenciaActivaMonoAlterna_tension" />
 				<input type="text" class="mitad" placeholder="Resistencia" id="potenciaActivaMonoAlterna_resistencia" />
 				<input type="text" class="completo" placeholder="Intensidad" id="potenciaActivaMonoAlterna_intensidad" />
-				<button class="boton btnExito" onclick="potenciaActivaMonoAlterna()">Calcular</button>
+				<button class="btnExito" onclick="potenciaActivaMonoAlterna()">Calcular</button>
 				<input type="text" class="completo" placeholder="Resultado" id="potenciaActivaMonoAlterna_resultado" />
 			</div>
 		</article>
@@ -170,7 +170,7 @@
 			<div class="calculos">
 				<h3>Cálculos de Potencia Aparente</h3>
 				<div class="nota">
-					<button title="Cerrar nota" onclick="cerrarNota()" class="icon-close"></button>
+					<button title="Cerrar nota" class="cerrarNota icon-close"></button>
 					¡Simplemente ingresa los valores conoces y presiona Calcular para obtener el resultado!
 				</div>
 				<input type="text" class="mitad" placeholder="Potencia Activa" id="potenciaAparenteMonoAlterna_potenciaActiva" />
@@ -178,7 +178,7 @@
 				<input type="text" class="mitad" placeholder="Tensión" id="potenciaAparenteMonoAlterna_tension" />
 				<input type="text" class="mitad" placeholder="Intensidad" id="potenciaAparenteMonoAlterna_intensidad" />
 				<input type="text" class="completo" placeholder="Resistencia" id="potenciaAparenteMonoAlterna_resistencia" />
-				<button class="boton btnExito" onclick="potenciaAparenteMonoAlterna()">Calcular</button>
+				<button class="btnExito" onclick="potenciaAparenteMonoAlterna()">Calcular</button>
 				<input type="text" class="completo" placeholder="Resultado" id="potenciaAparenteMonoAlterna_resultado" />
 			</div>
 		</article>
@@ -187,7 +187,7 @@
 			<div class="calculos">
 				<h3>Cálculos de Cos φ</h3>
 				<div class="nota">
-					<button title="Cerrar nota" onclick="cerrarNota()" class="icon-close"></button>
+					<button title="Cerrar nota" class="cerrarNota icon-close"></button>
 					¡Simplemente ingresa los valores conoces y presiona Calcular para obtener el resultado!
 				</div>
 				<input type="text" class="mitad" placeholder="Potencia Activa" id="cosPhiMonoAlterna_potenciaActiva" />
@@ -195,7 +195,7 @@
 				<input type="text" class="mitad" placeholder="Intensidad" id="cosPhiMonoAlterna_intensidad" />
 				<input type="text" class="mitad" placeholder="Potencia Aparente" id="cosPhiMonoAlterna_potenciaAparente" />
 				<input type="text" class="completo" placeholder="Resistencia" id="cosPhiMonoAlterna_resistencia" />
-				<button class="boton btnExito" onclick="cosPhiMonoAlterna()">Calcular</button>
+				<button class="btnExito" onclick="cosPhiMonoAlterna()">Calcular</button>
 				<input type="text" class="completo" placeholder="Resultado" id="cosPhiMonoAlterna_resultado" />
 			</div>
 		</article>
@@ -207,21 +207,21 @@
 				<h3>Fórmula 1</h3>
 				<input type="text" class="mitad" id="campo73" placeholder="Potencia" />
 				<input type="text" class="mitad" id="campo74" placeholder="Resitencia" />
-				<button class="boton btnExito" onclick="tension(7)">Calcular</button>
+				<button class="btnExito" onclick="tension(7)">Calcular</button>
 				<input type="text" class="completo" placeholder="Resultado" id="resultado31" />
 			</div>
 			<div>
 				<h3>Fórmula 2</h3>
 				<input type="text" class="mitad" id="campo75" placeholder="Potencia" />
 				<input type="text" class="mitad" id="campo76" placeholder="Intensidad" />
-				<button class="boton btnExito" onclick="tension(8)">Calcular</button>
+				<button class="btnExito" onclick="tension(8)">Calcular</button>
 				<input type="text" class="completo" placeholder="Resultado" id="resultado32" />
 			</div>
 			<div>
 				<h3>Fórmula 3</h3>
 				<input type="text" class="mitad" id="campo77" placeholder="Intensidad" />
 				<input type="text" class="mitad" id="campo78" placeholder="Resistencia" />
-				<button class="boton btnExito" onclick="tension(9)">Calcular</button>
+				<button class="btnExito" onclick="tension(9)">Calcular</button>
 				<input type="text" class="completo" placeholder="Resultado" id="resultado33" />
 			</div>
 		</article>
@@ -231,21 +231,21 @@
 				<h3>Fórmula 1</h3>
 				<input type="text" class="mitad" id="campo79" placeholder="Potencia" />
 				<input type="text" class="mitad" id="campo80" placeholder="Intensidad" />
-				<button class="boton btnExito" onclick="resistencia(7)">Calcular</button>
+				<button class="btnExito" onclick="resistencia(7)">Calcular</button>
 				<input type="text" class="completo" placeholder="Resultado" id="resultado34" />
 			</div>
 			<div>
 				<h3>Fórmula 2</h3>
 				<input type="text" class="mitad" id="campo81" placeholder="Tensión" />
 				<input type="text" class="mitad" id="campo82" placeholder="Potencia" />
-				<button class="boton btnExito" onclick="resistencia(8)">Calcular</button>
+				<button class="btnExito" onclick="resistencia(8)">Calcular</button>
 				<input type="text" class="completo" placeholder="Resultado" id="resultado35" />
 			</div>
 			<div>
 				<h3>Fórmula 3</h3>
 				<input type="text" class="mitad" id="campo83" placeholder="Tensión" />
 				<input type="text" class="mitad" id="campo84" placeholder="Intensidad" />
-				<button class="boton btnExito" onclick="resistencia(9)">Calcular</button>
+				<button class="btnExito" onclick="resistencia(9)">Calcular</button>
 				<input type="text" class="completo" placeholder="Resultado" id="resultado36" />
 			</div>
 		</article>
@@ -255,21 +255,21 @@
 				<h3>Fórmula 1</h3>
 				<input type="text" class="mitad" id="campo" placeholder="" />
 				<input type="text" class="mitad" id="campo" placeholder="" />
-				<button class="boton btnExito" onclick="">Calcular</button>
+				<button class="btnExito" onclick="">Calcular</button>
 				<input type="text" class="completo" placeholder="Resultado" id="resultado37" />
 			</div>
 			<div>
 				<h3>Fórmula 2</h3>
 				<input type="text" class="mitad" id="campo" placeholder="" />
 				<input type="text" class="mitad" id="campo" placeholder="" />
-				<button class="boton btnExito" onclick="">Calcular</button>
+				<button class="btnExito" onclick="">Calcular</button>
 				<input type="text" class="completo" placeholder="Resultado" id="resultado38" />
 			</div>
 			<div>
 				<h3>Fórmula 3</h3>
 				<input type="text" class="mitad" id="campo" placeholder="" />
 				<input type="text" class="mitad" id="campo" placeholder="" />
-				<button class="boton btnExito" onclick="">Calcular</button>
+				<button class="btnExito" onclick="">Calcular</button>
 				<input type="text" class="completo" placeholder="Resultado" id="resultado39" />
 			</div>
 		</article>
@@ -279,21 +279,21 @@
 				<h3>Fórmula 1</h3>
 				<input type="text" class="mitad" id="campo" placeholder="" />
 				<input type="text" class="mitad" id="campo" placeholder="" />
-				<button class="boton btnExito" onclick="">Calcular</button>
+				<button class="btnExito" onclick="">Calcular</button>
 				<input type="text" class="completo" placeholder="Resultado" id="resultado40" />
 			</div>
 			<div>
 				<h3>Fórmula 2</h3>
 				<input type="text" class="mitad" id="campo" placeholder="" />
 				<input type="text" class="mitad" id="campo" placeholder="" />
-				<button class="boton btnExito" onclick="">Calcular</button>
+				<button class="btnExito" onclick="">Calcular</button>
 				<input type="text" class="completo" placeholder="Resultado" id="resultado41" />
 			</div>
 			<div>
 				<h3>Fórmula 3</h3>
 				<input type="text" class="mitad" id="campo" placeholder="" />
 				<input type="text" class="mitad" id="campo" placeholder="" />
-				<button class="boton btnExito" onclick="">Calcular</button>
+				<button class="btnExito" onclick="">Calcular</button>
 				<input type="text" class="completo" placeholder="Resultado" id="resultado42" />
 			</div>
 		</article>
@@ -301,7 +301,7 @@
 	<footer>
 		<p>Desarrollado por <a href="//twitter.com/sergiodxa" class="icon-twitter">sergiodxa</a></p>
 	</footer>
-	<div id="shadow" onclick="shadowClick()"></div>
+	<div id="shadow"></div>
 	<div id="navegadorAntiguo">
 		<h2>Esta app requiere un navegador moderno para funcionar.</h2>
 	</div>

@@ -1,67 +1,6 @@
 // interface
 
-$(document).on('ready', function() {
-	if ($('html').hasClass('localstorage')) {
-		if (!localStorage.seccion) {
-			localStorage.seccion = 'continua';
-		}
-		else {
-			$('#'+localStorage.seccion).prop('checked', true);
-			$('#'+localStorage.seccion).parent().addClass('activo');
-		}
-		if (localStorage.nota == 'oculta') {
-			$('.nota').css('display','none');
-		}
-		cambiarConfig();
-	}
-	else {
-		$('#navegadorAntiguo').css('display','block');
-	}
-});
-
-
-$(window).on('load', function() {
-});
-
-$('article h2').on('click', function() {
-	$(this)
-		.parent()
-			.find('.calculos')
-				.addClass('activo');
-});
-$('.calculos h3').on('click', function() {
-	$(this)
-		.parent()
-			.removeClass('activo');
-});
-
-var cerrarNota = function() {
-	$('.nota').css('display','none');
-	localStorage.nota = 'oculta';
-};
-
-var showHideConfig = function() {
-	var shadow = $('#shadow'),
-		config = $('#config');
-	config.toggleClass('activo');
-	shadow.toggleClass('activo');
-};
-
-var shadowClick = function() {
-	var shadow = $('#shadow'),
-		config = $('#config');
-	config.removeClass('activo');
-	shadow.removeClass('activo');
-};
-
-var guardarConfig = function() {
-	var seccion = $('input[name=seccion]:checked').val();
-	localStorage.seccion = seccion;
-	showHideConfig();
-	cambiarConfig();
-};
-
-var cambiarConfig = function() {
+function cambiarConfig() {
 	var continua = $('#seccionContinua'),
 		alterna = $('#seccionAlterna'),
 		trifasica = $('#seccionTrifasica');
@@ -82,10 +21,62 @@ var cambiarConfig = function() {
 	}
 };
 
-$('input[name=seccion]').on('click', function() {
-	$('input[name=seccion]').parent().removeClass('activo');
-	$(this).parent().addClass('activo');
-})
+$(document).on('ready', function() {
+	if ($('html').hasClass('localstorage')) {
+
+		if (!localStorage.seccion) {
+			localStorage.seccion = 'continua';
+		} else {
+			$('#'+localStorage.seccion).prop('checked', true);
+			$('#'+localStorage.seccion).parent().addClass('activo');
+		}
+
+		if (localStorage.nota == 'oculta') {
+			$('.nota').css('display','none');
+		} else {
+			$('.cerrarNota').on('click',function() {
+				$('.nota').css('display','none');
+				localStorage.nota = 'oculta';
+			})
+		}
+
+		cambiarConfig();
+	}
+
+	else {
+		$('#navegadorAntiguo').css('display','block');
+	}
+
+	$('article h2').on('click', function() {
+		$(this)
+			.parent()
+				.find('.calculos')
+					.addClass('activo');
+	});
+
+	$('.calculos h3').on('click', function() {
+		$(this)
+			.parent()
+				.removeClass('activo');
+	});
+
+	$('input[name=seccion]').on('click', function() {
+		$('input[name=seccion]').parent().removeClass('activo');
+		$(this).parent().addClass('activo');
+	})
+
+	$('#abrirConfig,#cerrarConfig').on('click', function(){$('#config,#shadow').toggleClass('activo');});
+
+	$('#btnGuardar').on('click', function() {
+		localStorage.seccion = $('input[name=seccion]:checked').val();
+		$('#cerrarConfig').trigger('click');
+		cambiarConfig();
+	});
+
+	$('#shadow').on('click',function() {
+		$('#cerrarConfig').trigger('click');
+	})
+
+});
 
 var raiz3 = Math.sqrt(3); // raíz cuadrada de tres para corriente trifásica
-// parseFloat($('#').val())
