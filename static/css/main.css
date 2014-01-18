@@ -21,7 +21,7 @@ input::-moz-placeholder{color:#101010}
 input[type="radio"]{display:none}
 label{border-bottom:1px solid #c0c0c0;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;cursor:pointer;display:block;font-size:0;margin:0;padding:.5rem 0;width:100%;}
 label.activo{background:#fbab3b}
-p{line-height:2.5em;margin:0;padding:0;}
+p{font-size:1rem;line-height:2.5em;margin:0;padding:0;}
 p a{color:#00aced}
 section{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;font-size:0;overflow-y:auto;position:fixed;bottom:40px;left:0;right:0;top:60px;}
 span{display:inline-block;font-size:16px;padding:.25em}
@@ -34,7 +34,7 @@ span{display:inline-block;font-size:16px;padding:.25em}
 #config{background:#fdfdfd;color:#101010;display:none;position:fixed;bottom:10%;left:30%;right:30%;top:10%;opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0);overflow-y:auto;-o-transition:0.5s all;-ms-transition:0.5s all;-moz-transition:0.5s all;-webkit-transition:0.5s all;transition:0.5s all;z-index:3;}
 #config.activo{display:block;opacity:1;-ms-filter:none;filter:none}
 #config h2{border-bottom:1px solid #c0c0c0;color:#101010;line-height:62px;margin:0;padding:0;text-align:center}
-#navegadorAntiguo{background:#fdfdfd;color:#101010;display:none;position:fixed;0:0;}
+#navegadorAntiguo{background:#fdfdfd;color:#101010;display:none;position:fixed;bottom:0;left:0;right:0;top:0;}
 #shadow{background:rgba(16,16,16,0.75);display:none;opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0);position:fixed;position:fixed;bottom:0;left:0;right:0;top:0;-o-transition:0.5s all;-ms-transition:0.5s all;-moz-transition:0.5s all;-webkit-transition:0.5s all;transition:0.5s all;z-index:2;}
 #shadow.activo{display:block;opacity:1;-ms-filter:none;filter:none}
 [class^="btn"],[class*=" btn"]{background:#101010;border:0;color:#fdfdfd;display:block;line-height:2em;margin:0 auto;-o-transition:all 0.25s ease;-ms-transition:all 0.25s ease;-moz-transition:all 0.25s ease;-webkit-transition:all 0.25s ease;transition:all 0.25s ease;width:70%}

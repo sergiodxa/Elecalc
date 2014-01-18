@@ -1,0 +1,104 @@
+	<section id="seccionAlterna">
+		<article>
+			<h2>Cálculos de Tensión</h2>
+			<div class="calculos">
+				<h3>Cálculos de Tensión</h3>
+				<div class="nota">
+					<button title="Cerrar nota" class="cerrarNota icon-close"></button>
+					¡Simplemente ingresa los valores conoces y presiona Calcular para obtener el resultado!
+				</div>
+				<input type="text" class="mitad" placeholder="Resistencia" id="tensionMonoAlterna_resistencia" />
+				<input type="text" class="mitad" placeholder="Intensidad" id="tensionMonoAlterna_intensidad" />
+				<input type="text" class="mitad" placeholder="Cos φ" id="tensionMonoAlterna_cosPhi" />
+				<input type="text" class="mitad" placeholder="Potencia Activa" id="tensionMonoAlterna_potenciaActiva" />
+				<input type="text" class="completo" placeholder="Potencia Aparente" id="tensionMonoAlterna_potenciaAparente" />
+				<button class="btnExito" onclick="tensionMonoAlterna()">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="tensionMonoAlterna_resultado" />
+			</div>
+		</article>
+		<article>
+			<h2>Cálculos de Resistencia</h2>
+			<div class="calculos">
+				<h3>Cálculos de Resistencia</h3>
+				<div class="nota">
+					<button title="Cerrar nota" class="cerrarNota icon-close"></button>
+					¡Simplemente ingresa los valores conoces y presiona Calcular para obtener el resultado!
+				</div>
+				<input type="text" class="mitad" placeholder="Tensión" id="resistenciaMonoAlterna_tension" />
+				<input type="text" class="mitad" placeholder="Intensidad" id="resistenciaMonoAlterna_intensidad" />
+				<input type="text" class="mitad" placeholder="Cos φ" id="resistenciaMonoAlterna_cosPhi" />
+				<input type="text" class="mitad" placeholder="Potencia Activa" id="resistenciaMonoAlterna_potenciaActiva" />
+				<input type="text" class="completo" placeholder="Potencia Aparente" id="resistenciaMonoAlterna_potenciaAparente" />
+				<button class="btnExito" onclick="resistenciaMonoAlterna()">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="resistenciaMonoAlterna_resultado" />
+			</div>
+		</article>
+		<article>
+			<h2>Cálculos de Intensidad</h2>
+			<div class="calculos">
+				<h3>Cálculos de Intensidad</h3>
+				<div class="nota">
+					<button title="Cerrar nota" class="cerrarNota icon-close"></button>
+					¡Simplemente ingresa los valores conoces y presiona Calcular para obtener el resultado!
+				</div>
+				<input type="text" class="mitad" placeholder="Potencia Aparente" id="intensidadMonoAlterna_potenciaAparente" />
+				<input type="text" class="mitad" placeholder="Tensión" id="intensidadMonoAlterna_tension" />
+				<input type="text" class="mitad" placeholder="Potencia Activa" id="intensidadMonoAlterna_potenciaActiva" />
+				<input type="text" class="mitad" placeholder="Cos φ" id="intensidadMonoAlterna_cosPhi" />
+				<input type="text" class="completo" placeholder="Resistencia" id="intensidadMonoAlterna_resistencia" />
+				<button class="btnExito" onclick="intensidadMonoAlterna()">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="intensidadMonoAlterna_resultado" />
+			</div>
+		</article>
+		<article>
+			<h2>Cálculos de Potencia Activa</h2>
+			<div class="calculos">
+				<h3>Cálculos de Potencia Activa</h3>
+				<div class="nota">
+					<button title="Cerrar nota" class="cerrarNota icon-close"></button>
+					¡Simplemente ingresa los valores conoces y presiona Calcular para obtener el resultado!
+				</div>
+				<input type="text" class="mitad" placeholder="Potencia Aparente" id="potenciaActivaMonoAlterna_potenciaAparente" />
+				<input type="text" class="mitad" placeholder="Cos φ" id="potenciaActivaMonoAlterna_cosPhi" />
+				<input type="text" class="mitad" placeholder="Tensión" id="potenciaActivaMonoAlterna_tension" />
+				<input type="text" class="mitad" placeholder="Resistencia" id="potenciaActivaMonoAlterna_resistencia" />
+				<input type="text" class="completo" placeholder="Intensidad" id="potenciaActivaMonoAlterna_intensidad" />
+				<button class="btnExito" onclick="potenciaActivaMonoAlterna()">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="potenciaActivaMonoAlterna_resultado" />
+			</div>
+		</article>
+		<article>
+			<h2>Cálculos de Potencia Aparente</h2>
+			<div class="calculos">
+				<h3>Cálculos de Potencia Aparente</h3>
+				<div class="nota">
+					<button title="Cerrar nota" class="cerrarNota icon-close"></button>
+					¡Simplemente ingresa los valores conoces y presiona Calcular para obtener el resultado!
+				</div>
+				<input type="text" class="mitad" placeholder="Potencia Activa" id="potenciaAparenteMonoAlterna_potenciaActiva" />
+				<input type="text" class="mitad" placeholder="Cos φ" id="potenciaAparenteMonoAlterna_cosPhi" />
+				<input type="text" class="mitad" placeholder="Tensión" id="potenciaAparenteMonoAlterna_tension" />
+				<input type="text" class="mitad" placeholder="Intensidad" id="potenciaAparenteMonoAlterna_intensidad" />
+				<input type="text" class="completo" placeholder="Resistencia" id="potenciaAparenteMonoAlterna_resistencia" />
+				<button class="btnExito" onclick="potenciaAparenteMonoAlterna()">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="potenciaAparenteMonoAlterna_resultado" />
+			</div>
+		</article>
+		<article>
+			<h2>Cálculos de Cos φ</h2>
+			<div class="calculos">
+				<h3>Cálculos de Cos φ</h3>
+				<div class="nota">
+					<button title="Cerrar nota" class="cerrarNota icon-close"></button>
+					¡Simplemente ingresa los valores conoces y presiona Calcular para obtener el resultado!
+				</div>
+				<input type="text" class="mitad" placeholder="Potencia Activa" id="cosPhiMonoAlterna_potenciaActiva" />
+				<input type="text" class="mitad" placeholder="Tensión" id="cosPhiMonoAlterna_tension" />
+				<input type="text" class="mitad" placeholder="Intensidad" id="cosPhiMonoAlterna_intensidad" />
+				<input type="text" class="mitad" placeholder="Potencia Aparente" id="cosPhiMonoAlterna_potenciaAparente" />
+				<input type="text" class="completo" placeholder="Resistencia" id="cosPhiMonoAlterna_resistencia" />
+				<button class="btnExito" onclick="cosPhiMonoAlterna()">Calcular</button>
+				<input type="text" class="completo" placeholder="Resultado" id="cosPhiMonoAlterna_resultado" />
+			</div>
+		</article>
+	</section>

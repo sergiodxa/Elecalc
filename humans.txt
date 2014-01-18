@@ -1,0 +1,15 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+	Sergio Daniel Xalambrí -- Developer -- @sergiodxa -- sergio [at] xalambri [dot] com [dot] ar
+
+# THANKS
+
+	Google Team by AngularJS
+
+# TECHNOLOGY COLOPHON
+
+	HTML5, CSS3
+	Normalize.css, Zepto.js, Modernizr, AngularJS
