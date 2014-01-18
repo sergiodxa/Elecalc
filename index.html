@@ -51,7 +51,26 @@
 	</div>
 
 	<script>
-		var env="prod";"dev"==env?(document.write('<script src="lib/modernizr.min.js"></script>'),document.write('<script src="lib/zepto.min.js"></script>'),document.write('<script src="lib/angular.min.js"></script>'),document.write('<script src="lib/angular-route.min.js"></script>'),document.write('<script src="app/controllers/alternaController.js"></script>'),document.write('<script src="app/controllers/continuaController.js"></script>'),document.write('<script src="app/controllers/iniciaController.js"></script>'),document.write('<script src="app/calculos/tension.js"></script>'),document.write('<script src="app/calculos/resistencia.js"></script>'),document.write('<script src="app/calculos/intensidad.js"></script>'),document.write('<script src="app/calculos/potenciaActiva.js"></script>'),document.write('<script src="app/calculos/potenciaAparente.js"></script>'),document.write('<script src="app/calculos/cosPhi.js"></script>'),document.write('<script src="app/main.js"></script>')):"prod"==env&&document.write('<script src="app/main.min.js"></script>');
+		var env = 'prod';
+		if (env == 'dev') {
+			document.write('<script src="lib\/modernizr.min.js"><\/script>');
+			document.write('<script src="lib\/zepto.min.js"><\/script>');
+			document.write('<script src="lib\/angular.min.js"><\/script>');
+			document.write('<script src="lib\/angular-route.min.js"><\/script>');
+			document.write('<script src="app\/controllers\/alternaController.js"><\/script>');
+			document.write('<script src="app\/controllers\/continuaController.js"><\/script>');
+			document.write('<script src="app\/controllers\/iniciaController.js"><\/script>');
+			document.write('<script src="app\/calculos\/tension.js"><\/script>');
+			document.write('<script src="app\/calculos\/resistencia.js"><\/script>');
+			document.write('<script src="app\/calculos\/intensidad.js"><\/script>');
+			document.write('<script src="app\/calculos\/potenciaActiva.js"><\/script>');
+			document.write('<script src="app\/calculos\/potenciaAparente.js"><\/script>');
+			document.write('<script src="app\/calculos\/cosPhi.js"><\/script>');
+			document.write('<script src="app\/main.js"><\/script>');
+		}
+		else if (env == 'prod') {
+			document.write('<script src="app\/main.min.js"><\/script>');
+		}
 	</script>
 </body>
 </html>
