@@ -1,5 +1,6 @@
 Elecalc
 =======
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 
 Aplicación para realizar distintos tipos de cálculos eléctricos.
 
